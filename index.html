@@ -3,615 +3,1401 @@
 
 <head>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Emily & James | Wedding Invitation</title>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: #f7f3ef;
-      font-family: Georgia, "Times New Roman", serif;
-      overflow-x: hidden;
-    }
-
-    .invitation {
-      width: 100%;
-      max-width: 700px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .page {
-      width: 100%;
-      display: block;
-      position: relative;
-    }
-
-    .page img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-
-    /* =========================
-       MUSIC BUTTON
-       ========================= */
-
-    #musicButton {
-      position: fixed;
-      right: 18px;
-      bottom: 22px;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      border: 1px solid rgba(126, 85, 73, 0.35);
-      background: rgba(255, 250, 247, 0.92);
-      color: #805b55;
-      font-size: 21px;
-      cursor: pointer;
-      z-index: 9999;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-    }
-
-    #musicButton:active {
-      transform: scale(0.95);
-    }
-
-
-    /* =========================
-       OUR DAY SECTION
-       ========================= */
-
-    .our-day-section {
-      position: relative;
-      width: 100%;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .our-day-section > img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-
-    /* =========================
-       OUR DAY BUTTONS
-       ========================= */
-
-    .our-day-button {
-      position: absolute;
-      z-index: 999;
-      width: 120px;
-      padding: 8px 6px;
-      border: 1px solid #a98270;
-      border-radius: 25px;
-      background: rgba(255,255,255,0.90);
-      color: #805b55;
-      text-decoration: none;
-      text-align: center;
-      font-size: 9px;
-      letter-spacing: 1px;
-      line-height: 1.2;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.10);
-      cursor: pointer;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .our-day-button:hover {
-      background: #fff;
-    }
-
-
-    /* =========================
-       OUR DAY COUNTDOWN
-       ========================= */
-
-    .our-day-countdown {
-      position: absolute;
-      z-index: 999;
-      top: 13%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 92%;
-      text-align: center;
-    }
-
-    .our-day-countdown-title {
-      margin: 0 0 10px;
-      color: #805b55;
-      font-size: 14px;
-      letter-spacing: 1.5px;
-    }
-
-    .our-day-countdown-boxes {
-      display: flex;
-      justify-content: center;
-      gap: 7px;
-      flex-wrap: nowrap;
-    }
-
-    .our-day-countdown-box {
-      min-width: 48px;
-      padding: 6px 5px;
-      background: rgba(255,255,255,0.82);
-      border: 1px solid #c7a28c;
-      border-radius: 7px;
-    }
-
-    .our-day-countdown-number {
-      display: block;
-      font-size: 17px;
-      color: #805b55;
-      font-weight: bold;
-    }
-
-    .our-day-countdown-label {
-      display: block;
-      margin-top: 2px;
-      font-size: 7px;
-      letter-spacing: 0.7px;
-      color: #6f625d;
-      text-transform: uppercase;
-    }
-
-
-    /* =========================
-       OUR DAY
-       ADD TO CALENDAR
-       ========================= */
-
-    .our-day-calendar {
-      top: 42%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-
-    /* =========================
-       OUR DAY
-       VIEW MAP
-       ========================= */
-
-    .our-day-map {
-      top: 93%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-
-    /* =========================
-       THE DETAILS SECTION
-       IMAGE + BUTTONS
-       ========================= */
-
-    .details-section {
-      position: relative;
-      width: 100%;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .details-section > img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-
-    /* =========================
-       DETAILS BUTTONS
-       ========================= */
-
-    .details-button {
-      position: absolute;
-      z-index: 999;
-      width: 120px;
-      padding: 8px 6px;
-      border: 1px solid #a98270;
-      border-radius: 25px;
-      background: rgba(255,255,255,0.90);
-      color: #805b55;
-      text-decoration: none;
-      text-align: center;
-      font-size: 9px;
-      letter-spacing: 1px;
-      line-height: 1.2;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.10);
-      cursor: pointer;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .details-button:hover {
-      background: #fff;
-    }
-
-
-    /* =========================
-       DETAILS
-       THREE MAIN BUTTONS
-       HORIZONTAL
-       ========================= */
-
-    .details-schedule {
-      top: 12%;
-      left: 25%;
-      transform: translate(-50%, -50%);
-    }
-
-    .details-dress {
-      top: 12%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .details-accommodations {
-      top: 12%;
-      left: 75%;
-      transform: translate(-50%, -50%);
-    }
-
-
-    /* =========================
-       DETAILS
-       VERTICAL BUTTONS
-       ========================= */
-
-    .details-registry {
-      top: 75.5%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .details-email {
-      top: 89%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .details-text {
-      top: 97.2%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-
-    /* =========================
-       SPECIAL PAGES
-       ========================= */
-
-    .special-page {
-      display: none;
-      width: 100%;
-      min-height: 100vh;
-      background: #f7f3ef;
-      text-align: center;
-      padding-bottom: 35px;
-    }
-
-    .special-page.active {
-      display: block;
-    }
-
-    .special-page > img {
-      width: 100%;
-      max-width: 700px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-
-
-    /* =========================
-       DRESS CODE
-       ========================= */
-
-    #dress-code {
-      position: relative;
-    }
-
-    .dress-code-back {
-      position: absolute;
-      width: 165px;
-      max-width: none;
-      padding: 9px 10px;
-      margin: 0;
-      font-size: 10px;
-      letter-spacing: 1.2px;
-      text-align: center;
-      top: 68%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 999;
-    }
-
-
-    /* =========================
-       EVENT SCHEDULE
-       ========================= */
-
-    #event-schedule {
-      position: relative;
-    }
-
-    .event-schedule-back {
-      position: absolute;
-      width: 165px;
-      max-width: none;
-      padding: 9px 10px;
-      margin: 0;
-      font-size: 10px;
-      letter-spacing: 1.2px;
-      text-align: center;
-      top: 70%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 999;
-    }
-
-
-    /* =========================
-       ACCOMMODATIONS
-       ========================= */
-
-    .accommodations-page {
-      position: relative;
-      width: 100%;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .accommodations-page > img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-
-    /* =========================
-       HOTEL BUTTONS
-       ========================= */
-
-    .hotel-button {
-      position: absolute;
-      width: 150px;
-      padding: 8px 10px;
-      border: 1px solid #a98270;
-      border-radius: 25px;
-      background: rgba(255,255,255,0.90);
-      color: #805b55;
-      text-decoration: none;
-      text-align: center;
-      font-size: 8px;
-      letter-spacing: 1px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.10);
-      z-index: 999;
-      cursor: pointer;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-
-    /* =========================
-       COURTYARD
-       ========================= */
-
-    .hotel-courtyard {
-      top: 31.5%;
-      left: 65%;
-      transform: translate(-50%, -50%);
-    }
-
-
-    /* =========================
-       HILTON
-       ========================= */
-
-    .hotel-hilton {
-      top: 48.9%;
-      left: 65%;
-      transform: translate(-50%, -50%);
-    }
-
-
-    /* =========================
-       FOUR SEASONS
-       ========================= */
-
-    .hotel-four-seasons {
-      top: 65.6%;
-      left: 65%;
-      transform: translate(-50%, -50%);
-    }
-
-
-    /* =========================
-       BACK TO INVITATION
-       ========================= */
-
-    .back-button {
-      display: block;
-      width: 165px;
-      max-width: none;
-      margin: 25px auto 10px;
-      padding: 10px 14px;
-      border: 1px solid #a98270;
-      border-radius: 30px;
-      background: rgba(255,255,255,0.85);
-      color: #805b55;
-      text-decoration: none;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      text-align: center;
-      cursor: pointer;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .back-button:active {
-      opacity: 0.85;
-    }
-
-
-    /* =========================
-       BACK TO INVITATION
-       ACCOMMODATIONS IMAGE
-       ========================= */
-
-    .accommodations-back {
-      position: absolute;
-      width: 165px;
-      max-width: none;
-      padding: 9px 10px;
-      margin: 0;
-      font-size: 10px;
-      letter-spacing: 1.2px;
-      top: 76.3%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 999;
-    }
-
-
-    /* =========================
-       TALLY RSVP
-       ========================= */
-
-    .tally-section {
-      background: #f7f3ef;
-      padding: 25px 15px 40px;
-      text-align: center;
-    }
-
-    .tally-card {
-      width: 92%;
-      max-width: 426px;
-      margin: 0 auto;
-      padding: 6px;
-      background: rgba(255,255,255,0.82);
-      border: 1px solid #c7a28c;
-      border-radius: 18px;
-      box-shadow: 0 5px 18px rgba(126, 85, 73, 0.10);
-      overflow: hidden;
-    }
-
-    .tally-card iframe {
-      width: 92%;
-      height: 532px;
-      border: none;
-      display: block;
-      border-radius: 12px;
-      background: transparent;
-    }
-
-
-    /* =========================
-       MOBILE
-       ========================= */
-
-    @media (max-width: 600px) {
-
-      .our-day-button {
-        width: 105px;
-        font-size: 8px;
-        padding: 7px 5px;
-      }
-
-      .our-day-countdown {
-        width: 95%;
-        top: 63%;
-      }
-
-      .our-day-countdown-title {
-        font-size: 11px;
-        margin-bottom: 7px;
-      }
-
-      .our-day-countdown-boxes {
-        gap: 5px;
-      }
-
-      .our-day-countdown-box {
-        min-width: 43px;
-        padding: 5px 4px;
-      }
-
-      .our-day-countdown-number {
-        font-size: 15px;
-      }
-
-      .our-day-countdown-label {
-        font-size: 6px;
-      }
-
-      .our-day-calendar {
-        top: 78%;
-      }
-
-      .our-day-map {
-        top: 90%;
-      }
-
-
-      /* DETAILS MOBILE */
-
-      .details-button {
-        width: 100px;
-        font-size: 8px;
-        padding: 7px 5px;
-      }
-
-
-      #musicButton {
-        width: 48px;
-        height: 48px;
-        right: 14px;
-        bottom: 16px;
-      }
-
-      .hotel-button {
-        width: 120px;
-        font-size: 8px;
-        padding: 7px 8px;
-      }
-
-      .tally-section {
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-
-      .tally-card {
-        width: 90%;
-        padding: 6px;
-        border-radius: 14px;
-      }
-
-      .tally-card iframe {
-        height: 550px;
-        border-radius: 10px;
-      }
-
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Emily & James | Wedding Invitation</title>
+
+<style>
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f7f3ef;
+  font-family: Georgia, "Times New Roman", serif;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   ENVELOPE INTRO
+========================================================= */
+
+#envelopeIntro {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 10000;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background: #f4e8df;
+
+  transition:
+    opacity 1s ease,
+    visibility 1s ease;
+
+}
+
+
+/* =========================================================
+   ENVELOPE STAGE
+========================================================= */
+
+.envelope-stage {
+
+  position: relative;
+
+  width: min(
+    100vw,
+    70.64vh
+  );
+
+  aspect-ratio:
+    1054 / 1492;
+
+  overflow: hidden;
+
+}
+
+
+/* =========================================================
+   ENVELOPE BASE
+========================================================= */
+
+.envelope-base {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  z-index: 1;
+
+}
+
+
+/* =========================================================
+   INVITATION CARD
+========================================================= */
+
+.envelope-card {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  z-index: 2;
+
+}
+
+
+/* =========================================================
+   ENVELOPE BODY
+========================================================= */
+
+.envelope-body {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  z-index: 3;
+
+}
+
+
+/* =========================================================
+   ENVELOPE FLAP
+========================================================= */
+
+.envelope-flap {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  z-index: 5;
+
+  transform-origin:
+    50% 28.2%;
+
+  transform:
+    rotateX(0deg);
+
+  transition:
+    transform 1.2s
+    cubic-bezier(
+      .4,
+      0,
+      .2,
+      1
+    );
+
+}
+
+
+/* =========================================================
+   WAX SEAL
+========================================================= */
+
+.envelope-seal {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  z-index: 10;
+
+  cursor: pointer;
+
+  transition:
+    opacity .5s ease,
+    transform .6s ease;
+
+  animation:
+    sealPulse 2.2s
+    ease-in-out
+    infinite;
+
+}
+
+
+/* =========================================================
+   SEAL PULSE
+========================================================= */
+
+@keyframes sealPulse {
+
+  0%,
+  100% {
+
+    transform:
+      scale(1);
+
+  }
+
+  50% {
+
+    transform:
+      scale(1.025);
+
+  }
+
+}
+
+
+/* =========================================================
+   OPENING ANIMATION
+========================================================= */
+
+#envelopeIntro.opening .envelope-flap {
+
+  transform:
+    rotateX(180deg);
+
+}
+
+
+#envelopeIntro.opening .envelope-seal {
+
+  opacity: 0;
+
+  transform:
+    scale(1.18);
+
+  pointer-events: none;
+
+  animation: none;
+
+}
+
+
+/* =========================================================
+   HIDE ENVELOPE
+========================================================= */
+
+#envelopeIntro.hide {
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+}
+
+
+/* =========================================================
+   MAIN INVITATION
+========================================================= */
+
+#mainInvitation {
+
+  display: none;
+
+}
+
+
+.invitation {
+
+  width: 100%;
+
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  position: relative;
+
+}
+
+
+.page {
+
+  width: 100%;
+
+  display: block;
+
+  position: relative;
+
+}
+
+
+.page img {
+
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+}
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+#musicButton {
+
+  position: fixed;
+
+  right: 18px;
+
+  bottom: 22px;
+
+  width: 52px;
+
+  height: 52px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(
+      126,
+      85,
+      73,
+      0.35
+    );
+
+  background:
+    rgba(
+      255,
+      250,
+      247,
+      0.92
+    );
+
+  color: #805b55;
+
+  font-size: 21px;
+
+  cursor: pointer;
+
+  z-index: 9999;
+
+  box-shadow:
+    0 4px 14px
+    rgba(
+      0,
+      0,
+      0,
+      0.15
+    );
+
+  backdrop-filter:
+    blur(5px);
+
+  -webkit-backdrop-filter:
+    blur(5px);
+
+}
+
+
+#musicButton:active {
+
+  transform:
+    scale(0.95);
+
+}
+
+
+/* =========================================================
+   OUR DAY SECTION
+========================================================= */
+
+.our-day-section {
+
+  position: relative;
+
+  width: 100%;
+
+  max-width: 700px;
+
+  margin: 0 auto;
+
+}
+
+
+.our-day-section > img {
+
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+}
+
+
+/* =========================================================
+   OUR DAY BUTTONS
+========================================================= */
+
+.our-day-button {
+
+  position: absolute;
+
+  z-index: 999;
+
+  width: 120px;
+
+  padding: 8px 6px;
+
+  border:
+    1px solid
+    #a98270;
+
+  border-radius: 25px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.90
+    );
+
+  color: #805b55;
+
+  text-decoration: none;
+
+  text-align: center;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+
+  line-height: 1.2;
+
+  box-shadow:
+    0 3px 10px
+    rgba(
+      0,
+      0,
+      0,
+      0.10
+    );
+
+  cursor: pointer;
+
+  touch-action: manipulation;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+}
+
+
+.our-day-button:hover {
+
+  background: #fff;
+
+}
+
+
+/* =========================================================
+   OUR DAY COUNTDOWN
+========================================================= */
+
+.our-day-countdown {
+
+  position: absolute;
+
+  z-index: 999;
+
+  top: 13%;
+
+  left: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  width: 92%;
+
+  text-align: center;
+
+}
+
+
+.our-day-countdown-title {
+
+  margin:
+    0 0 10px;
+
+  color: #805b55;
+
+  font-size: 14px;
+
+  letter-spacing: 1.5px;
+
+}
+
+
+.our-day-countdown-boxes {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  flex-wrap: nowrap;
+
+}
+
+
+.our-day-countdown-box {
+
+  min-width: 48px;
+
+  padding: 6px 5px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
+
+  border:
+    1px solid
+    #c7a28c;
+
+  border-radius: 7px;
+
+}
+
+
+.our-day-countdown-number {
+
+  display: block;
+
+  font-size: 17px;
+
+  color: #805b55;
+
+  font-weight: bold;
+
+}
+
+
+.our-day-countdown-label {
+
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 7px;
+
+  letter-spacing: .7px;
+
+  color: #6f625d;
+
+  text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   ADD TO CALENDAR
+========================================================= */
+
+.our-day-calendar {
+
+  top: 42%;
+
+  left: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+}
+
+
+/* =========================================================
+   VIEW MAP
+========================================================= */
+
+.our-day-map {
+
+  top: 93%;
+
+  left: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+}
+
+
+/* =========================================================
+   DETAILS SECTION
+========================================================= */
+
+.details-section {
+
+  position: relative;
+
+  width: 100%;
+
+  max-width: 700px;
+
+  margin: 0 auto;
+
+}
+
+
+.details-section > img {
+
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+}
+
+
+/* =========================================================
+   DETAILS BUTTONS
+========================================================= */
+
+.details-button {
+
+  position: absolute;
+
+  z-index: 999;
+
+  width: 120px;
+
+  padding: 8px 6px;
+
+  border:
+    1px solid
+    #a98270;
+
+  border-radius: 25px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.90
+    );
+
+  color: #805b55;
+
+  text-decoration: none;
+
+  text-align: center;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+
+  line-height: 1.2;
+
+  box-shadow:
+    0 3px 10px
+    rgba(
+      0,
+      0,
+      0,
+      0.10
+    );
+
+  cursor: pointer;
+
+  touch-action: manipulation;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+}
+
+
+.details-button:hover {
+
+  background: #fff;
+
+}
+
+
+/* =========================================================
+   DETAILS TOP ROW
+========================================================= */
+
+.details-schedule {
+
+  top: 12%;
+
+  left: 25%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+}
+
+
+.details-dress {
+
+  top: 12%;
+
+  left: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+}
+
+
+.details-accommodations {
+
+  top: 12%;
+
+  left: 75%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+}
+
+
+/* =========================================================
+   DETAILS VERTICAL BUTTONS
+========================================================= */
+
+.details-registry {
+
+  top: 75.5%;
+
+  left: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+}
+
+
+.details-email {
+
+  top: 89%;
+
+  left: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+}
+
+
+.details-text {
+
+  top: 97.2%;
+
+  left: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+}
+
+
+/* =========================================================
+   SPECIAL PAGES
+========================================================= */
+
+.special-page {
+
+  display: none;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  background: #f7f3ef;
+
+  text-align: center;
+
+  padding-bottom: 35px;
+
+}
+
+
+.special-page.active {
+
+  display: block;
+
+}
+
+
+.special-page > img {
+
+  width: 100%;
+
+  max-width: 700px;
+
+  height: auto;
+
+  display: block;
+
+  margin: 0 auto;
+
+}
+
+
+/* =========================================================
+   DRESS CODE
+========================================================= */
+
+#dress-code {
+
+  position: relative;
+
+}
+
+
+.dress-code-back {
+
+  position: absolute;
+
+  width: 165px;
+
+  max-width: none;
+
+  padding: 9px 10px;
+
+  margin: 0;
+
+  font-size: 10px;
+
+  letter-spacing: 1.2px;
+
+  text-align: center;
+
+  top: 68%;
+
+  left: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  z-index: 999;
+
+}
+
+
+/* =========================================================
+   EVENT SCHEDULE
+========================================================= */
+
+#event-schedule {
+
+  position: relative;
+
+}
+
+
+.event-schedule-back {
+
+  position: absolute;
+
+  width: 165px;
+
+  max-width: none;
+
+  padding: 9px 10px;
+
+  margin: 0;
+
+  font-size: 10px;
+
+  letter-spacing: 1.2px;
+
+  text-align: center;
+
+  top: 70%;
+
+  left: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  z-index: 999;
+
+}
+
+
+/* =========================================================
+   ACCOMMODATIONS
+========================================================= */
+
+.accommodations-page {
+
+  position: relative;
+
+  width: 100%;
+
+  max-width: 700px;
+
+  margin: 0 auto;
+
+}
+
+
+.accommodations-page > img {
+
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+}
+
+
+/* =========================================================
+   HOTEL BUTTONS
+========================================================= */
+
+.hotel-button {
+
+  position: absolute;
+
+  width: 150px;
+
+  padding: 8px 10px;
+
+  border:
+    1px solid
+    #a98270;
+
+  border-radius: 25px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.90
+    );
+
+  color: #805b55;
+
+  text-decoration: none;
+
+  text-align: center;
+
+  font-size: 8px;
+
+  letter-spacing: 1px;
+
+  box-shadow:
+    0 3px 10px
+    rgba(
+      0,
+      0,
+      0,
+      0.10
+    );
+
+  z-index: 999;
+
+  cursor: pointer;
+
+  touch-action: manipulation;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+}
+
+
+.hotel-courtyard {
+
+  top: 31.5%;
+
+  left: 65%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+}
+
+
+.hotel-hilton {
+
+  top: 48.9%;
+
+  left: 65%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+}
+
+
+.hotel-four-seasons {
+
+  top: 65.6%;
+
+  left: 65%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-button {
+
+  display: block;
+
+  width: 165px;
+
+  max-width: none;
+
+  margin:
+    25px auto 10px;
+
+  padding:
+    10px 14px;
+
+  border:
+    1px solid
+    #a98270;
+
+  border-radius: 30px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.85
+    );
+
+  color: #805b55;
+
+  text-decoration: none;
+
+  font-size: 10px;
+
+  letter-spacing: 1.5px;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  touch-action: manipulation;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+}
+
+
+.back-button:active {
+
+  opacity: .85;
+
+}
+
+
+.accommodations-back {
+
+  position: absolute;
+
+  width: 165px;
+
+  max-width: none;
+
+  padding: 9px 10px;
+
+  margin: 0;
+
+  font-size: 10px;
+
+  letter-spacing: 1.2px;
+
+  top: 76.3%;
+
+  left: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  z-index: 999;
+
+}
+
+
+/* =========================================================
+   TALLY RSVP
+========================================================= */
+
+.tally-section {
+
+  background: #f7f3ef;
+
+  padding:
+    25px 15px 40px;
+
+  text-align: center;
+
+}
+
+
+.tally-card {
+
+  width: 92%;
+
+  max-width: 426px;
+
+  margin: 0 auto;
+
+  padding: 6px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
+
+  border:
+    1px solid
+    #c7a28c;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 5px 18px
+    rgba(
+      126,
+      85,
+      73,
+      0.10
+    );
+
+  overflow: hidden;
+
+}
+
+
+.tally-card iframe {
+
+  width: 92%;
+
+  height: 532px;
+
+  border: none;
+
+  display: block;
+
+  border-radius: 12px;
+
+  background: transparent;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .envelope-stage {
+
+    width:
+      min(
+        100vw,
+        70.64dvh
+      );
+
+  }
+
+
+  .our-day-button {
+
+    width: 105px;
+
+    font-size: 8px;
+
+    padding:
+      7px 5px;
+
+  }
+
+
+  .our-day-countdown {
+
+    width: 95%;
+
+    top: 63%;
+
+  }
+
+
+  .our-day-countdown-title {
+
+    font-size: 11px;
+
+    margin-bottom: 7px;
+
+  }
+
+
+  .our-day-countdown-boxes {
+
+    gap: 5px;
+
+  }
+
+
+  .our-day-countdown-box {
+
+    min-width: 43px;
+
+    padding:
+      5px 4px;
+
+  }
+
+
+  .our-day-countdown-number {
+
+    font-size: 15px;
+
+  }
+
+
+  .our-day-countdown-label {
+
+    font-size: 6px;
+
+  }
+
+
+  .our-day-calendar {
+
+    top: 78%;
+
+  }
+
+
+  .our-day-map {
+
+    top: 90%;
+
+  }
+
+
+  .details-button {
+
+    width: 100px;
+
+    font-size: 8px;
+
+    padding:
+      7px 5px;
+
+  }
+
+
+  #musicButton {
+
+    width: 48px;
+
+    height: 48px;
+
+    right: 14px;
+
+    bottom: 16px;
+
+  }
+
+
+  .hotel-button {
+
+    width: 120px;
+
+    font-size: 8px;
+
+    padding:
+      7px 8px;
+
+  }
+
+
+  .tally-section {
+
+    padding-left: 10px;
+
+    padding-right: 10px;
+
+  }
+
+
+  .tally-card {
+
+    width: 90%;
+
+    padding: 6px;
+
+    border-radius: 14px;
+
+  }
+
+
+  .tally-card iframe {
+
+    height: 550px;
+
+    border-radius: 10px;
+
+  }
+
+}
+
+</style>
 
 </head>
 
@@ -619,929 +1405,1176 @@
 <body>
 
 
-  <!-- =========================
-       MAIN INVITATION
-       ========================= -->
+<!-- =========================================================
+     ENVELOPE INTRO
+========================================================= -->
 
-  <main id="mainInvitation">
+<div
+  id="envelopeIntro">
 
-    <div class="invitation">
 
+  <div
+    class="envelope-stage">
 
-      <!-- COVER -->
 
-      <div class="page">
-
-        <img
-          src="portada.png"
-          alt="Emily & James Wedding Invitation">
-
-      </div>
-
-
-      <!-- OUR STORY -->
-
-      <div class="page">
-
-        <img
-          src="our-story.png"
-          alt="Our Story">
-
-      </div>
-
-
-      <!-- =========================
-           OUR DAY
-           ONLY COUNTDOWN + CALENDAR + MAP
-           ========================= -->
-
-      <section class="our-day-section">
-
-        <img
-          src="our-day.png"
-          alt="Our Day">
-
-
-        <!-- COUNTDOWN -->
-
-        <div class="our-day-countdown">
-
-          <div class="our-day-countdown-title">
-            WE CAN'T WAIT TO CELEBRATE WITH YOU
-          </div>
-
-          <div class="our-day-countdown-boxes">
-
-            <div class="our-day-countdown-box">
-
-              <span
-                class="our-day-countdown-number"
-                id="days">
-                0
-              </span>
-
-              <span class="our-day-countdown-label">
-                Days
-              </span>
-
-            </div>
-
-
-            <div class="our-day-countdown-box">
-
-              <span
-                class="our-day-countdown-number"
-                id="hours">
-                0
-              </span>
-
-              <span class="our-day-countdown-label">
-                Hours
-              </span>
-
-            </div>
-
-
-            <div class="our-day-countdown-box">
-
-              <span
-                class="our-day-countdown-number"
-                id="minutes">
-                0
-              </span>
-
-              <span class="our-day-countdown-label">
-                Minutes
-              </span>
-
-            </div>
-
-
-            <div class="our-day-countdown-box">
-
-              <span
-                class="our-day-countdown-number"
-                id="seconds">
-                0
-              </span>
-
-              <span class="our-day-countdown-label">
-                Seconds
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- ADD TO CALENDAR -->
-
-        <a
-          class="our-day-button our-day-calendar"
-          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emily%20%26%20James%20Wedding&dates=20261128/20261129&location=The%20Garden%20Valley%2C%20Nashville%2C%20TN"
-          target="_blank"
-          rel="noopener">
-          ADD TO CALENDAR
-        </a>
-
-
-        <!-- VIEW MAP -->
-
-        <a
-          class="our-day-button our-day-map"
-          href="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic"
-          target="_blank"
-          rel="noopener">
-          VIEW MAP
-        </a>
-
-      </section>
-
-
-      <!-- =========================
-           THE DETAILS
-           IMAGE + BUTTONS
-           ========================= -->
-
-      <section
-        class="details-section"
-        id="details-section">
-
-        <img
-          src="the-details.png"
-          alt="The Details">
-
-
-        <!-- =========================
-             TOP ROW
-             ========================= -->
-
-
-        <!-- VIEW EVENT SCHEDULE -->
-
-        <a
-          href="#event-schedule"
-          class="details-button details-schedule special-link"
-          data-page="event-schedule">
-          VIEW<br>EVENT SCHEDULE
-        </a>
-
-
-        <!-- VIEW DRESS CODE -->
-
-        <a
-          href="#dress-code"
-          class="details-button details-dress special-link"
-          data-page="dress-code">
-          VIEW<br>DRESS CODE
-        </a>
-
-
-        <!-- VIEW ACCOMMODATIONS -->
-
-        <a
-          href="#accommodations"
-          class="details-button details-accommodations special-link"
-          data-page="accommodations">
-          VIEW<br>ACCOMMODATIONS
-        </a>
-
-
-        <!-- =========================
-             VERTICAL BUTTONS
-             ========================= -->
-
-
-        <!-- VIEW REGISTRY -->
-
-        <a
-          class="details-button details-registry"
-          href="https://www.amazon.com/registries/gl/create?registryType=custom&ref_=ggr_emp_custom"
-          target="_blank"
-          rel="noopener">
-          VIEW REGISTRY
-        </a>
-
-
-        <!-- RSVP BY EMAIL -->
-
-        <a
-          class="details-button details-email"
-          href="mailto:mrs.lacunza@gmail.com">
-          RSVP BY EMAIL
-        </a>
-
-
-        <!-- TEXT TO RSVP -->
-
-        <a
-          class="details-button details-text"
-          href="sms:+19316192063">
-          TEXT TO RSVP
-        </a>
-
-      </section>
-
-
-      <!-- =========================
-           GALLERY
-           ========================= -->
-
-      <div class="page">
-
-        <img
-          src="gallery.png"
-          alt="Gallery">
-
-      </div>
-
-
-      <!-- =========================
-           ONLINE RSVP IMAGE
-           ========================= -->
-
-      <div class="page">
-
-        <img
-          src="online-rsvp.png"
-          alt="Online RSVP">
-
-      </div>
-
-
-      <!-- =========================
-           TALLY
-           ========================= -->
-
-      <section class="tally-section">
-
-        <div class="tally-card">
-
-          <iframe
-            src="https://tally.so/embed/Eko7lr?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-            loading="lazy"
-            title="Emily & James Online RSVP">
-          </iframe>
-
-        </div>
-
-      </section>
-
-
-      <!-- =========================
-           END
-           ========================= -->
-
-      <div class="page">
-
-        <img
-          src="end.png"
-          alt="Thank You">
-
-      </div>
-
-    </div>
-
-  </main>
-
-
-  <!-- =========================
-       EVENT SCHEDULE PAGE
-       ========================= -->
-
-  <section
-    id="event-schedule"
-    class="special-page">
+    <!-- BASE -->
 
     <img
-      src="event-schedule.png"
-      alt="Event Schedule">
-
-    <a
-      href="#details-section"
-      class="back-button event-schedule-back back-to-details">
-      BACK TO INVITATION
-    </a>
-
-  </section>
+      class="envelope-base"
+      src="emily_james_base_for_animation.png"
+      alt="Emily and James wedding invitation">
 
 
-  <!-- =========================
-       DRESS CODE PAGE
-       ========================= -->
-
-  <section
-    id="dress-code"
-    class="special-page">
+    <!-- INVITATION CARD -->
 
     <img
-      src="dress-code.png"
-      alt="Dress Code">
-
-    <a
-      href="#details-section"
-      class="back-button dress-code-back back-to-details">
-      BACK TO INVITATION
-    </a>
-
-  </section>
+      class="envelope-card"
+      src="emily_james_invitation_card.png"
+      alt="Emily and James wedding invitation">
 
 
-  <!-- =========================
-       ACCOMMODATIONS PAGE
-       ========================= -->
+    <!-- ENVELOPE BODY -->
 
-  <section
-    id="accommodations"
-    class="special-page">
+    <img
+      class="envelope-body"
+      src="emily_james_envelope_body.png"
+      alt="">
 
-    <div class="accommodations-page">
+
+    <!-- ENVELOPE FLAP -->
+
+    <img
+      class="envelope-flap"
+      src="emily_james_flap_animation.png"
+      alt="">
+
+
+    <!-- WAX SEAL -->
+
+    <img
+      class="envelope-seal"
+      id="envelopeSeal"
+      src="emily_james_seal_animation.png"
+      alt="Open invitation">
+
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     MAIN INVITATION
+========================================================= -->
+
+<main id="mainInvitation">
+
+  <div class="invitation">
+
+
+    <!-- =====================================================
+         COVER
+    ===================================================== -->
+
+    <div class="page">
 
       <img
-        src="accommodations.png"
-        alt="Accommodations">
-
-
-      <!-- COURTYARD -->
-
-      <a
-        class="hotel-button hotel-courtyard"
-        href="https://maps.app.goo.gl/GvNDmyotaz6X3fBw8?g_st=ic"
-        target="_blank"
-        rel="noopener">
-        VIEW HOTEL
-      </a>
-
-
-      <!-- HILTON -->
-
-      <a
-        class="hotel-button hotel-hilton"
-        href="https://maps.app.goo.gl/dV8X18uiQC9rwmor6?g_st=ic"
-        target="_blank"
-        rel="noopener">
-        VIEW HOTEL
-      </a>
-
-
-      <!-- FOUR SEASONS -->
-
-      <a
-        class="hotel-button hotel-four-seasons"
-        href="https://maps.app.goo.gl/bZVu7zGhxoazHQs76?g_st=ic"
-        target="_blank"
-        rel="noopener">
-        VIEW HOTEL
-      </a>
-
-
-      <!-- BACK TO INVITATION -->
-
-      <a
-        href="#details-section"
-        class="back-button accommodations-back back-to-details">
-        BACK TO INVITATION
-      </a>
+        src="portada.png"
+        alt="Emily & James Wedding Invitation">
 
     </div>
 
-  </section>
+
+    <!-- =====================================================
+         OUR STORY
+    ===================================================== -->
+
+    <div class="page">
+
+      <img
+        src="our-story.png"
+        alt="Our Story">
+
+    </div>
 
 
-  <!-- =========================
-       MUSIC
-       ========================= -->
+    <!-- =====================================================
+         OUR DAY
+    ===================================================== -->
 
-  <audio
-    id="weddingMusic"
-    loop
-    preload="auto">
-
-    <source
-      src="musica.mp3"
-      type="audio/mpeg">
-
-  </audio>
+    <section
+      class="our-day-section">
 
 
-  <button
-    id="musicButton"
-    type="button"
-    aria-label="Play music">
-    🎵
-  </button>
+      <img
+        src="our-day.png"
+        alt="Our Day">
 
 
-  <script>
+      <!-- COUNTDOWN -->
+
+      <div
+        class="our-day-countdown">
 
 
-    /* =========================
-       COUNTDOWN
-       ========================= */
+        <div
+          class="our-day-countdown-title">
 
-    const weddingDate =
-      new Date("2026-11-28T00:00:00-06:00").getTime();
+          WE CAN'T WAIT TO CELEBRATE WITH YOU
 
-
-    function updateCountdown() {
-
-      const now = Date.now();
-
-      const difference =
-        weddingDate - now;
+        </div>
 
 
-      if (difference <= 0) {
-
-        document.getElementById("days").textContent = "0";
-        document.getElementById("hours").textContent = "0";
-        document.getElementById("minutes").textContent = "0";
-        document.getElementById("seconds").textContent = "0";
-
-        return;
-      }
+        <div
+          class="our-day-countdown-boxes">
 
 
-      const days =
-        Math.floor(
-          difference /
-          (1000 * 60 * 60 * 24)
-        );
+          <div
+            class="our-day-countdown-box">
+
+            <span
+              class="our-day-countdown-number"
+              id="days">
+              0
+            </span>
+
+            <span
+              class="our-day-countdown-label">
+              Days
+            </span>
+
+          </div>
 
 
-      const hours =
-        Math.floor(
-          (difference %
-            (1000 * 60 * 60 * 24)) /
-          (1000 * 60 * 60)
-        );
+          <div
+            class="our-day-countdown-box">
+
+            <span
+              class="our-day-countdown-number"
+              id="hours">
+              0
+            </span>
+
+            <span
+              class="our-day-countdown-label">
+              Hours
+            </span>
+
+          </div>
 
 
-      const minutes =
-        Math.floor(
-          (difference %
-            (1000 * 60 * 60)) /
-          (1000 * 60)
-        );
+          <div
+            class="our-day-countdown-box">
+
+            <span
+              class="our-day-countdown-number"
+              id="minutes">
+              0
+            </span>
+
+            <span
+              class="our-day-countdown-label">
+              Minutes
+            </span>
+
+          </div>
 
 
-      const seconds =
-        Math.floor(
-          (difference %
-            (1000 * 60)) /
-          1000
-        );
+          <div
+            class="our-day-countdown-box">
+
+            <span
+              class="our-day-countdown-number"
+              id="seconds">
+              0
+            </span>
+
+            <span
+              class="our-day-countdown-label">
+              Seconds
+            </span>
+
+          </div>
 
 
-      document.getElementById("days").textContent =
-        days;
+        </div>
 
-      document.getElementById("hours").textContent =
-        hours;
-
-      document.getElementById("minutes").textContent =
-        minutes;
-
-      document.getElementById("seconds").textContent =
-        seconds;
-
-    }
+      </div>
 
 
-    updateCountdown();
+      <!-- ADD TO CALENDAR -->
 
-    setInterval(
-      updateCountdown,
-      1000
-    );
+      <a
+        class="our-day-button our-day-calendar"
+        href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emily%20%26%20James%20Wedding&dates=20261128/20261129&location=The%20Garden%20Valley%2C%20Nashville%2C%20TN"
+        target="_blank"
+        rel="noopener">
 
+        ADD TO CALENDAR
 
-    /* =========================
-       SPECIAL PAGES
-       ========================= */
-
-    const mainInvitation =
-      document.getElementById(
-        "mainInvitation"
-      );
+      </a>
 
 
-    const specialPages =
-      document.querySelectorAll(
-        ".special-page"
-      );
+      <!-- VIEW MAP -->
+
+      <a
+        class="our-day-button our-day-map"
+        href="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic"
+        target="_blank"
+        rel="noopener">
+
+        VIEW MAP
+
+      </a>
 
 
-    function showMainInvitation() {
+    </section>
+
+
+    <!-- =====================================================
+         THE DETAILS
+    ===================================================== -->
+
+    <section
+      class="details-section"
+      id="details-section">
+
+
+      <img
+        src="the-details.png"
+        alt="The Details">
+
+
+      <!-- EVENT SCHEDULE -->
+
+      <a
+        href="#event-schedule"
+        class="details-button details-schedule special-link"
+        data-page="event-schedule">
+
+        VIEW<br>
+        EVENT SCHEDULE
+
+      </a>
+
+
+      <!-- DRESS CODE -->
+
+      <a
+        href="#dress-code"
+        class="details-button details-dress special-link"
+        data-page="dress-code">
+
+        VIEW<br>
+        DRESS CODE
+
+      </a>
+
+
+      <!-- ACCOMMODATIONS -->
+
+      <a
+        href="#accommodations"
+        class="details-button details-accommodations special-link"
+        data-page="accommodations">
+
+        VIEW<br>
+        ACCOMMODATIONS
+
+      </a>
+
+
+      <!-- REGISTRY -->
+
+      <a
+        class="details-button details-registry"
+        href="https://www.amazon.com/registries/gl/create?registryType=custom&ref_=ggr_emp_custom"
+        target="_blank"
+        rel="noopener">
+
+        VIEW REGISTRY
+
+      </a>
+
+
+      <!-- RSVP EMAIL -->
+
+      <a
+        class="details-button details-email"
+        href="mailto:mrs.lacunza@gmail.com">
+
+        RSVP BY EMAIL
+
+      </a>
+
+
+      <!-- RSVP TEXT -->
+
+      <a
+        class="details-button details-text"
+        href="sms:+19316192063">
+
+        TEXT TO RSVP
+
+      </a>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         GALLERY
+    ===================================================== -->
+
+    <div class="page">
+
+      <img
+        src="gallery.png"
+        alt="Gallery">
+
+    </div>
+
+
+    <!-- =====================================================
+         ONLINE RSVP
+    ===================================================== -->
+
+    <div class="page">
+
+      <img
+        src="online-rsvp.png"
+        alt="Online RSVP">
+
+    </div>
+
+
+    <!-- =====================================================
+         TALLY
+    ===================================================== -->
+
+    <section
+      class="tally-section">
+
+
+      <div
+        class="tally-card">
+
+
+        <iframe
+          src="https://tally.so/embed/Eko7lr?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          title="Emily & James Online RSVP">
+        </iframe>
+
+
+      </div>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         END
+    ===================================================== -->
+
+    <div class="page">
+
+      <img
+        src="end.png"
+        alt="Thank You">
+
+    </div>
+
+
+  </div>
+
+</main>
+
+
+<!-- =========================================================
+     EVENT SCHEDULE PAGE
+========================================================= -->
+
+<section
+  id="event-schedule"
+  class="special-page">
+
+
+  <img
+    src="event-schedule.png"
+    alt="Event Schedule">
+
+
+  <a
+    href="#details-section"
+    class="back-button event-schedule-back back-to-details">
+
+    BACK TO INVITATION
+
+  </a>
+
+
+</section>
+
+
+<!-- =========================================================
+     DRESS CODE PAGE
+========================================================= -->
+
+<section
+  id="dress-code"
+  class="special-page">
+
+
+  <img
+    src="dress-code.png"
+    alt="Dress Code">
+
+
+  <a
+    href="#details-section"
+    class="back-button dress-code-back back-to-details">
+
+    BACK TO INVITATION
+
+  </a>
+
+
+</section>
+
+
+<!-- =========================================================
+     ACCOMMODATIONS PAGE
+========================================================= -->
+
+<section
+  id="accommodations"
+  class="special-page">
+
+
+  <div
+    class="accommodations-page">
+
+
+    <img
+      src="accommodations.png"
+      alt="Accommodations">
+
+
+    <!-- COURTYARD -->
+
+    <a
+      class="hotel-button hotel-courtyard"
+      href="https://maps.app.goo.gl/GvNDmyotaz6X3fBw8?g_st=ic"
+      target="_blank"
+      rel="noopener">
+
+      VIEW HOTEL
+
+    </a>
+
+
+    <!-- HILTON -->
+
+    <a
+      class="hotel-button hotel-hilton"
+      href="https://maps.app.goo.gl/dV8X18uiQC9rwmor6?g_st=ic"
+      target="_blank"
+      rel="noopener">
+
+      VIEW HOTEL
+
+    </a>
+
+
+    <!-- FOUR SEASONS -->
+
+    <a
+      class="hotel-button hotel-four-seasons"
+      href="https://maps.app.goo.gl/bZVu7zGhxoazHQs76?g_st=ic"
+      target="_blank"
+      rel="noopener">
+
+      VIEW HOTEL
+
+    </a>
+
+
+    <!-- BACK -->
+
+    <a
+      href="#details-section"
+      class="back-button accommodations-back back-to-details">
+
+      BACK TO INVITATION
+
+    </a>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     MUSIC
+========================================================= -->
+
+<audio
+  id="weddingMusic"
+  loop
+  preload="auto">
+
+  <source
+    src="musica.mp3"
+    type="audio/mpeg">
+
+</audio>
+
+
+<button
+  id="musicButton"
+  type="button"
+  aria-label="Play music">
+
+  🎵
+
+</button>
+
+
+<script>
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+const envelopeIntro =
+  document.getElementById(
+    "envelopeIntro"
+  );
+
+
+const envelopeSeal =
+  document.getElementById(
+    "envelopeSeal"
+  );
+
+
+const mainInvitation =
+  document.getElementById(
+    "mainInvitation"
+  );
+
+
+function openEnvelope() {
+
+  /* -----------------------------------------
+     OPEN THE ENVELOPE
+  ----------------------------------------- */
+
+  envelopeIntro.classList.add(
+    "opening"
+  );
+
+
+  /* -----------------------------------------
+     START MUSIC
+     This uses the SAME music system
+     already used by the invitation.
+  ----------------------------------------- */
+
+  startMusic();
+
+
+  /* -----------------------------------------
+     AFTER THE ENVELOPE OPENS
+     SHOW THE MAIN INVITATION
+  ----------------------------------------- */
+
+  setTimeout(
+    function() {
 
       mainInvitation.style.display =
         "block";
 
 
-      specialPages.forEach(
-        function(page) {
+      envelopeIntro.classList.add(
+        "hide"
+      );
 
-          page.classList.remove(
-            "active"
+
+      window.scrollTo({
+        top: 0,
+        behavior: "instant"
+      });
+
+    },
+    1400
+  );
+
+}
+
+
+envelopeSeal.addEventListener(
+  "click",
+  openEnvelope
+);
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+const weddingDate =
+  new Date(
+    "2026-11-28T00:00:00-06:00"
+  ).getTime();
+
+
+function updateCountdown() {
+
+  const now =
+    Date.now();
+
+
+  const difference =
+    weddingDate - now;
+
+
+  if (difference <= 0) {
+
+    document.getElementById(
+      "days"
+    ).textContent = "0";
+
+
+    document.getElementById(
+      "hours"
+    ).textContent = "0";
+
+
+    document.getElementById(
+      "minutes"
+    ).textContent = "0";
+
+
+    document.getElementById(
+      "seconds"
+    ).textContent = "0";
+
+
+    return;
+
+  }
+
+
+  const days =
+    Math.floor(
+      difference /
+      (
+        1000 *
+        60 *
+        60 *
+        24
+      )
+    );
+
+
+  const hours =
+    Math.floor(
+      (
+        difference %
+        (
+          1000 *
+          60 *
+          60 *
+          24
+        )
+      ) /
+      (
+        1000 *
+        60 *
+        60
+      )
+    );
+
+
+  const minutes =
+    Math.floor(
+      (
+        difference %
+        (
+          1000 *
+          60 *
+          60
+        )
+      ) /
+      (
+        1000 *
+        60
+      )
+    );
+
+
+  const seconds =
+    Math.floor(
+      (
+        difference %
+        (
+          1000 *
+          60
+        )
+      ) /
+      1000
+    );
+
+
+  document.getElementById(
+    "days"
+  ).textContent =
+    days;
+
+
+  document.getElementById(
+    "hours"
+  ).textContent =
+    hours;
+
+
+  document.getElementById(
+    "minutes"
+  ).textContent =
+    minutes;
+
+
+  document.getElementById(
+    "seconds"
+  ).textContent =
+    seconds;
+
+}
+
+
+updateCountdown();
+
+
+setInterval(
+  updateCountdown,
+  1000
+);
+
+
+/* =========================================================
+   SPECIAL PAGES
+========================================================= */
+
+const specialPages =
+  document.querySelectorAll(
+    ".special-page"
+  );
+
+
+function showMainInvitation() {
+
+  mainInvitation.style.display =
+    "block";
+
+
+  specialPages.forEach(
+    function(page) {
+
+      page.classList.remove(
+        "active"
+      );
+
+    }
+  );
+
+}
+
+
+function showSpecialPage(
+  pageId
+) {
+
+  mainInvitation.style.display =
+    "none";
+
+
+  specialPages.forEach(
+    function(page) {
+
+      page.classList.remove(
+        "active"
+      );
+
+    }
+  );
+
+
+  const selectedPage =
+    document.getElementById(
+      pageId
+    );
+
+
+  if (selectedPage) {
+
+    selectedPage.classList.add(
+      "active"
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+}
+
+
+/* =========================================================
+   OPEN SPECIAL PAGE
+========================================================= */
+
+document
+  .querySelectorAll(
+    ".special-link"
+  )
+  .forEach(
+    function(link) {
+
+      link.addEventListener(
+        "click",
+        function(event) {
+
+          event.preventDefault();
+
+
+          const pageId =
+            this.getAttribute(
+              "data-page"
+            );
+
+
+          history.pushState(
+            null,
+            "",
+            "#" + pageId
+          );
+
+
+          showSpecialPage(
+            pageId
           );
 
         }
       );
 
     }
+  );
 
 
-    function showSpecialPage(pageId) {
+/* =========================================================
+   BACK TO DETAILS
+========================================================= */
 
-      mainInvitation.style.display =
-        "none";
+document
+  .querySelectorAll(
+    ".back-to-details"
+  )
+  .forEach(
+    function(link) {
+
+      link.addEventListener(
+        "click",
+        function(event) {
+
+          event.preventDefault();
 
 
-      specialPages.forEach(
-        function(page) {
+          mainInvitation.style.display =
+            "block";
 
-          page.classList.remove(
-            "active"
+
+          specialPages.forEach(
+            function(page) {
+
+              page.classList.remove(
+                "active"
+              );
+
+            }
           );
 
-        }
-      );
+
+          history.pushState(
+            null,
+            "",
+            "#details-section"
+          );
 
 
-      const selectedPage =
-        document.getElementById(
-          pageId
-        );
+          setTimeout(
+            function() {
 
-
-      if (selectedPage) {
-
-        selectedPage.classList.add(
-          "active"
-        );
-
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-
-      }
-
-    }
-
-
-    /* =========================
-       OPEN SPECIAL PAGE
-       ========================= */
-
-    document
-      .querySelectorAll(".special-link")
-      .forEach(
-        function(link) {
-
-          link.addEventListener(
-            "click",
-            function(event) {
-
-              event.preventDefault();
-
-
-              const pageId =
-                this.getAttribute(
-                  "data-page"
+              const details =
+                document.getElementById(
+                  "details-section"
                 );
 
 
-              history.pushState(
-                null,
-                "",
-                "#" + pageId
-              );
+              if (details) {
 
+                details.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start"
+                });
 
-              showSpecialPage(
-                pageId
-              );
+              }
 
-            }
+            },
+            50
           );
 
         }
       );
 
-
-    /* =========================
-       BACK TO THE DETAILS
-       ========================= */
-
-    document
-      .querySelectorAll(".back-to-details")
-      .forEach(
-        function(link) {
-
-          link.addEventListener(
-            "click",
-            function(event) {
-
-              event.preventDefault();
+    }
+  );
 
 
-              mainInvitation.style.display =
-                "block";
+/* =========================================================
+   LOAD PAGE FROM HASH
+========================================================= */
+
+function loadPageFromHash() {
+
+  const hash =
+    window.location.hash
+      .replace(
+        "#",
+        ""
+      );
 
 
-              specialPages.forEach(
-                function(page) {
+  if (
+    hash === "event-schedule" ||
+    hash === "dress-code" ||
+    hash === "accommodations"
+  ) {
 
-                  page.classList.remove(
-                    "active"
-                  );
+    /*
+      If somebody opens a special page
+      directly from a link, bypass the envelope.
+    */
 
-                }
-              );
-
-
-              history.pushState(
-                null,
-                "",
-                "#details-section"
-              );
+    envelopeIntro.classList.add(
+      "hide"
+    );
 
 
-              setTimeout(
-                function() {
-
-                  const details =
-                    document.getElementById(
-                      "details-section"
-                    );
+    mainInvitation.style.display =
+      "none";
 
 
-                  if (details) {
+    showSpecialPage(
+      hash
+    );
 
-                    details.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start"
-                    });
 
-                  }
+  } else if (
+    hash === "details-section"
+  ) {
 
-                },
-                50
-              );
+    envelopeIntro.classList.add(
+      "hide"
+    );
 
-            }
+
+    mainInvitation.style.display =
+      "block";
+
+
+    specialPages.forEach(
+      function(page) {
+
+        page.classList.remove(
+          "active"
+        );
+
+      }
+    );
+
+
+    setTimeout(
+      function() {
+
+        const details =
+          document.getElementById(
+            "details-section"
           );
 
-        }
-      );
 
+        if (details) {
 
-    /* =========================
-       LOAD PAGE FROM HASH
-       ========================= */
-
-    function loadPageFromHash() {
-
-      const hash =
-        window.location.hash
-          .replace("#", "");
-
-
-      if (
-        hash === "event-schedule" ||
-        hash === "dress-code" ||
-        hash === "accommodations"
-      ) {
-
-        showSpecialPage(
-          hash
-        );
-
-      } else if (
-        hash === "details-section"
-      ) {
-
-        mainInvitation.style.display =
-          "block";
-
-
-        specialPages.forEach(
-          function(page) {
-
-            page.classList.remove(
-              "active"
-            );
-
-          }
-        );
-
-
-        setTimeout(
-          function() {
-
-            const details =
-              document.getElementById(
-                "details-section"
-              );
-
-
-            if (details) {
-
-              details.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-              });
-
-            }
-
-          },
-          50
-        );
-
-      } else {
-
-        showMainInvitation();
-
-      }
-
-    }
-
-
-    window.addEventListener(
-      "popstate",
-      loadPageFromHash
-    );
-
-
-    window.addEventListener(
-      "hashchange",
-      loadPageFromHash
-    );
-
-
-    loadPageFromHash();
-
-
-    /* =========================
-       MUSIC PLAYER
-       ========================= */
-
-    const music =
-      document.getElementById(
-        "weddingMusic"
-      );
-
-
-    const musicButton =
-      document.getElementById(
-        "musicButton"
-      );
-
-
-    let musicPlaying = false;
-
-
-    function updateMusicButton() {
-
-      if (musicPlaying) {
-
-        musicButton.textContent =
-          "⏸";
-
-
-        musicButton.setAttribute(
-          "aria-label",
-          "Pause music"
-        );
-
-      } else {
-
-        musicButton.textContent =
-          "🎵";
-
-
-        musicButton.setAttribute(
-          "aria-label",
-          "Play music"
-        );
-
-      }
-
-    }
-
-
-    function startMusic() {
-
-      music.play()
-
-        .then(
-          function() {
-
-            musicPlaying = true;
-
-            updateMusicButton();
-
-          }
-        )
-
-        .catch(
-          function() {
-
-            musicPlaying = false;
-
-            updateMusicButton();
-
-          }
-        );
-
-    }
-
-
-    musicButton.addEventListener(
-      "click",
-      function() {
-
-        if (music.paused) {
-
-          music.play()
-
-            .then(
-              function() {
-
-                musicPlaying = true;
-
-                updateMusicButton();
-
-              }
-            );
-
-        } else {
-
-          music.pause();
-
-          musicPlaying = false;
-
-          updateMusicButton();
+          details.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
 
         }
-
-      }
-    );
-
-
-    window.addEventListener(
-      "load",
-      function() {
-
-        startMusic();
-
-      }
-    );
-
-
-    document.addEventListener(
-      "click",
-      function startAfterInteraction() {
-
-        if (music.paused) {
-
-          music.play()
-
-            .then(
-              function() {
-
-                musicPlaying = true;
-
-                updateMusicButton();
-
-              }
-            )
-
-            .catch(
-              function() {}
-            );
-
-        }
-
-
-        document.removeEventListener(
-          "click",
-          startAfterInteraction
-        );
 
       },
-      { once: true }
+      50
     );
 
 
-    updateMusicButton();
+  }
+
+}
 
 
-  </script>
+window.addEventListener(
+  "popstate",
+  loadPageFromHash
+);
+
+
+window.addEventListener(
+  "hashchange",
+  loadPageFromHash
+);
+
+
+/*
+   IMPORTANT:
+   Do not automatically run loadPageFromHash()
+   for an empty hash because the envelope
+   should be the normal entrance.
+*/
+
+if (
+  window.location.hash
+) {
+
+  loadPageFromHash();
+
+}
+
+
+/* =========================================================
+   MUSIC PLAYER
+========================================================= */
+
+const music =
+  document.getElementById(
+    "weddingMusic"
+  );
+
+
+const musicButton =
+  document.getElementById(
+    "musicButton"
+  );
+
+
+let musicPlaying =
+  false;
+
+
+function updateMusicButton() {
+
+  if (musicPlaying) {
+
+    musicButton.textContent =
+      "⏸";
+
+
+    musicButton.setAttribute(
+      "aria-label",
+      "Pause music"
+    );
+
+  } else {
+
+    musicButton.textContent =
+      "🎵";
+
+
+    musicButton.setAttribute(
+      "aria-label",
+      "Play music"
+    );
+
+  }
+
+}
+
+
+function startMusic() {
+
+  music.play()
+
+    .then(
+      function() {
+
+        musicPlaying =
+          true;
+
+        updateMusicButton();
+
+      }
+    )
+
+    .catch(
+      function() {
+
+        musicPlaying =
+          false;
+
+        updateMusicButton();
+
+      }
+    );
+
+}
+
+
+musicButton.addEventListener(
+  "click",
+  function() {
+
+    if (
+      music.paused
+    ) {
+
+      startMusic();
+
+    } else {
+
+      music.pause();
+
+      musicPlaying =
+        false;
+
+      updateMusicButton();
+
+    }
+
+  }
+);
+
+
+updateMusicButton();
+
+
+</script>
+
 
 </body>
+
 </html>
