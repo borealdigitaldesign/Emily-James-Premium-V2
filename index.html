@@ -121,7 +121,7 @@
 
 
     /* =========================
-       INTERACTIVE BUTTONS
+       BUTTONS
        ========================= */
 
     .actions {
@@ -149,6 +149,51 @@
     .action-button:hover {
       background: #fff;
       transform: translateY(-1px);
+    }
+
+
+    /* =========================
+       SPECIAL PAGES
+       ========================= */
+
+    .special-page {
+      display: none;
+      width: 100%;
+      min-height: 100vh;
+      background: #f7f3ef;
+      text-align: center;
+      padding-bottom: 35px;
+    }
+
+    .special-page.active {
+      display: block;
+    }
+
+    .special-page img {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .back-button {
+      display: block;
+      width: 80%;
+      max-width: 300px;
+      margin: 25px auto 10px;
+      padding: 13px 18px;
+      border: 1px solid #a98270;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.85);
+      color: #805b55;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+    }
+
+    .back-button:active {
+      transform: scale(0.98);
     }
 
 
@@ -201,7 +246,7 @@
 
 
     /* =========================
-       QR SECTION
+       QR
        ========================= */
 
     .qr-section {
@@ -281,153 +326,290 @@
 
 <body>
 
-  <div class="invitation">
+
+  <!-- =========================
+       MAIN INVITATION
+       ========================= -->
+
+  <main id="mainInvitation">
+
+    <div class="invitation">
 
 
-    <!-- =========================
-         INVITATION PAGES
-         ========================= -->
+      <!-- COVER -->
 
-    <div class="page">
-      <img src="portada.PNG" alt="Emily & James Wedding Invitation">
-    </div>
-
-
-    <div class="page">
-      <img src="our-story.PNG" alt="Our Story">
-    </div>
-
-
-    <div class="page">
-      <img src="our-day.PNG" alt="Our Day">
-    </div>
-
-
-    <!-- =========================
-         COUNTDOWN
-         ========================= -->
-
-    <section class="countdown-container">
-
-      <h2 class="countdown-title">
-        WE CAN'T WAIT TO CELEBRATE WITH YOU
-      </h2>
-
-      <div class="countdown" id="countdown">
-
-        <div class="countdown-box">
-          <span class="countdown-number" id="days">0</span>
-          <span class="countdown-label">Days</span>
-        </div>
-
-        <div class="countdown-box">
-          <span class="countdown-number" id="hours">0</span>
-          <span class="countdown-label">Hours</span>
-        </div>
-
-        <div class="countdown-box">
-          <span class="countdown-number" id="minutes">0</span>
-          <span class="countdown-label">Minutes</span>
-        </div>
-
-        <div class="countdown-box">
-          <span class="countdown-number" id="seconds">0</span>
-          <span class="countdown-label">Seconds</span>
-        </div>
-
+      <div class="page">
+        <img src="portada.PNG" alt="Emily & James Wedding Invitation">
       </div>
 
-    </section>
+
+      <!-- OUR STORY -->
+
+      <div class="page">
+        <img src="our-story.PNG" alt="Our Story">
+      </div>
 
 
-    <!-- =========================
-         EVENT SCHEDULE
-         ========================= -->
+      <!-- OUR DAY -->
 
-    <div class="page">
-      <img src="event-schedule.PNG" alt="Event Schedule">
+      <div class="page">
+        <img src="our-day.PNG" alt="Our Day">
+      </div>
+
+
+      <!-- COUNTDOWN -->
+
+      <section class="countdown-container">
+
+        <h2 class="countdown-title">
+          WE CAN'T WAIT TO CELEBRATE WITH YOU
+        </h2>
+
+        <div class="countdown">
+
+          <div class="countdown-box">
+            <span class="countdown-number" id="days">0</span>
+            <span class="countdown-label">Days</span>
+          </div>
+
+          <div class="countdown-box">
+            <span class="countdown-number" id="hours">0</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+
+          <div class="countdown-box">
+            <span class="countdown-number" id="minutes">0</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+
+          <div class="countdown-box">
+            <span class="countdown-number" id="seconds">0</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- EVENT SCHEDULE LINK -->
+
+      <section class="actions">
+
+        <a
+          href="#event-schedule"
+          class="action-button">
+          ♡ VIEW EVENT SCHEDULE
+        </a>
+
+      </section>
+
+
+      <!-- DETAILS -->
+
+      <div class="page">
+        <img src="the-details.PNG" alt="The Details">
+      </div>
+
+
+      <!-- DRESS CODE LINK -->
+
+      <section class="actions">
+
+        <a
+          href="#dress-code"
+          class="action-button">
+          ♡ VIEW DRESS CODE
+        </a>
+
+      </section>
+
+
+      <!-- MAIN ACTIONS -->
+
+      <section class="actions">
+
+        <a
+          class="action-button"
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emily%20%26%20James%20Wedding&dates=20261128/20261129&location=The%20Garden%20Valley%2C%20Nashville%2C%20TN"
+          target="_blank"
+          rel="noopener">
+          ♡ ADD TO CALENDAR
+        </a>
+
+
+        <a
+          class="action-button"
+          href="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic"
+          target="_blank"
+          rel="noopener">
+          ♡ VIEW MAP
+        </a>
+
+
+        <a
+          class="action-button"
+          href="https://www.amazon.com/registries/gl/create?registryType=custom&ref_=ggr_emp_custom"
+          target="_blank"
+          rel="noopener">
+          ♡ VIEW REGISTRY
+        </a>
+
+
+        <a
+          class="action-button"
+          href="mailto:mrs.lacunza@gmail.com">
+          ♡ RSVP BY EMAIL
+        </a>
+
+
+        <a
+          class="action-button"
+          href="sms:+19316192063">
+          ♡ TEXT TO RSVP
+        </a>
+
+      </section>
+
+
+      <!-- ACCOMMODATIONS LINK -->
+
+      <section class="actions">
+
+        <a
+          href="#accommodations"
+          class="action-button">
+          ♡ VIEW ACCOMMODATIONS
+        </a>
+
+      </section>
+
+
+      <!-- GALLERY -->
+
+      <div class="page">
+        <img src="gallery.PNG" alt="Gallery">
+      </div>
+
+
+      <!-- ONLINE RSVP IMAGE -->
+
+      <div class="page">
+        <img src="online-rsvp.PNG" alt="Online RSVP">
+      </div>
+
+
+      <!-- TALLY -->
+
+      <section class="tally-section">
+
+        <h2 class="tally-title">
+          RSVP
+        </h2>
+
+        <p class="tally-subtitle">
+          Please complete the form below to confirm your attendance.
+        </p>
+
+        <div class="tally-card">
+
+          <iframe
+            src="https://tally.so/embed/Eko7lr?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            title="Emily & James Online RSVP">
+          </iframe>
+
+        </div>
+
+      </section>
+
+
+      <!-- QR -->
+
+      <section class="qr-section">
+
+        <h2>
+          SHARE YOUR PHOTOS
+        </h2>
+
+        <p>
+          Scan the QR code to share your favorite moments with us.
+        </p>
+
+        <img
+          src="qr-photos.png"
+          alt="QR Code for Wedding Photos">
+
+      </section>
+
+
+      <!-- END -->
+
+      <div class="page">
+        <img src="end.PNG" alt="Thank You">
+      </div>
+
     </div>
 
-
-    <!-- =========================
-         DETAILS
-         ========================= -->
-
-    <div class="page">
-      <img src="the-details.PNG" alt="The Details">
-    </div>
+  </main>
 
 
-    <!-- =========================
-         DRESS CODE
-         ========================= -->
+  <!-- =========================
+       EVENT SCHEDULE PAGE
+       ========================= -->
 
-    <div class="page">
-      <img src="dress-code.PNG" alt="Dress Code">
-    </div>
+  <section
+    id="event-schedule"
+    class="special-page">
+
+    <img
+      src="event-schedule.PNG"
+      alt="Event Schedule">
+
+    <a
+      href="#mainInvitation"
+      class="back-button">
+      ♡ BACK TO INVITATION
+    </a>
+
+  </section>
 
 
-    <!-- =========================
-         ACTION BUTTONS
-         ========================= -->
+  <!-- =========================
+       DRESS CODE PAGE
+       ========================= -->
+
+  <section
+    id="dress-code"
+    class="special-page">
+
+    <img
+      src="dress-code.PNG"
+      alt="Dress Code">
+
+    <a
+      href="#mainInvitation"
+      class="back-button">
+      ♡ BACK TO INVITATION
+    </a>
+
+  </section>
+
+
+  <!-- =========================
+       ACCOMMODATIONS PAGE
+       ========================= -->
+
+  <section
+    id="accommodations"
+    class="special-page">
+
+    <img
+      src="accommodations.PNG"
+      alt="Accommodations">
+
 
     <section class="actions">
-
-
-      <a
-        class="action-button"
-        href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emily%20%26%20James%20Wedding&dates=20261128/20261129&location=The%20Garden%20Valley%2C%20Nashville%2C%20TN"
-        target="_blank"
-        rel="noopener">
-        ♡ ADD TO CALENDAR
-      </a>
-
-
-      <a
-        class="action-button"
-        href="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic"
-        target="_blank"
-        rel="noopener">
-        ♡ VIEW MAP
-      </a>
-
-
-      <a
-        class="action-button"
-        href="https://www.amazon.com/registries/gl/create?registryType=custom&ref_=ggr_emp_custom"
-        target="_blank"
-        rel="noopener">
-        ♡ VIEW REGISTRY
-      </a>
-
-
-      <a
-        class="action-button"
-        href="mailto:mrs.lacunza@gmail.com">
-        ♡ RSVP BY EMAIL
-      </a>
-
-
-      <a
-        class="action-button"
-        href="sms:+19316192063">
-        ♡ TEXT TO RSVP
-      </a>
-
-    </section>
-
-
-    <!-- =========================
-         ACCOMMODATIONS
-         ========================= -->
-
-    <div class="page">
-      <img src="accommodations.PNG" alt="Accommodations">
-    </div>
-
-
-    <section class="actions">
-
 
       <a
         class="action-button"
@@ -458,90 +640,23 @@
     </section>
 
 
-    <!-- =========================
-         GALLERY
-         ========================= -->
+    <a
+      href="#mainInvitation"
+      class="back-button">
+      ♡ BACK TO INVITATION
+    </a>
 
-    <div class="page">
-      <img src="gallery.PNG" alt="Gallery">
-    </div>
-
-
-    <!-- =========================
-         ONLINE RSVP IMAGE
-         ========================= -->
-
-    <div class="page">
-      <img src="online-rsvp.PNG" alt="Online RSVP">
-    </div>
-
-
-    <!-- =========================
-         TALLY ONLINE RSVP
-         ========================= -->
-
-    <section class="tally-section">
-
-      <h2 class="tally-title">
-        RSVP
-      </h2>
-
-      <p class="tally-subtitle">
-        Please complete the form below to confirm your attendance.
-      </p>
-
-
-      <div class="tally-card">
-
-        <iframe
-          src="https://tally.so/embed/Eko7lr?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-          loading="lazy"
-          title="Emily & James Online RSVP">
-        </iframe>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         QR FOR PHOTOS
-         ========================= -->
-
-    <section class="qr-section">
-
-      <h2>
-        SHARE YOUR PHOTOS
-      </h2>
-
-      <p>
-        Scan the QR code to share your favorite moments with us.
-      </p>
-
-      <img
-        src="qr-photos.png"
-        alt="QR Code for Wedding Photos">
-
-    </section>
-
-
-    <!-- =========================
-         END
-         ========================= -->
-
-    <div class="page">
-      <img src="end.PNG" alt="Thank You">
-    </div>
-
-
-  </div>
+  </section>
 
 
   <!-- =========================
        MUSIC
        ========================= -->
 
-  <audio id="weddingMusic" loop preload="auto">
+  <audio
+    id="weddingMusic"
+    loop
+    preload="auto">
 
     <source
       src="musica.mp3"
@@ -553,13 +668,12 @@
   <button
     id="musicButton"
     type="button"
-    aria-label="Pause or play music">
+    aria-label="Play music">
     🎵
   </button>
 
 
   <script>
-
 
     /* =========================
        COUNTDOWN
@@ -568,37 +682,28 @@
     const weddingDate =
       new Date("November 28, 2026 00:00:00").getTime();
 
-
     function updateCountdown() {
 
-      const now =
-        new Date().getTime();
+      const now = new Date().getTime();
 
       const difference =
         weddingDate - now;
 
-
       if (difference <= 0) {
 
         document.getElementById("days").textContent = "0";
-
         document.getElementById("hours").textContent = "0";
-
         document.getElementById("minutes").textContent = "0";
-
         document.getElementById("seconds").textContent = "0";
 
         return;
-
       }
-
 
       const days =
         Math.floor(
           difference /
           (1000 * 60 * 60 * 24)
         );
-
 
       const hours =
         Math.floor(
@@ -607,14 +712,12 @@
           (1000 * 60 * 60)
         );
 
-
       const minutes =
         Math.floor(
           (difference %
             (1000 * 60 * 60)) /
           (1000 * 60)
         );
-
 
       const seconds =
         Math.floor(
@@ -623,17 +726,11 @@
           1000
         );
 
-
       document.getElementById("days").textContent = days;
-
       document.getElementById("hours").textContent = hours;
-
       document.getElementById("minutes").textContent = minutes;
-
       document.getElementById("seconds").textContent = seconds;
-
     }
-
 
     updateCountdown();
 
@@ -641,7 +738,7 @@
 
 
     /* =========================
-       MUSIC PLAYER
+       MUSIC
        ========================= */
 
     const music =
@@ -650,133 +747,4 @@
     const musicButton =
       document.getElementById("musicButton");
 
-
     let musicPlaying = false;
-
-
-    function updateMusicButton() {
-
-      if (musicPlaying) {
-
-        musicButton.textContent = "⏸";
-
-        musicButton.setAttribute(
-          "aria-label",
-          "Pause music"
-        );
-
-      } else {
-
-        musicButton.textContent = "🎵";
-
-        musicButton.setAttribute(
-          "aria-label",
-          "Play music"
-        );
-
-      }
-
-    }
-
-
-    function startMusic() {
-
-      music.play()
-
-        .then(() => {
-
-          musicPlaying = true;
-
-          updateMusicButton();
-
-        })
-
-        .catch(() => {
-
-          musicPlaying = false;
-
-          updateMusicButton();
-
-        });
-
-    }
-
-
-    musicButton.addEventListener(
-      "click",
-      function () {
-
-        if (music.paused) {
-
-          music.play()
-
-            .then(() => {
-
-              musicPlaying = true;
-
-              updateMusicButton();
-
-            });
-
-        } else {
-
-          music.pause();
-
-          musicPlaying = false;
-
-          updateMusicButton();
-
-        }
-
-      }
-    );
-
-
-    window.addEventListener(
-      "load",
-      function () {
-
-        startMusic();
-
-      }
-    );
-
-
-    document.addEventListener(
-      "click",
-      function startAfterInteraction() {
-
-        if (music.paused) {
-
-          music.play()
-
-            .then(() => {
-
-              musicPlaying = true;
-
-              updateMusicButton();
-
-            })
-
-            .catch(() => {});
-
-        }
-
-
-        document.removeEventListener(
-          "click",
-          startAfterInteraction
-        );
-
-      },
-      { once: true }
-    );
-
-
-    updateMusicButton();
-
-
-  </script>
-
-</body>
-</html>
