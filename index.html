@@ -207,22 +207,6 @@
       text-align: center;
     }
 
-    .tally-title {
-      color: #805b55;
-      font-size: 25px;
-      letter-spacing: 2px;
-      margin: 0 0 8px;
-      font-weight: normal;
-    }
-
-    .tally-subtitle {
-      color: #6f625d;
-      font-size: 14px;
-      margin: 0 auto 22px;
-      line-height: 1.5;
-      max-width: 450px;
-    }
-
     .tally-card {
       width: 90%;
       max-width: 400px;
@@ -243,6 +227,7 @@
       border-radius: 12px;
       background: transparent;
     }
+
 
     /* =========================
        MOBILE
@@ -279,10 +264,6 @@
       .tally-card iframe {
         height: 720px;
         border-radius: 10px;
-      }
-
-      .tally-title {
-        font-size: 22px;
       }
 
     }
@@ -359,42 +340,7 @@
       </section>
 
 
-      <!-- EVENT SCHEDULE -->
-
-      <section class="actions">
-
-        <a
-          href="#event-schedule"
-          class="action-button special-link"
-          data-page="event-schedule">
-          ♡ VIEW EVENT SCHEDULE
-        </a>
-
-      </section>
-
-
-      <!-- DETAILS -->
-
-      <div class="page">
-        <img src="the-details.PNG" alt="The Details">
-      </div>
-
-
-      <!-- DRESS CODE -->
-
-      <section class="actions">
-
-        <a
-          href="#dress-code"
-          class="action-button special-link"
-          data-page="dress-code">
-          ♡ VIEW DRESS CODE
-        </a>
-
-      </section>
-
-
-      <!-- MAIN ACTIONS -->
+      <!-- ADD TO CALENDAR -->
 
       <section class="actions">
 
@@ -407,6 +353,8 @@
         </a>
 
 
+        <!-- VIEW MAP -->
+
         <a
           class="action-button"
           href="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic"
@@ -415,6 +363,52 @@
           ♡ VIEW MAP
         </a>
 
+      </section>
+
+
+      <!-- THE DETAILS -->
+
+      <div
+        class="page"
+        id="the-details">
+
+        <img
+          src="the-details.PNG"
+          alt="The Details">
+
+      </div>
+
+
+      <!-- SPECIAL PAGE BUTTONS -->
+
+      <section class="actions">
+
+
+        <a
+          href="#event-schedule"
+          class="action-button special-link"
+          data-page="event-schedule">
+          ♡ VIEW EVENT SCHEDULE
+        </a>
+
+
+        <a
+          href="#dress-code"
+          class="action-button special-link"
+          data-page="dress-code">
+          ♡ VIEW DRESS CODE
+        </a>
+
+
+        <a
+          href="#accommodations"
+          class="action-button special-link"
+          data-page="accommodations">
+          ♡ VIEW ACCOMMODATIONS
+        </a>
+
+
+        <!-- VIEW REGISTRY -->
 
         <a
           class="action-button"
@@ -425,12 +419,16 @@
         </a>
 
 
+        <!-- RSVP BY EMAIL -->
+
         <a
           class="action-button"
           href="mailto:mrs.lacunza@gmail.com">
           ♡ RSVP BY EMAIL
         </a>
 
+
+        <!-- TEXT TO RSVP -->
 
         <a
           class="action-button"
@@ -441,38 +439,20 @@
       </section>
 
 
-      <!-- ACCOMMODATIONS -->
-
-      <section class="actions">
-
-        <a
-          href="#accommodations"
-          class="action-button special-link"
-          data-page="accommodations">
-          ♡ VIEW ACCOMMODATIONS
-        </a>
-
-      </section>
-
-
-      <!-- GALLERY -->
+      <!-- ONLINE RSVP -->
 
       <div class="page">
-        <img src="gallery.PNG" alt="Gallery">
-      </div>
 
+        <img
+          src="online-rsvp.PNG"
+          alt="Online RSVP">
 
-      <!-- ONLINE RSVP IMAGE -->
-
-      <div class="page">
-        <img src="online-rsvp.PNG" alt="Online RSVP">
       </div>
 
 
       <!-- TALLY -->
 
       <section class="tally-section">
-
 
         <div class="tally-card">
 
@@ -487,10 +467,25 @@
       </section>
 
 
+      <!-- GALLERY -->
+
+      <div class="page">
+
+        <img
+          src="gallery.PNG"
+          alt="Gallery">
+
+      </div>
+
+
       <!-- END -->
 
       <div class="page">
-        <img src="end.PNG" alt="Thank You">
+
+        <img
+          src="end.PNG"
+          alt="Thank You">
+
       </div>
 
     </div>
@@ -510,9 +505,10 @@
       src="event-schedule.PNG"
       alt="Event Schedule">
 
+
     <a
-      href="#mainInvitation"
-      class="back-button back-to-main">
+      href="#"
+      class="back-button back-to-details">
       ♡ BACK TO INVITATION
     </a>
 
@@ -531,9 +527,10 @@
       src="dress-code.PNG"
       alt="Dress Code">
 
+
     <a
-      href="#mainInvitation"
-      class="back-button back-to-main">
+      href="#"
+      class="back-button back-to-details">
       ♡ BACK TO INVITATION
     </a>
 
@@ -554,6 +551,7 @@
 
 
     <section class="actions">
+
 
       <a
         class="action-button"
@@ -585,8 +583,8 @@
 
 
     <a
-      href="#mainInvitation"
-      class="back-button back-to-main">
+      href="#"
+      class="back-button back-to-details">
       ♡ BACK TO INVITATION
     </a>
 
@@ -618,6 +616,7 @@
 
 
   <script>
+
 
     /* =========================
        COUNTDOWN
@@ -701,13 +700,32 @@
       mainInvitation.style.display = "block";
 
       specialPages.forEach(function(page) {
+
         page.classList.remove("active");
+
       });
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+
+      /*
+        Return specifically to THE DETAILS,
+        not to the cover.
+      */
+
+      setTimeout(function() {
+
+        const details =
+          document.getElementById("the-details");
+
+        if (details) {
+
+          details.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }
+
+      }, 50);
 
     }
 
@@ -716,8 +734,11 @@
 
       mainInvitation.style.display = "none";
 
+
       specialPages.forEach(function(page) {
+
         page.classList.remove("active");
+
       });
 
 
@@ -739,53 +760,79 @@
     }
 
 
-    document.querySelectorAll(".special-link")
+    /* =========================
+       OPEN SPECIAL PAGES
+       ========================= */
+
+    document
+      .querySelectorAll(".special-link")
       .forEach(function(link) {
 
-        link.addEventListener("click", function(event) {
+        link.addEventListener(
+          "click",
+          function(event) {
 
-          event.preventDefault();
+            event.preventDefault();
 
-          const pageId =
-            this.getAttribute("data-page");
 
-          history.pushState(
-            null,
-            "",
-            "#" + pageId
-          );
+            const pageId =
+              this.getAttribute("data-page");
 
-          showSpecialPage(pageId);
 
-        });
+            history.pushState(
+              null,
+              "",
+              "#" + pageId
+            );
+
+
+            showSpecialPage(pageId);
+
+          }
+        );
 
       });
 
 
-    document.querySelectorAll(".back-to-main")
+    /* =========================
+       BACK TO THE DETAILS
+       ========================= */
+
+    document
+      .querySelectorAll(".back-to-details")
       .forEach(function(link) {
 
-        link.addEventListener("click", function(event) {
+        link.addEventListener(
+          "click",
+          function(event) {
 
-          event.preventDefault();
+            event.preventDefault();
 
-          history.pushState(
-            null,
-            "",
-            "#mainInvitation"
-          );
 
-          showMainInvitation();
+            history.pushState(
+              null,
+              "",
+              "#the-details"
+            );
 
-        });
+
+            showMainInvitation();
+
+          }
+        );
 
       });
 
+
+    /* =========================
+       BROWSER BACK / FORWARD
+       ========================= */
 
     function loadPageFromHash() {
 
       const hash =
         window.location.hash.replace("#", "");
+
 
       if (
         hash === "event-schedule" ||
@@ -816,7 +863,30 @@
     );
 
 
-    loadPageFromHash();
+    /*
+      Only load a special page from the URL
+      if the visitor specifically has that hash.
+    */
+
+    if (
+      window.location.hash === "#event-schedule" ||
+      window.location.hash === "#dress-code" ||
+      window.location.hash === "#accommodations"
+    ) {
+
+      loadPageFromHash();
+
+    } else {
+
+      mainInvitation.style.display = "block";
+
+      specialPages.forEach(function(page) {
+
+        page.classList.remove("active");
+
+      });
+
+    }
 
 
     /* =========================
@@ -861,6 +931,7 @@
     function startMusic() {
 
       music.play()
+
         .then(function() {
 
           musicPlaying = true;
@@ -868,6 +939,7 @@
           updateMusicButton();
 
         })
+
         .catch(function() {
 
           musicPlaying = false;
@@ -886,6 +958,7 @@
         if (music.paused) {
 
           music.play()
+
             .then(function() {
 
               musicPlaying = true;
@@ -925,6 +998,7 @@
         if (music.paused) {
 
           music.play()
+
             .then(function() {
 
               musicPlaying = true;
@@ -932,9 +1006,11 @@
               updateMusicButton();
 
             })
+
             .catch(function() {});
 
         }
+
 
         document.removeEventListener(
           "click",
