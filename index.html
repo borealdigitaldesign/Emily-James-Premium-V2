@@ -169,7 +169,7 @@
       display: block;
     }
 
-    .special-page img {
+    .special-page > img {
       width: 100%;
       max-width: 700px;
       height: auto;
@@ -392,13 +392,14 @@
       </section>
 
 
-      <!-- EVENT SCHEDULE LINK -->
+      <!-- EVENT SCHEDULE -->
 
       <section class="actions">
 
         <a
           href="#event-schedule"
-          class="action-button">
+          class="action-button special-link"
+          data-page="event-schedule">
           ♡ VIEW EVENT SCHEDULE
         </a>
 
@@ -412,13 +413,14 @@
       </div>
 
 
-      <!-- DRESS CODE LINK -->
+      <!-- DRESS CODE -->
 
       <section class="actions">
 
         <a
           href="#dress-code"
-          class="action-button">
+          class="action-button special-link"
+          data-page="dress-code">
           ♡ VIEW DRESS CODE
         </a>
 
@@ -472,13 +474,14 @@
       </section>
 
 
-      <!-- ACCOMMODATIONS LINK -->
+      <!-- ACCOMMODATIONS -->
 
       <section class="actions">
 
         <a
           href="#accommodations"
-          class="action-button">
+          class="action-button special-link"
+          data-page="accommodations">
           ♡ VIEW ACCOMMODATIONS
         </a>
 
@@ -568,7 +571,7 @@
 
     <a
       href="#mainInvitation"
-      class="back-button">
+      class="back-button back-to-main">
       ♡ BACK TO INVITATION
     </a>
 
@@ -589,7 +592,7 @@
 
     <a
       href="#mainInvitation"
-      class="back-button">
+      class="back-button back-to-main">
       ♡ BACK TO INVITATION
     </a>
 
@@ -642,7 +645,7 @@
 
     <a
       href="#mainInvitation"
-      class="back-button">
+      class="back-button back-to-main">
       ♡ BACK TO INVITATION
     </a>
 
@@ -680,14 +683,15 @@
        ========================= */
 
     const weddingDate =
-      new Date("November 28, 2026 00:00:00").getTime();
+      new Date("2026-11-28T00:00:00-06:00").getTime();
+
 
     function updateCountdown() {
 
-      const now = new Date().getTime();
+      const now = Date.now();
 
-      const difference =
-        weddingDate - now;
+      const difference = weddingDate - now;
+
 
       if (difference <= 0) {
 
@@ -699,38 +703,41 @@
         return;
       }
 
+
       const days =
         Math.floor(
-          difference /
-          (1000 * 60 * 60 * 24)
+          difference / (1000 * 60 * 60 * 24)
         );
+
 
       const hours =
         Math.floor(
-          (difference %
-            (1000 * 60 * 60 * 24)) /
+          (difference % (1000 * 60 * 60 * 24)) /
           (1000 * 60 * 60)
         );
 
+
       const minutes =
         Math.floor(
-          (difference %
-            (1000 * 60 * 60)) /
+          (difference % (1000 * 60 * 60)) /
           (1000 * 60)
         );
 
+
       const seconds =
         Math.floor(
-          (difference %
-            (1000 * 60)) /
+          (difference % (1000 * 60)) /
           1000
         );
+
 
       document.getElementById("days").textContent = days;
       document.getElementById("hours").textContent = hours;
       document.getElementById("minutes").textContent = minutes;
       document.getElementById("seconds").textContent = seconds;
+
     }
+
 
     updateCountdown();
 
@@ -738,7 +745,141 @@
 
 
     /* =========================
-       MUSIC
+       SPECIAL PAGES
+       ========================= */
+
+    const mainInvitation =
+      document.getElementById("mainInvitation");
+
+    const specialPages =
+      document.querySelectorAll(".special-page");
+
+
+    function showMainInvitation() {
+
+      mainInvitation.style.display = "block";
+
+      specialPages.forEach(function(page) {
+        page.classList.remove("active");
+      });
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    function showSpecialPage(pageId) {
+
+      mainInvitation.style.display = "none";
+
+      specialPages.forEach(function(page) {
+        page.classList.remove("active");
+      });
+
+
+      const selectedPage =
+        document.getElementById(pageId);
+
+
+      if (selectedPage) {
+
+        selectedPage.classList.add("active");
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+
+    }
+
+
+    document.querySelectorAll(".special-link")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function(event) {
+
+          event.preventDefault();
+
+          const pageId =
+            this.getAttribute("data-page");
+
+          history.pushState(
+            null,
+            "",
+            "#" + pageId
+          );
+
+          showSpecialPage(pageId);
+
+        });
+
+      });
+
+
+    document.querySelectorAll(".back-to-main")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function(event) {
+
+          event.preventDefault();
+
+          history.pushState(
+            null,
+            "",
+            "#mainInvitation"
+          );
+
+          showMainInvitation();
+
+        });
+
+      });
+
+
+    function loadPageFromHash() {
+
+      const hash =
+        window.location.hash.replace("#", "");
+
+      if (
+        hash === "event-schedule" ||
+        hash === "dress-code" ||
+        hash === "accommodations"
+      ) {
+
+        showSpecialPage(hash);
+
+      } else {
+
+        showMainInvitation();
+
+      }
+
+    }
+
+
+    window.addEventListener(
+      "popstate",
+      loadPageFromHash
+    );
+
+
+    window.addEventListener(
+      "hashchange",
+      loadPageFromHash
+    );
+
+
+    loadPageFromHash();
+
+
+    /* =========================
+       MUSIC PLAYER
        ========================= */
 
     const music =
@@ -747,4 +888,126 @@
     const musicButton =
       document.getElementById("musicButton");
 
+
     let musicPlaying = false;
+
+
+    function updateMusicButton() {
+
+      if (musicPlaying) {
+
+        musicButton.textContent = "⏸";
+
+        musicButton.setAttribute(
+          "aria-label",
+          "Pause music"
+        );
+
+      } else {
+
+        musicButton.textContent = "🎵";
+
+        musicButton.setAttribute(
+          "aria-label",
+          "Play music"
+        );
+
+      }
+
+    }
+
+
+    function startMusic() {
+
+      music.play()
+        .then(function() {
+
+          musicPlaying = true;
+
+          updateMusicButton();
+
+        })
+        .catch(function() {
+
+          musicPlaying = false;
+
+          updateMusicButton();
+
+        });
+
+    }
+
+
+    musicButton.addEventListener(
+      "click",
+      function() {
+
+        if (music.paused) {
+
+          music.play()
+            .then(function() {
+
+              musicPlaying = true;
+
+              updateMusicButton();
+
+            });
+
+        } else {
+
+          music.pause();
+
+          musicPlaying = false;
+
+          updateMusicButton();
+
+        }
+
+      }
+    );
+
+
+    window.addEventListener(
+      "load",
+      function() {
+
+        startMusic();
+
+      }
+    );
+
+
+    document.addEventListener(
+      "click",
+      function startAfterInteraction() {
+
+        if (music.paused) {
+
+          music.play()
+            .then(function() {
+
+              musicPlaying = true;
+
+              updateMusicButton();
+
+            })
+            .catch(function() {});
+
+        }
+
+        document.removeEventListener(
+          "click",
+          startAfterInteraction
+        );
+
+      },
+      { once: true }
+    );
+
+
+    updateMusicButton();
+
+  </script>
+
+</body>
+</html>
