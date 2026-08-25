@@ -174,7 +174,29 @@
       display: block;
       margin: 0 auto;
     }
-    
+
+    /* =========================
+   DRESS CODE BACK BUTTON
+   ========================= */
+
+#dress-code {
+  position: relative;
+}
+
+.dress-code-back {
+  position: absolute;
+  width: 150px;
+  max-width: none;
+  padding: 9px 10px;
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-align: center;
+  top: 76.3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
 
     /* =========================
    HOTEL BUTTONS
@@ -509,8 +531,7 @@
           href="#dress-code"
           class="action-button special-link"
           data-page="dress-code">
-          VIEW 
-          DRESS CODE
+          VIEW<br>DRESS CODE
         </a>
 
       </section>
@@ -647,24 +668,26 @@
   </section>
 
 
-  <!-- =========================
-       DRESS CODE PAGE
-       ========================= -->
+<!-- =========================
+     DRESS CODE PAGE
+     ========================= -->
 
-  <section
-    id="dress-code"
-    class="special-page">
+<section
+  id="dress-code"
+  class="special-page">
 
-    <img
-      src="dress-code.png"
-      alt="Dress Code">
-    <a
-      href="#details-section"
-      class="back-button back-to-details">
-      BACK TO INVITATION
-    </a>
-  </section>
+  <img
+    src="dress-code.png"
+    alt="Dress Code">
 
+  <a
+    href="#details-section"
+    class="back-button dress-code-back">
+    BACK TO INVITATION
+  </a>
+
+</section>
+  
   <!-- =========================
        ACCOMMODATIONS PAGE
        ========================= -->
