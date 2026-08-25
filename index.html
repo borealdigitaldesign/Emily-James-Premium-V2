@@ -121,37 +121,13 @@
 
 
     /* =========================
-       OUR DAY MAIN BUTTONS
-       SAME HORIZONTAL LEVEL
-       ========================= */
-
-    .our-day-schedule {
-      top: 70%;
-      left: 25%;
-      transform: translate(-50%, -50%);
-    }
-
-    .our-day-dress {
-      top: 70%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .our-day-accommodations {
-      top: 70%;
-      left: 75%;
-      transform: translate(-50%, -50%);
-    }
-
-
-    /* =========================
        OUR DAY COUNTDOWN
        ========================= */
 
     .our-day-countdown {
       position: absolute;
       z-index: 999;
-      top: 82%;
+      top: 65%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 92%;
@@ -198,23 +174,25 @@
 
 
     /* =========================
+       OUR DAY
        ADD TO CALENDAR
        ========================= */
 
     .our-day-calendar {
-      top: 92%;
-      left: 35%;
+      top: 79%;
+      left: 50%;
       transform: translate(-50%, -50%);
     }
 
 
     /* =========================
+       OUR DAY
        VIEW MAP
        ========================= */
 
     .our-day-map {
-      top: 92%;
-      left: 65%;
+      top: 91%;
+      left: 50%;
       transform: translate(-50%, -50%);
     }
 
@@ -270,24 +248,21 @@
     /* =========================
        DETAILS
        THREE MAIN BUTTONS
-       SAME HORIZONTAL LEVEL
+       HORIZONTAL
        ========================= */
 
-    /* LEFT */
     .details-schedule {
       top: 55%;
       left: 25%;
       transform: translate(-50%, -50%);
     }
 
-    /* CENTER */
     .details-dress {
       top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
 
-    /* RIGHT */
     .details-accommodations {
       top: 55%;
       left: 75%;
@@ -346,7 +321,7 @@
 
 
     /* =========================
-       DRESS CODE BACK BUTTON
+       DRESS CODE
        ========================= */
 
     #dress-code {
@@ -370,8 +345,7 @@
 
 
     /* =========================
-       EVENT SCHEDULE BACK BUTTON
-       ON IMAGE
+       EVENT SCHEDULE
        ========================= */
 
     #event-schedule {
@@ -414,8 +388,6 @@
 
     /* =========================
        HOTEL BUTTONS
-       EACH ONE CAN BE MOVED
-       INDEPENDENTLY
        ========================= */
 
     .hotel-button {
@@ -501,7 +473,7 @@
 
     /* =========================
        BACK TO INVITATION
-       ON ACCOMMODATIONS IMAGE
+       ACCOMMODATIONS IMAGE
        ========================= */
 
     .accommodations-back {
@@ -558,13 +530,14 @@
     @media (max-width: 600px) {
 
       .our-day-button {
-        width: 100px;
+        width: 105px;
         font-size: 8px;
         padding: 7px 5px;
       }
 
       .our-day-countdown {
         width: 95%;
+        top: 63%;
       }
 
       .our-day-countdown-title {
@@ -589,11 +562,12 @@
         font-size: 6px;
       }
 
-      .our-day-calendar,
+      .our-day-calendar {
+        top: 78%;
+      }
+
       .our-day-map {
-        width: 105px;
-        font-size: 8px;
-        padding: 7px 5px;
+        top: 90%;
       }
 
 
@@ -678,7 +652,7 @@
 
       <!-- =========================
            OUR DAY
-           IMAGE + ALL BUTTONS
+           ONLY COUNTDOWN + CALENDAR + MAP
            ========================= -->
 
       <section class="our-day-section">
@@ -686,36 +660,6 @@
         <img
           src="our-day.png"
           alt="Our Day">
-
-
-        <!-- VIEW EVENT SCHEDULE -->
-
-        <a
-          href="#event-schedule"
-          class="our-day-button our-day-schedule special-link"
-          data-page="event-schedule">
-          VIEW<br>EVENT SCHEDULE
-        </a>
-
-
-        <!-- VIEW DRESS CODE -->
-
-        <a
-          href="#dress-code"
-          class="our-day-button our-day-dress special-link"
-          data-page="dress-code">
-          VIEW<br>DRESS CODE
-        </a>
-
-
-        <!-- VIEW ACCOMMODATIONS -->
-
-        <a
-          href="#accommodations"
-          class="our-day-button our-day-accommodations special-link"
-          data-page="accommodations">
-          VIEW<br>ACCOMMODATIONS
-        </a>
 
 
         <!-- COUNTDOWN -->
@@ -830,6 +774,11 @@
           alt="The Details">
 
 
+        <!-- =========================
+             TOP ROW
+             ========================= -->
+
+
         <!-- VIEW EVENT SCHEDULE -->
 
         <a
@@ -858,6 +807,11 @@
           data-page="accommodations">
           VIEW<br>ACCOMMODATIONS
         </a>
+
+
+        <!-- =========================
+             VERTICAL BUTTONS
+             ========================= -->
 
 
         <!-- VIEW REGISTRY -->
