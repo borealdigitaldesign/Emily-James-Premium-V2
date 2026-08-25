@@ -121,25 +121,22 @@
 
 
     /* =========================
-       THREE MAIN BUTTONS
+       OUR DAY MAIN BUTTONS
        SAME HORIZONTAL LEVEL
        ========================= */
 
-    /* LEFT */
     .our-day-schedule {
       top: 70%;
       left: 25%;
       transform: translate(-50%, -50%);
     }
 
-    /* CENTER */
     .our-day-dress {
       top: 70%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
 
-    /* RIGHT */
     .our-day-accommodations {
       top: 70%;
       left: 75%;
@@ -223,34 +220,102 @@
 
 
     /* =========================
-       GENERAL BUTTONS
+       THE DETAILS SECTION
+       IMAGE + BUTTONS
        ========================= */
 
-    .actions {
-      padding: 25px 18px 35px;
-      background: #f7f3ef;
-      text-align: center;
+    .details-section {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    .action-button {
+    .details-section > img {
+      width: 100%;
+      height: auto;
       display: block;
-      width: 60%;
-      max-width: 180px;
-      margin: 10px auto;
-      padding: 8px 12px;
+    }
+
+
+    /* =========================
+       DETAILS BUTTONS
+       ========================= */
+
+    .details-button {
+      position: absolute;
+      z-index: 999;
+      width: 120px;
+      padding: 8px 6px;
       border: 1px solid #a98270;
-      border-radius: 30px;
-      background: rgba(255,255,255,0.8);
+      border-radius: 25px;
+      background: rgba(255,255,255,0.90);
       color: #805b55;
       text-decoration: none;
-      font-size: 12px;
+      text-align: center;
+      font-size: 9px;
       letter-spacing: 1px;
-      transition: 0.2s ease;
+      line-height: 1.2;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .action-button:hover {
+    .details-button:hover {
       background: #fff;
-      transform: translateY(-1px);
+    }
+
+
+    /* =========================
+       DETAILS
+       THREE MAIN BUTTONS
+       SAME HORIZONTAL LEVEL
+       ========================= */
+
+    /* LEFT */
+    .details-schedule {
+      top: 55%;
+      left: 25%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* CENTER */
+    .details-dress {
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* RIGHT */
+    .details-accommodations {
+      top: 55%;
+      left: 75%;
+      transform: translate(-50%, -50%);
+    }
+
+
+    /* =========================
+       DETAILS
+       VERTICAL BUTTONS
+       ========================= */
+
+    .details-registry {
+      top: 68%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .details-email {
+      top: 76%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .details-text {
+      top: 84%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
 
@@ -400,7 +465,7 @@
        ========================= */
 
     .hotel-four-seasons {
-      top: 65.3%;
+      top: 65.5%;
       left: 65%;
       transform: translate(-50%, -50%);
     }
@@ -530,6 +595,16 @@
         font-size: 8px;
         padding: 7px 5px;
       }
+
+
+      /* DETAILS MOBILE */
+
+      .details-button {
+        width: 100px;
+        font-size: 8px;
+        padding: 7px 5px;
+      }
+
 
       #musicButton {
         width: 48px;
@@ -742,31 +817,53 @@
 
 
       <!-- =========================
-           DETAILS
+           THE DETAILS
+           IMAGE + BUTTONS
            ========================= -->
 
-      <div
-        class="page"
+      <section
+        class="details-section"
         id="details-section">
 
         <img
           src="the-details.png"
           alt="The Details">
 
-      </div>
+
+        <!-- VIEW EVENT SCHEDULE -->
+
+        <a
+          href="#event-schedule"
+          class="details-button details-schedule special-link"
+          data-page="event-schedule">
+          VIEW<br>EVENT SCHEDULE
+        </a>
 
 
-      <!-- =========================
-           MAIN ACTIONS
-           ========================= -->
+        <!-- VIEW DRESS CODE -->
 
-      <section class="actions">
+        <a
+          href="#dress-code"
+          class="details-button details-dress special-link"
+          data-page="dress-code">
+          VIEW<br>DRESS CODE
+        </a>
+
+
+        <!-- VIEW ACCOMMODATIONS -->
+
+        <a
+          href="#accommodations"
+          class="details-button details-accommodations special-link"
+          data-page="accommodations">
+          VIEW<br>ACCOMMODATIONS
+        </a>
 
 
         <!-- VIEW REGISTRY -->
 
         <a
-          class="action-button"
+          class="details-button details-registry"
           href="https://www.amazon.com/registries/gl/create?registryType=custom&ref_=ggr_emp_custom"
           target="_blank"
           rel="noopener">
@@ -777,7 +874,7 @@
         <!-- RSVP BY EMAIL -->
 
         <a
-          class="action-button"
+          class="details-button details-email"
           href="mailto:mrs.lacunza@gmail.com">
           RSVP BY EMAIL
         </a>
@@ -786,7 +883,7 @@
         <!-- TEXT TO RSVP -->
 
         <a
-          class="action-button"
+          class="details-button details-text"
           href="sms:+19316192063">
           TEXT TO RSVP
         </a>
