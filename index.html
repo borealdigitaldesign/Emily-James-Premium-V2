@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -72,51 +74,151 @@
 
 
     /* =========================
-       COUNTDOWN
+       OUR DAY SECTION
        ========================= */
 
-    .countdown-container {
-      background: #f7f3ef;
-      padding: 28px 18px 32px;
+    .our-day-section {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .our-day-section > img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+
+    /* =========================
+       OUR DAY BUTTONS
+       ========================= */
+
+    .our-day-button {
+      position: absolute;
+      z-index: 999;
+      width: 120px;
+      padding: 8px 6px;
+      border: 1px solid #a98270;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.90);
+      color: #805b55;
+      text-decoration: none;
+      text-align: center;
+      font-size: 9px;
+      letter-spacing: 1px;
+      line-height: 1.2;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .our-day-button:hover {
+      background: #fff;
+    }
+
+
+    /* =========================
+       THREE MAIN BUTTONS
+       SAME HORIZONTAL LEVEL
+       ========================= */
+
+    /* LEFT */
+    .our-day-schedule {
+      top: 70%;
+      left: 25%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* CENTER */
+    .our-day-dress {
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* RIGHT */
+    .our-day-accommodations {
+      top: 70%;
+      left: 75%;
+      transform: translate(-50%, -50%);
+    }
+
+
+    /* =========================
+       OUR DAY COUNTDOWN
+       ========================= */
+
+    .our-day-countdown {
+      position: absolute;
+      z-index: 999;
+      top: 82%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 92%;
       text-align: center;
     }
 
-    .countdown-title {
-      margin: 0 0 18px;
+    .our-day-countdown-title {
+      margin: 0 0 10px;
       color: #805b55;
-      font-size: 20px;
-      letter-spacing: 2px;
+      font-size: 14px;
+      letter-spacing: 1.5px;
     }
 
-    .countdown {
+    .our-day-countdown-boxes {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
+      gap: 7px;
+      flex-wrap: nowrap;
     }
 
-    .countdown-box {
-      min-width: 65px;
-      padding: 10px 7px;
-      background: rgba(255,255,255,0.75);
+    .our-day-countdown-box {
+      min-width: 48px;
+      padding: 6px 5px;
+      background: rgba(255,255,255,0.82);
       border: 1px solid #c7a28c;
-      border-radius: 8px;
+      border-radius: 7px;
     }
 
-    .countdown-number {
+    .our-day-countdown-number {
       display: block;
-      font-size: 25px;
+      font-size: 17px;
       color: #805b55;
       font-weight: bold;
     }
 
-    .countdown-label {
+    .our-day-countdown-label {
       display: block;
-      margin-top: 3px;
-      font-size: 10px;
-      letter-spacing: 1px;
+      margin-top: 2px;
+      font-size: 7px;
+      letter-spacing: 0.7px;
       color: #6f625d;
       text-transform: uppercase;
+    }
+
+
+    /* =========================
+       ADD TO CALENDAR
+       ========================= */
+
+    .our-day-calendar {
+      top: 92%;
+      left: 35%;
+      transform: translate(-50%, -50%);
+    }
+
+
+    /* =========================
+       VIEW MAP
+       ========================= */
+
+    .our-day-map {
+      top: 92%;
+      left: 65%;
+      transform: translate(-50%, -50%);
     }
 
 
@@ -188,7 +290,7 @@
 
     .dress-code-back {
       position: absolute;
-      width: 90px;
+      width: 165px;
       max-width: none;
       padding: 9px 10px;
       margin: 0;
@@ -201,28 +303,31 @@
       z-index: 999;
     }
 
-    /* =========================
-   EVENT SCHEDULE BACK BUTTON
-   ON IMAGE
-   ========================= */
 
-#event-schedule {
-  position: relative;
-}
-.event-schedule-back {
-  position: absolute;
-  width: 165px;
-  max-width: none;
-  padding: 9px 10px;
-  margin: 0;
-  font-size: 10px;
-  letter-spacing: 1.2px;
-  text-align: center;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-}
+    /* =========================
+       EVENT SCHEDULE BACK BUTTON
+       ON IMAGE
+       ========================= */
+
+    #event-schedule {
+      position: relative;
+    }
+
+    .event-schedule-back {
+      position: absolute;
+      width: 165px;
+      max-width: none;
+      padding: 9px 10px;
+      margin: 0;
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-align: center;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+    }
+
 
     /* =========================
        ACCOMMODATIONS
@@ -284,7 +389,7 @@
        ========================= */
 
     .hotel-hilton {
-      top: 48.3%;
+      top: 48.9%;
       left: 65%;
       transform: translate(-50%, -50%);
     }
@@ -295,7 +400,7 @@
        ========================= */
 
     .hotel-four-seasons {
-      top: 65%;
+      top: 65.3%;
       left: 65%;
       transform: translate(-50%, -50%);
     }
@@ -323,12 +428,6 @@
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
     }
-
-    /* IMPORTANTE:
-       No usamos transform aquí porque
-       algunos botones tienen su propio
-       transform para posicionarse.
-    */
 
     .back-button:active {
       opacity: 0.85;
@@ -393,12 +492,43 @@
 
     @media (max-width: 600px) {
 
-      .countdown-number {
-        font-size: 21px;
+      .our-day-button {
+        width: 100px;
+        font-size: 8px;
+        padding: 7px 5px;
       }
 
-      .countdown-box {
-        min-width: 58px;
+      .our-day-countdown {
+        width: 95%;
+      }
+
+      .our-day-countdown-title {
+        font-size: 11px;
+        margin-bottom: 7px;
+      }
+
+      .our-day-countdown-boxes {
+        gap: 5px;
+      }
+
+      .our-day-countdown-box {
+        min-width: 43px;
+        padding: 5px 4px;
+      }
+
+      .our-day-countdown-number {
+        font-size: 15px;
+      }
+
+      .our-day-countdown-label {
+        font-size: 6px;
+      }
+
+      .our-day-calendar,
+      .our-day-map {
+        width: 105px;
+        font-size: 8px;
+        padding: 7px 5px;
       }
 
       #musicButton {
@@ -433,6 +563,7 @@
     }
 
   </style>
+
 </head>
 
 
@@ -451,103 +582,168 @@
       <!-- COVER -->
 
       <div class="page">
+
         <img
           src="portada.png"
           alt="Emily & James Wedding Invitation">
+
       </div>
 
 
       <!-- OUR STORY -->
 
       <div class="page">
+
         <img
           src="our-story.png"
           alt="Our Story">
+
       </div>
 
 
-      <!-- OUR DAY -->
+      <!-- =========================
+           OUR DAY
+           IMAGE + ALL BUTTONS
+           ========================= -->
 
-      <div class="page">
+      <section class="our-day-section">
+
         <img
           src="our-day.png"
           alt="Our Day">
-      </div>
 
 
-      <!-- COUNTDOWN -->
+        <!-- VIEW EVENT SCHEDULE -->
 
-      <section class="countdown-container">
+        <a
+          href="#event-schedule"
+          class="our-day-button our-day-schedule special-link"
+          data-page="event-schedule">
+          VIEW<br>EVENT SCHEDULE
+        </a>
 
-        <h2 class="countdown-title">
-          WE CAN'T WAIT TO CELEBRATE WITH YOU
-        </h2>
 
-        <div class="countdown">
+        <!-- VIEW DRESS CODE -->
 
-          <div class="countdown-box">
-            <span
-              class="countdown-number"
-              id="days">0</span>
+        <a
+          href="#dress-code"
+          class="our-day-button our-day-dress special-link"
+          data-page="dress-code">
+          VIEW<br>DRESS CODE
+        </a>
 
-            <span class="countdown-label">
-              Days
-            </span>
+
+        <!-- VIEW ACCOMMODATIONS -->
+
+        <a
+          href="#accommodations"
+          class="our-day-button our-day-accommodations special-link"
+          data-page="accommodations">
+          VIEW<br>ACCOMMODATIONS
+        </a>
+
+
+        <!-- COUNTDOWN -->
+
+        <div class="our-day-countdown">
+
+          <div class="our-day-countdown-title">
+            WE CAN'T WAIT TO CELEBRATE WITH YOU
           </div>
 
+          <div class="our-day-countdown-boxes">
 
-          <div class="countdown-box">
-            <span
-              class="countdown-number"
-              id="hours">0</span>
+            <div class="our-day-countdown-box">
 
-            <span class="countdown-label">
-              Hours
-            </span>
-          </div>
+              <span
+                class="our-day-countdown-number"
+                id="days">
+                0
+              </span>
 
+              <span class="our-day-countdown-label">
+                Days
+              </span>
 
-          <div class="countdown-box">
-            <span
-              class="countdown-number"
-              id="minutes">0</span>
-
-            <span class="countdown-label">
-              Minutes
-            </span>
-          </div>
+            </div>
 
 
-          <div class="countdown-box">
-            <span
-              class="countdown-number"
-              id="seconds">0</span>
+            <div class="our-day-countdown-box">
 
-            <span class="countdown-label">
-              Seconds
-            </span>
+              <span
+                class="our-day-countdown-number"
+                id="hours">
+                0
+              </span>
+
+              <span class="our-day-countdown-label">
+                Hours
+              </span>
+
+            </div>
+
+
+            <div class="our-day-countdown-box">
+
+              <span
+                class="our-day-countdown-number"
+                id="minutes">
+                0
+              </span>
+
+              <span class="our-day-countdown-label">
+                Minutes
+              </span>
+
+            </div>
+
+
+            <div class="our-day-countdown-box">
+
+              <span
+                class="our-day-countdown-number"
+                id="seconds">
+                0
+              </span>
+
+              <span class="our-day-countdown-label">
+                Seconds
+              </span>
+
+            </div>
+
           </div>
 
         </div>
 
-      </section>
 
-
-      <!-- EVENT SCHEDULE -->
-
-      <section class="actions">
+        <!-- ADD TO CALENDAR -->
 
         <a
-          href="#event-schedule"
-          class="action-button special-link"
-          data-page="event-schedule">
-          VIEW EVENT SCHEDULE
+          class="our-day-button our-day-calendar"
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emily%20%26%20James%20Wedding&dates=20261128/20261129&location=The%20Garden%20Valley%2C%20Nashville%2C%20TN"
+          target="_blank"
+          rel="noopener">
+          ADD TO CALENDAR
+        </a>
+
+
+        <!-- VIEW MAP -->
+
+        <a
+          class="our-day-button our-day-map"
+          href="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic"
+          target="_blank"
+          rel="noopener">
+          VIEW MAP
         </a>
 
       </section>
 
 
-      <!-- DETAILS -->
+      <!-- =========================
+           DETAILS
+           ========================= -->
 
       <div
         class="page"
@@ -560,41 +756,14 @@
       </div>
 
 
-      <!-- DRESS CODE -->
+      <!-- =========================
+           MAIN ACTIONS
+           ========================= -->
 
       <section class="actions">
 
-        <a
-          href="#dress-code"
-          class="action-button special-link"
-          data-page="dress-code">
-          VIEW<br>DRESS CODE
-        </a>
 
-      </section>
-
-
-      <!-- MAIN ACTIONS -->
-
-      <section class="actions">
-
-        <a
-          class="action-button"
-          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emily%20%26%20James%20Wedding&dates=20261128/20261129&location=The%20Garden%20Valley%2C%20Nashville%2C%20TN"
-          target="_blank"
-          rel="noopener">
-          ADD TO CALENDAR
-        </a>
-
-
-        <a
-          class="action-button"
-          href="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic"
-          target="_blank"
-          rel="noopener">
-          VIEW MAP
-        </a>
-
+        <!-- VIEW REGISTRY -->
 
         <a
           class="action-button"
@@ -605,12 +774,16 @@
         </a>
 
 
+        <!-- RSVP BY EMAIL -->
+
         <a
           class="action-button"
           href="mailto:mrs.lacunza@gmail.com">
           RSVP BY EMAIL
         </a>
 
+
+        <!-- TEXT TO RSVP -->
 
         <a
           class="action-button"
@@ -621,21 +794,9 @@
       </section>
 
 
-      <!-- ACCOMMODATIONS -->
-
-      <section class="actions">
-
-        <a
-          href="#accommodations"
-          class="action-button special-link"
-          data-page="accommodations">
-          VIEW ACCOMMODATIONS
-        </a>
-
-      </section>
-
-
-      <!-- GALLERY -->
+      <!-- =========================
+           GALLERY
+           ========================= -->
 
       <div class="page">
 
@@ -646,7 +807,9 @@
       </div>
 
 
-      <!-- ONLINE RSVP IMAGE -->
+      <!-- =========================
+           ONLINE RSVP IMAGE
+           ========================= -->
 
       <div class="page">
 
@@ -657,7 +820,9 @@
       </div>
 
 
-      <!-- TALLY -->
+      <!-- =========================
+           TALLY
+           ========================= -->
 
       <section class="tally-section">
 
@@ -674,7 +839,9 @@
       </section>
 
 
-      <!-- END -->
+      <!-- =========================
+           END
+           ========================= -->
 
       <div class="page">
 
