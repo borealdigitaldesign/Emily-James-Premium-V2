@@ -70,7 +70,6 @@
       transform: scale(0.95);
     }
 
-
     /* =========================
        COUNTDOWN
        ========================= */
@@ -118,7 +117,6 @@
       color: #6f625d;
       text-transform: uppercase;
     }
-
 
     /* =========================
        GENERAL BUTTONS
@@ -187,7 +185,7 @@
   max-width: 100px;
   margin: 10px auto;
   padding: 8px 10px;
-  font-size: 8px;
+  font-size: 10px;
 }
 
     /* =========================
@@ -291,7 +289,6 @@
       transform: scale(0.98);
     }
 
-
     /* =========================
    BACK TO INVITATION
    ON ACCOMMODATIONS IMAGE
@@ -299,13 +296,13 @@
 
 .accommodations-back {
   position: absolute;
-  width: 150px;
+  width: 165px;
   max-width: none;
   padding: 9px 10px;
   margin: 0;
   font-size: 10px;
   letter-spacing: 1.2px;
-  top: 82%;
+  top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 20;
@@ -322,10 +319,10 @@
     }
 
     .tally-card {
-      width: 90%;
-      max-width: 400px;
+      width: 94%;
+      max-width: 500px;
       margin: 0 auto;
-      padding: 8px;
+      padding: 6px;
 
       background: rgba(255,255,255,0.82);
 
@@ -339,7 +336,7 @@
 
     .tally-card iframe {
       width: 100%;
-      height: 500px;
+      height: 450px;
 
       border: none;
       display: block;
@@ -686,7 +683,6 @@
         src="accommodations.PNG"
         alt="Accommodations">
 
-
       <!-- COURTYARD -->
       <a
         class="hotel-button hotel-courtyard"
@@ -704,7 +700,6 @@
         rel="noopener">
         VIEW HOTEL
       </a>
-
 
       <!-- FOUR SEASONS -->
       <a
@@ -739,7 +734,6 @@
 
   </audio>
 
-
   <button
     id="musicButton"
     type="button"
@@ -747,9 +741,7 @@
     🎵
   </button>
 
-
   <script>
-
 
     /* =========================
        COUNTDOWN
@@ -758,14 +750,12 @@
     const weddingDate =
       new Date("2026-11-28T00:00:00-06:00").getTime();
 
-
     function updateCountdown() {
 
       const now = Date.now();
 
       const difference =
         weddingDate - now;
-
 
       if (difference <= 0) {
 
@@ -777,13 +767,11 @@
         return;
       }
 
-
       const days =
         Math.floor(
           difference /
           (1000 * 60 * 60 * 24)
         );
-
 
       const hours =
         Math.floor(
@@ -792,7 +780,6 @@
           (1000 * 60 * 60)
         );
 
-
       const minutes =
         Math.floor(
           (difference %
@@ -800,14 +787,12 @@
           (1000 * 60)
         );
 
-
       const seconds =
         Math.floor(
           (difference %
             (1000 * 60)) /
           1000
         );
-
 
       document.getElementById("days").textContent =
         days;
@@ -823,14 +808,12 @@
 
     }
 
-
     updateCountdown();
 
     setInterval(
       updateCountdown,
       1000
     );
-
 
     /* =========================
        SPECIAL PAGES
@@ -841,18 +824,15 @@
         "mainInvitation"
       );
 
-
     const specialPages =
       document.querySelectorAll(
         ".special-page"
       );
 
-
     function showMainInvitation() {
 
       mainInvitation.style.display =
         "block";
-
 
       specialPages.forEach(
         function(page) {
@@ -866,12 +846,10 @@
 
     }
 
-
     function showSpecialPage(pageId) {
 
       mainInvitation.style.display =
         "none";
-
 
       specialPages.forEach(
         function(page) {
@@ -889,13 +867,11 @@
           pageId
         );
 
-
       if (selectedPage) {
 
         selectedPage.classList.add(
           "active"
         );
-
 
         window.scrollTo({
           top: 0,
@@ -922,12 +898,10 @@
 
               event.preventDefault();
 
-
               const pageId =
                 this.getAttribute(
                   "data-page"
                 );
-
 
               history.pushState(
                 null,
