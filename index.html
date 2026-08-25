@@ -199,8 +199,7 @@
 
 
     /* =========================
-       ACCOMMODATIONS
-       BUTTONS OVER IMAGE
+       ACCOMMODATIONS BUTTONS
        ========================= */
 
     .accommodations-page {
@@ -218,56 +217,98 @@
 
     .hotel-button {
       position: absolute;
-      right: 24%;
-      width: 23%;
-      height: 4.3%;
 
-      /* Invisible clickable area */
-      background: transparent;
-      border: none;
+      width: 25%;
+      padding: 8px 4px;
 
-      cursor: pointer;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid #a98270;
+      border-radius: 30px;
+
+      color: #805b55;
+      text-decoration: none;
+
+      font-size: 10px;
+      letter-spacing: 0.8px;
+
+      text-align: center;
+
       z-index: 10;
+
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+      transition: 0.2s ease;
+    }
+
+    .hotel-button:hover {
+      background: #fff;
+      transform: translateY(-1px);
     }
 
     .hotel-button:active {
       transform: scale(0.97);
     }
 
-    /* Courtyard */
+
+    /* COURTYARD */
+
     .hotel-1 {
       top: 39.5%;
+      right: 23%;
     }
 
-    /* Hilton */
+
+    /* HILTON */
+
     .hotel-2 {
       top: 61.5%;
+      right: 23%;
     }
 
-    /* Four Seasons */
+
+    /* FOUR SEASONS */
+
     .hotel-3 {
       top: 83%;
+      right: 23%;
     }
 
 
-    /* Back button inside accommodations image */
+    /* BACK TO INVITATION */
 
     .accommodations-back {
       position: absolute;
-      left: 29%;
+
+      left: 28%;
       bottom: 1.7%;
-      width: 42%;
-      height: 5%;
 
-      background: transparent;
-      border: none;
+      width: 44%;
 
-      cursor: pointer;
+      padding: 9px 6px;
+
+      background: rgba(255,255,255,0.88);
+      border: 1px solid #805b55;
+      border-radius: 30px;
+
+      color: #805b55;
+      text-decoration: none;
+
+      font-size: 11px;
+      letter-spacing: 1px;
+
+      text-align: center;
+
       z-index: 10;
+
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .accommodations-back:hover {
+      background: #fff;
     }
 
     .accommodations-back:active {
-      transform: scale(0.97);
+      transform: scale(0.98);
     }
 
 
@@ -286,19 +327,28 @@
       max-width: 400px;
       margin: 0 auto;
       padding: 8px;
+
       background: rgba(255,255,255,0.82);
+
       border: 1px solid #c7a28c;
       border-radius: 18px;
-      box-shadow: 0 5px 18px rgba(126, 85, 73, 0.10);
+
+      box-shadow:
+        0 5px 18px rgba(126, 85, 73, 0.10);
+
       overflow: hidden;
     }
 
     .tally-card iframe {
       width: 100%;
       height: 500px;
+
       border: none;
+
       display: block;
+
       border-radius: 12px;
+
       background: transparent;
     }
 
@@ -338,6 +388,16 @@
       .tally-card iframe {
         height: 720px;
         border-radius: 10px;
+      }
+
+      .hotel-button {
+        font-size: 9px;
+        padding: 7px 3px;
+      }
+
+      .accommodations-back {
+        font-size: 10px;
+        padding: 8px 4px;
       }
 
     }
@@ -443,7 +503,7 @@
       </section>
 
 
-      <!-- ADD TO CALENDAR -->
+      <!-- ADD TO CALENDAR + MAP -->
 
       <section class="actions">
 
@@ -457,8 +517,6 @@
 
         </a>
 
-
-        <!-- VIEW MAP -->
 
         <a
           class="action-button"
@@ -534,7 +592,7 @@
       </section>
 
 
-      <!-- REGISTRY -->
+      <!-- REGISTRY / RSVP -->
 
       <section class="actions">
 
@@ -549,8 +607,6 @@
         </a>
 
 
-        <!-- EMAIL RSVP -->
-
         <a
           class="action-button"
           href="mailto:mrs.lacunza@gmail.com">
@@ -559,8 +615,6 @@
 
         </a>
 
-
-        <!-- TEXT RSVP -->
 
         <a
           class="action-button"
@@ -573,7 +627,7 @@
       </section>
 
 
-      <!-- ONLINE RSVP IMAGE -->
+      <!-- ONLINE RSVP -->
 
       <div class="page">
 
@@ -697,8 +751,10 @@
         class="hotel-button hotel-1"
         href="https://maps.app.goo.gl/GvNDmyotaz6X3fBw8?g_st=ic"
         target="_blank"
-        rel="noopener"
-        aria-label="View Courtyard Hotel">
+        rel="noopener">
+
+        ♡ VIEW HOTEL
+
       </a>
 
 
@@ -708,8 +764,10 @@
         class="hotel-button hotel-2"
         href="https://maps.app.goo.gl/dV8X18uiQC9rwmor6?g_st=ic"
         target="_blank"
-        rel="noopener"
-        aria-label="View Hilton Hotel">
+        rel="noopener">
+
+        ♡ VIEW HOTEL
+
       </a>
 
 
@@ -719,17 +777,21 @@
         class="hotel-button hotel-3"
         href="https://maps.app.goo.gl/bZVu7zGhxoazHQs76?g_st=ic"
         target="_blank"
-        rel="noopener"
-        aria-label="View Four Seasons Hotel">
+        rel="noopener">
+
+        ♡ VIEW HOTEL
+
       </a>
 
 
-      <!-- BACK TO INVITATION -->
+      <!-- BACK -->
 
       <a
         href="#the-details"
-        class="accommodations-back back-to-details"
-        aria-label="Back to invitation">
+        class="accommodations-back back-to-details">
+
+        ♡ BACK TO INVITATION
+
       </a>
 
     </div>
@@ -898,7 +960,7 @@
 
 
     /* =========================
-       OPEN SPECIAL PAGES
+       SPECIAL PAGE LINKS
        ========================= */
 
     document
@@ -981,7 +1043,7 @@
 
 
     /* =========================
-       LOAD PAGE FROM URL
+       LOAD PAGE FROM HASH
        ========================= */
 
     function loadPageFromHash() {
