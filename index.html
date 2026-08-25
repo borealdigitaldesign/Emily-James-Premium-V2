@@ -70,6 +70,7 @@
       transform: scale(0.95);
     }
 
+
     /* =========================
        COUNTDOWN
        ========================= */
@@ -117,6 +118,7 @@
       color: #6f625d;
       text-transform: uppercase;
     }
+
 
     /* =========================
        GENERAL BUTTONS
@@ -175,40 +177,30 @@
       margin: 0 auto;
     }
 
-    /* =========================
-   DRESS CODE BACK BUTTON
-   ========================= */
-
-#dress-code {
-  position: relative;
-}
-
-  .dress-code-back {
-  position: absolute;
-  width: 90px;
-  max-width: none;
-  padding: 9px 10px;
-  margin: 0;
-  font-size: 10px;
-  letter-spacing: 1.2px;
-  text-align: center;
-  top: 68%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-}
 
     /* =========================
-   HOTEL BUTTONS
-   ========================= */
+       DRESS CODE BACK BUTTON
+       ========================= */
 
-.hotel-button {
-  width: 85px;
-  max-width: 100px;
-  margin: 10px auto;
-  padding: 8px 10px;
-  font-size: 10px;
-}
+    #dress-code {
+      position: relative;
+    }
+
+    .dress-code-back {
+      position: absolute;
+      width: 90px;
+      max-width: none;
+      padding: 9px 10px;
+      margin: 0;
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-align: center;
+      top: 68%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+    }
+
 
     /* =========================
        ACCOMMODATIONS
@@ -226,6 +218,7 @@
       height: auto;
       display: block;
     }
+
 
     /* =========================
        HOTEL BUTTONS
@@ -247,26 +240,22 @@
       letter-spacing: 1px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.10);
       z-index: 999;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
+
 
     /* =========================
        COURTYARD
        ========================= */
 
     .hotel-courtyard {
-
-      /*
-        MOVE UP / DOWN:
-        change TOP
-
-        MOVE LEFT / RIGHT:
-        change LEFT
-      */
-
       top: 31.5%;
       left: 65%;
       transform: translate(-50%, -50%);
     }
+
 
     /* =========================
        HILTON
@@ -278,6 +267,7 @@
       transform: translate(-50%, -50%);
     }
 
+
     /* =========================
        FOUR SEASONS
        ========================= */
@@ -287,6 +277,7 @@
       left: 65%;
       transform: translate(-50%, -50%);
     }
+
 
     /* =========================
        BACK TO INVITATION
@@ -310,28 +301,37 @@
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
     }
+
+    /* IMPORTANTE:
+       No usamos transform aquí porque
+       algunos botones tienen su propio
+       transform para posicionarse.
+    */
+
     .back-button:active {
-      transform: scale(0.98);
+      opacity: 0.85;
     }
 
-    /* =========================
-   BACK TO INVITATION
-   ON ACCOMMODATIONS IMAGE
-   ========================= */
 
-.accommodations-back {
-  position: absolute;
-  width: 165px;
-  max-width: none;
-  padding: 9px 10px;
-  margin: 0;
-  font-size: 10px;
-  letter-spacing: 1.2px;
-  top: 76.3%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-}
+    /* =========================
+       BACK TO INVITATION
+       ON ACCOMMODATIONS IMAGE
+       ========================= */
+
+    .accommodations-back {
+      position: absolute;
+      width: 165px;
+      max-width: none;
+      padding: 9px 10px;
+      margin: 0;
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      top: 76.3%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+    }
+
 
     /* =========================
        TALLY RSVP
@@ -483,6 +483,8 @@
               Hours
             </span>
           </div>
+
+
           <div class="countdown-box">
             <span
               class="countdown-number"
@@ -492,27 +494,34 @@
               Minutes
             </span>
           </div>
+
+
           <div class="countdown-box">
             <span
               class="countdown-number"
               id="seconds">0</span>
+
             <span class="countdown-label">
               Seconds
             </span>
           </div>
+
         </div>
 
       </section>
 
 
       <!-- EVENT SCHEDULE -->
+
       <section class="actions">
+
         <a
           href="#event-schedule"
           class="action-button special-link"
           data-page="event-schedule">
           VIEW EVENT SCHEDULE
         </a>
+
       </section>
 
 
@@ -521,15 +530,18 @@
       <div
         class="page"
         id="details-section">
+
         <img
           src="the-details.png"
           alt="The Details">
+
       </div>
 
 
       <!-- DRESS CODE -->
 
       <section class="actions">
+
         <a
           href="#dress-code"
           class="action-button special-link"
@@ -552,6 +564,7 @@
           ADD TO CALENDAR
         </a>
 
+
         <a
           class="action-button"
           href="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic"
@@ -559,6 +572,7 @@
           rel="noopener">
           VIEW MAP
         </a>
+
 
         <a
           class="action-button"
@@ -568,11 +582,13 @@
           VIEW REGISTRY
         </a>
 
+
         <a
           class="action-button"
           href="mailto:mrs.lacunza@gmail.com">
           RSVP BY EMAIL
         </a>
+
 
         <a
           class="action-button"
@@ -581,6 +597,7 @@
         </a>
 
       </section>
+
 
       <!-- ACCOMMODATIONS -->
 
@@ -671,26 +688,27 @@
   </section>
 
 
-<!-- =========================
-     DRESS CODE PAGE
-     ========================= -->
+  <!-- =========================
+       DRESS CODE PAGE
+       ========================= -->
 
-<section
-  id="dress-code"
-  class="special-page">
+  <section
+    id="dress-code"
+    class="special-page">
 
-  <img
-    src="dress-code.png"
-    alt="Dress Code">
+    <img
+      src="dress-code.png"
+      alt="Dress Code">
 
-  <a
-    href="#details-section"
-    class="back-button dress-code-back">
-    BACK TO INVITATION
-  </a>
+    <a
+      href="#details-section"
+      class="back-button dress-code-back back-to-details">
+      BACK TO INVITATION
+    </a>
 
-</section>
-  
+  </section>
+
+
   <!-- =========================
        ACCOMMODATIONS PAGE
        ========================= -->
@@ -698,12 +716,16 @@
   <section
     id="accommodations"
     class="special-page">
+
     <div class="accommodations-page">
+
       <img
         src="accommodations.png"
         alt="Accommodations">
 
+
       <!-- COURTYARD -->
+
       <a
         class="hotel-button hotel-courtyard"
         href="https://maps.app.goo.gl/GvNDmyotaz6X3fBw8?g_st=ic"
@@ -712,7 +734,9 @@
         VIEW HOTEL
       </a>
 
+
       <!-- HILTON -->
+
       <a
         class="hotel-button hotel-hilton"
         href="https://maps.app.goo.gl/dV8X18uiQC9rwmor6?g_st=ic"
@@ -721,7 +745,9 @@
         VIEW HOTEL
       </a>
 
+
       <!-- FOUR SEASONS -->
+
       <a
         class="hotel-button hotel-four-seasons"
         href="https://maps.app.goo.gl/bZVu7zGhxoazHQs76?g_st=ic"
@@ -730,12 +756,17 @@
         VIEW HOTEL
       </a>
 
-    <!-- BACK TO INVITATION -->
-    <a
-      href="#details-section"
-      class="back-button accommodations-back back-to-details">
-      BACK TO INVITATION
-    </a>
+
+      <!-- BACK TO INVITATION -->
+
+      <a
+        href="#details-section"
+        class="back-button accommodations-back back-to-details">
+        BACK TO INVITATION
+      </a>
+
+    </div>
+
   </section>
 
 
@@ -754,6 +785,7 @@
 
   </audio>
 
+
   <button
     id="musicButton"
     type="button"
@@ -761,7 +793,9 @@
     🎵
   </button>
 
+
   <script>
+
 
     /* =========================
        COUNTDOWN
@@ -770,12 +804,14 @@
     const weddingDate =
       new Date("2026-11-28T00:00:00-06:00").getTime();
 
+
     function updateCountdown() {
 
       const now = Date.now();
 
       const difference =
         weddingDate - now;
+
 
       if (difference <= 0) {
 
@@ -787,11 +823,13 @@
         return;
       }
 
+
       const days =
         Math.floor(
           difference /
           (1000 * 60 * 60 * 24)
         );
+
 
       const hours =
         Math.floor(
@@ -800,6 +838,7 @@
           (1000 * 60 * 60)
         );
 
+
       const minutes =
         Math.floor(
           (difference %
@@ -807,12 +846,14 @@
           (1000 * 60)
         );
 
+
       const seconds =
         Math.floor(
           (difference %
             (1000 * 60)) /
           1000
         );
+
 
       document.getElementById("days").textContent =
         days;
@@ -828,12 +869,14 @@
 
     }
 
+
     updateCountdown();
 
     setInterval(
       updateCountdown,
       1000
     );
+
 
     /* =========================
        SPECIAL PAGES
@@ -844,15 +887,18 @@
         "mainInvitation"
       );
 
+
     const specialPages =
       document.querySelectorAll(
         ".special-page"
       );
 
+
     function showMainInvitation() {
 
       mainInvitation.style.display =
         "block";
+
 
       specialPages.forEach(
         function(page) {
@@ -866,10 +912,12 @@
 
     }
 
+
     function showSpecialPage(pageId) {
 
       mainInvitation.style.display =
         "none";
+
 
       specialPages.forEach(
         function(page) {
@@ -887,11 +935,13 @@
           pageId
         );
 
+
       if (selectedPage) {
 
         selectedPage.classList.add(
           "active"
         );
+
 
         window.scrollTo({
           top: 0,
@@ -918,10 +968,12 @@
 
               event.preventDefault();
 
+
               const pageId =
                 this.getAttribute(
                   "data-page"
                 );
+
 
               history.pushState(
                 null,
