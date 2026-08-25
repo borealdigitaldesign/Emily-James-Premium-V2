@@ -7,6 +7,7 @@
   <title>Emily & James | Wedding Invitation</title>
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -42,6 +43,7 @@
       display: block;
     }
 
+
     /* =========================
        MUSIC BUTTON
        ========================= */
@@ -67,6 +69,7 @@
     #musicButton:active {
       transform: scale(0.95);
     }
+
 
     /* =========================
        COUNTDOWN
@@ -116,6 +119,7 @@
       text-transform: uppercase;
     }
 
+
     /* =========================
        INTERACTIVE BUTTONS
        ========================= */
@@ -147,24 +151,54 @@
       transform: translateY(-1px);
     }
 
+
     /* =========================
-       ONLINE RSVP EMBED
+       TALLY RSVP
        ========================= */
 
-    .rsvp-section {
+    .tally-section {
       background: #f7f3ef;
-      padding: 10px 12px 35px;
+      padding: 35px 18px 45px;
       text-align: center;
     }
 
-    .rsvp-section iframe {
-      display: block;
-      width: 100%;
-      min-height: 650px;
-      border: 0;
+    .tally-title {
+      color: #805b55;
+      font-size: 25px;
+      letter-spacing: 2px;
+      margin: 0 0 8px;
+      font-weight: normal;
+    }
+
+    .tally-subtitle {
+      color: #6f625d;
+      font-size: 14px;
+      margin: 0 auto 22px;
+      line-height: 1.5;
+      max-width: 450px;
+    }
+
+    .tally-card {
+      width: 92%;
+      max-width: 500px;
       margin: 0 auto;
+      padding: 8px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid #c7a28c;
+      border-radius: 18px;
+      box-shadow: 0 5px 18px rgba(126, 85, 73, 0.10);
+      overflow: hidden;
+    }
+
+    .tally-card iframe {
+      width: 100%;
+      height: 720px;
+      border: none;
+      display: block;
+      border-radius: 12px;
       background: transparent;
     }
+
 
     /* =========================
        QR SECTION
@@ -197,6 +231,7 @@
       margin: 0 auto;
     }
 
+
     /* =========================
        MOBILE
        ========================= */
@@ -218,21 +253,36 @@
         bottom: 16px;
       }
 
-      .rsvp-section {
-        padding-left: 5px;
-        padding-right: 5px;
+      .tally-section {
+        padding-left: 12px;
+        padding-right: 12px;
       }
 
-      .rsvp-section iframe {
-        min-height: 700px;
+      .tally-card {
+        width: 94%;
+        padding: 6px;
+        border-radius: 16px;
       }
+
+      .tally-card iframe {
+        height: 720px;
+        border-radius: 10px;
+      }
+
+      .tally-title {
+        font-size: 22px;
+      }
+
     }
+
   </style>
 </head>
+
 
 <body>
 
   <div class="invitation">
+
 
     <!-- =========================
          INVITATION PAGES
@@ -242,9 +292,11 @@
       <img src="portada.PNG" alt="Emily & James Wedding Invitation">
     </div>
 
+
     <div class="page">
       <img src="our-story.PNG" alt="Our Story">
     </div>
+
 
     <div class="page">
       <img src="our-day.PNG" alt="Our Day">
@@ -288,15 +340,27 @@
     </section>
 
 
+    <!-- =========================
+         EVENT SCHEDULE
+         ========================= -->
+
     <div class="page">
       <img src="event-schedule.PNG" alt="Event Schedule">
     </div>
 
 
+    <!-- =========================
+         DETAILS
+         ========================= -->
+
     <div class="page">
       <img src="the-details.PNG" alt="The Details">
     </div>
 
+
+    <!-- =========================
+         DRESS CODE
+         ========================= -->
 
     <div class="page">
       <img src="dress-code.PNG" alt="Dress Code">
@@ -308,6 +372,7 @@
          ========================= -->
 
     <section class="actions">
+
 
       <a
         class="action-button"
@@ -349,7 +414,6 @@
         ♡ TEXT TO RSVP
       </a>
 
-
     </section>
 
 
@@ -363,6 +427,7 @@
 
 
     <section class="actions">
+
 
       <a
         class="action-button"
@@ -403,7 +468,7 @@
 
 
     <!-- =========================
-         ONLINE RSVP
+         ONLINE RSVP IMAGE
          ========================= -->
 
     <div class="page">
@@ -411,18 +476,30 @@
     </div>
 
 
-    <section class="rsvp-section">
+    <!-- =========================
+         TALLY ONLINE RSVP
+         ========================= -->
 
-      <iframe
-        data-tally-src="https://tally.so/embed/689NB5?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-        loading="lazy"
-        width="100%"
-        height="650"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        title="Online RSVP">
-      </iframe>
+    <section class="tally-section">
+
+      <h2 class="tally-title">
+        RSVP
+      </h2>
+
+      <p class="tally-subtitle">
+        Please complete the form below to confirm your attendance.
+      </p>
+
+
+      <div class="tally-card">
+
+        <iframe
+          src="https://tally.so/embed/689NB5?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          title="Emily & James Online RSVP">
+        </iframe>
+
+      </div>
 
     </section>
 
@@ -433,7 +510,9 @@
 
     <section class="qr-section">
 
-      <h2>SHARE YOUR PHOTOS</h2>
+      <h2>
+        SHARE YOUR PHOTOS
+      </h2>
 
       <p>
         Scan the QR code to share your favorite moments with us.
@@ -454,6 +533,7 @@
       <img src="end.PNG" alt="Thank You">
     </div>
 
+
   </div>
 
 
@@ -462,8 +542,13 @@
        ========================= -->
 
   <audio id="weddingMusic" loop preload="auto">
-    <source src="musica.mp3" type="audio/mpeg">
+
+    <source
+      src="musica.mp3"
+      type="audio/mpeg">
+
   </audio>
+
 
   <button
     id="musicButton"
@@ -473,72 +558,15 @@
   </button>
 
 
-  <!-- =========================
-       TALLY EMBED SCRIPT
-       ========================= -->
-
   <script>
 
-    var d = document;
-    var w = "https://tally.so/widgets/embed.js";
-
-    var v = function() {
-
-      if (typeof Tally !== "undefined") {
-
-        Tally.loadEmbeds();
-
-      } else {
-
-        d
-          .querySelectorAll(
-            'iframe[data-tally-src]:not([src])'
-          )
-          .forEach(function(e) {
-
-            e.src = e.dataset.tallySrc;
-
-          });
-
-      }
-
-    };
-
-    if (typeof Tally !== "undefined") {
-
-      v();
-
-    } else if (
-      d.querySelector(
-        'script[src="' + w + '"]'
-      ) == null
-    ) {
-
-      var s = d.createElement("script");
-
-      s.src = w;
-
-      s.onload = v;
-
-      s.onerror = v;
-
-      d.body.appendChild(s);
-
-    }
-
-  </script>
-
-
-  <script>
 
     /* =========================
        COUNTDOWN
        ========================= */
 
     const weddingDate =
-      new Date(
-        "November 28, 2026 00:00:00"
-      ).getTime();
+      new Date("November 28, 2026 00:00:00").getTime();
 
 
     function updateCountdown() {
@@ -553,8 +581,11 @@
       if (difference <= 0) {
 
         document.getElementById("days").textContent = "0";
+
         document.getElementById("hours").textContent = "0";
+
         document.getElementById("minutes").textContent = "0";
+
         document.getElementById("seconds").textContent = "0";
 
         return;
@@ -606,10 +637,7 @@
 
     updateCountdown();
 
-    setInterval(
-      updateCountdown,
-      1000
-    );
+    setInterval(updateCountdown, 1000);
 
 
     /* =========================
@@ -617,14 +645,10 @@
        ========================= */
 
     const music =
-      document.getElementById(
-        "weddingMusic"
-      );
+      document.getElementById("weddingMusic");
 
     const musicButton =
-      document.getElementById(
-        "musicButton"
-      );
+      document.getElementById("musicButton");
 
 
     let musicPlaying = false;
@@ -657,8 +681,8 @@
 
     function startMusic() {
 
-      music
-        .play()
+      music.play()
+
         .then(() => {
 
           musicPlaying = true;
@@ -666,12 +690,8 @@
           updateMusicButton();
 
         })
-        .catch(() => {
 
-          /*
-            Some mobile browsers block
-            automatic audio playback.
-          */
+        .catch(() => {
 
           musicPlaying = false;
 
@@ -684,12 +704,12 @@
 
     musicButton.addEventListener(
       "click",
-      function() {
+      function () {
 
         if (music.paused) {
 
-          music
-            .play()
+          music.play()
+
             .then(() => {
 
               musicPlaying = true;
@@ -712,14 +732,9 @@
     );
 
 
-    /*
-      Try to start the music automatically
-      when the invitation opens.
-    */
-
     window.addEventListener(
       "load",
-      function() {
+      function () {
 
         startMusic();
 
@@ -727,19 +742,14 @@
     );
 
 
-    /*
-      Some browsers allow playback after
-      the visitor first touches the page.
-    */
-
     document.addEventListener(
       "click",
       function startAfterInteraction() {
 
         if (music.paused) {
 
-          music
-            .play()
+          music.play()
+
             .then(() => {
 
               musicPlaying = true;
@@ -747,9 +757,11 @@
               updateMusicButton();
 
             })
+
             .catch(() => {});
 
         }
+
 
         document.removeEventListener(
           "click",
@@ -762,6 +774,7 @@
 
 
     updateMusicButton();
+
 
   </script>
 
