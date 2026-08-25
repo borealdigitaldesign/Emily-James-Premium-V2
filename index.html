@@ -141,7 +141,7 @@
       background: rgba(255,255,255,0.8);
       color: #805b55;
       text-decoration: none;
-      font-size: 12px;
+      font-size: 10px;
       letter-spacing: 1px;
       transition: 0.2s ease;
     }
@@ -176,6 +176,19 @@
       display: block;
       margin: 0 auto;
     }
+    
+
+    /* =========================
+   HOTEL BUTTONS
+   ========================= */
+
+.hotel-button {
+  width: 120px;
+  max-width: 150px;
+  margin: 10px auto;
+  padding: 8px 10px;
+  font-size: 8px;
+}
 
 
     /* =========================
@@ -206,7 +219,7 @@
       position: absolute;
 
       width: 80px;
-      padding:5px 8px;
+      padding: 5px 8px;
 
       border: 1px solid #a98270;
       border-radius: 25px;
@@ -238,15 +251,10 @@
 
         MOVE LEFT / RIGHT:
         change LEFT
-
-        Example:
-        top: 58%;
-        left: 50%;
       */
 
-      top: 31%;
+      top: 33%;
       left: 70%;
-
       transform: translate(-50%, -50%);
     }
 
@@ -256,10 +264,8 @@
        ========================= */
 
     .hotel-hilton {
-
       top: 50%;
       left: 70%;
-
       transform: translate(-50%, -50%);
     }
 
@@ -269,10 +275,8 @@
        ========================= */
 
     .hotel-four-seasons {
-
-      top: 66%;
+      top: 67%;
       left: 70%;
-
       transform: translate(-50%, -50%);
     }
 
@@ -286,11 +290,11 @@
       display: block;
 
       width: 80%;
-      max-width: 300px;
+      max-width: 260px;
 
       margin: 25px auto 10px;
 
-      padding: 13px 18px;
+      padding: 10px 14px;
 
       border: 1px solid #a98270;
       border-radius: 30px;
@@ -301,7 +305,7 @@
 
       text-decoration: none;
 
-      font-size: 13px;
+      font-size: 12px;
       letter-spacing: 1.5px;
 
       text-align: center;
@@ -317,15 +321,6 @@
        ========================= */
 
     .accommodations-back {
-
-      /*
-        FOR NOW IT STAYS BELOW
-        THE ACCOMMODATIONS IMAGE.
-
-        LATER WE CAN PUT IT
-        WHEREVER WE WANT.
-      */
-
       margin-top: 25px;
     }
 
@@ -391,24 +386,24 @@
       }
 
       .hotel-button {
-        width: 135px;
-        font-size: 11px;
-        padding: 9px 10px;
+        width: 120px;
+        font-size: 8px;
+        padding: 7px 8px;
       }
 
       .tally-section {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
       }
 
       .tally-card {
-        width: 94%;
+        width: 80%;
         padding: 6px;
-        border-radius: 16px;
+        border-radius: 14px;
       }
 
       .tally-card iframe {
-        height: 720px;
+        height: 620px;
         border-radius: 10px;
       }
 
@@ -433,21 +428,27 @@
       <!-- COVER -->
 
       <div class="page">
-        <img src="portada.PNG" alt="Emily & James Wedding Invitation">
+        <img
+          src="portada.PNG"
+          alt="Emily & James Wedding Invitation">
       </div>
 
 
       <!-- OUR STORY -->
 
       <div class="page">
-        <img src="our-story.PNG" alt="Our Story">
+        <img
+          src="our-story.PNG"
+          alt="Our Story">
       </div>
 
 
       <!-- OUR DAY -->
 
       <div class="page">
-        <img src="our-day.PNG" alt="Our Day">
+        <img
+          src="our-day.PNG"
+          alt="Our Day">
       </div>
 
 
@@ -462,23 +463,46 @@
         <div class="countdown">
 
           <div class="countdown-box">
-            <span class="countdown-number" id="days">0</span>
-            <span class="countdown-label">Days</span>
+            <span
+              class="countdown-number"
+              id="days">0</span>
+
+            <span class="countdown-label">
+              Days
+            </span>
           </div>
 
-          <div class="countdown-box">
-            <span class="countdown-number" id="hours">0</span>
-            <span class="countdown-label">Hours</span>
-          </div>
 
           <div class="countdown-box">
-            <span class="countdown-number" id="minutes">0</span>
-            <span class="countdown-label">Minutes</span>
+            <span
+              class="countdown-number"
+              id="hours">0</span>
+
+            <span class="countdown-label">
+              Hours
+            </span>
           </div>
 
+
           <div class="countdown-box">
-            <span class="countdown-number" id="seconds">0</span>
-            <span class="countdown-label">Seconds</span>
+            <span
+              class="countdown-number"
+              id="minutes">0</span>
+
+            <span class="countdown-label">
+              Minutes
+            </span>
+          </div>
+
+
+          <div class="countdown-box">
+            <span
+              class="countdown-number"
+              id="seconds">0</span>
+
+            <span class="countdown-label">
+              Seconds
+            </span>
           </div>
 
         </div>
@@ -494,7 +518,7 @@
           href="#event-schedule"
           class="action-button special-link"
           data-page="event-schedule">
-          ♡ VIEW EVENT SCHEDULE
+          VIEW EVENT SCHEDULE
         </a>
 
       </section>
@@ -537,7 +561,7 @@
           href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emily%20%26%20James%20Wedding&dates=20261128/20261129&location=The%20Garden%20Valley%2C%20Nashville%2C%20TN"
           target="_blank"
           rel="noopener">
-          ♡ ADD TO CALENDAR
+          ADD TO CALENDAR
         </a>
 
 
@@ -546,7 +570,7 @@
           href="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic"
           target="_blank"
           rel="noopener">
-          ♡ VIEW MAP
+          VIEW MAP
         </a>
 
 
@@ -555,21 +579,21 @@
           href="https://www.amazon.com/registries/gl/create?registryType=custom&ref_=ggr_emp_custom"
           target="_blank"
           rel="noopener">
-          ♡ VIEW REGISTRY
+          VIEW REGISTRY
         </a>
 
 
         <a
           class="action-button"
           href="mailto:mrs.lacunza@gmail.com">
-          ♡ RSVP BY EMAIL
+          RSVP BY EMAIL
         </a>
 
 
         <a
           class="action-button"
           href="sms:+19316192063">
-          ♡ TEXT TO RSVP
+          TEXT TO RSVP
         </a>
 
       </section>
@@ -583,7 +607,7 @@
           href="#accommodations"
           class="action-button special-link"
           data-page="accommodations">
-          ♡ VIEW ACCOMMODATIONS
+          VIEW ACCOMMODATIONS
         </a>
 
       </section>
@@ -592,18 +616,22 @@
       <!-- GALLERY -->
 
       <div class="page">
+
         <img
           src="gallery.PNG"
           alt="Gallery">
+
       </div>
 
 
       <!-- ONLINE RSVP IMAGE -->
 
       <div class="page">
+
         <img
           src="online-rsvp.PNG"
           alt="Online RSVP">
+
       </div>
 
 
@@ -735,7 +763,7 @@
 
     <a
       href="#details-section"
-      class="back-button accommodations-back">
+      class="back-button accommodations-back back-to-details">
       ♡ BACK TO INVITATION
     </a>
 
@@ -981,14 +1009,26 @@
               event.preventDefault();
 
 
+              mainInvitation.style.display =
+                "block";
+
+
+              specialPages.forEach(
+                function(page) {
+
+                  page.classList.remove(
+                    "active"
+                  );
+
+                }
+              );
+
+
               history.pushState(
                 null,
                 "",
                 "#details-section"
               );
-
-
-              showMainInvitation();
 
 
               setTimeout(
@@ -1039,6 +1079,47 @@
 
         showSpecialPage(
           hash
+        );
+
+      } else if (
+        hash === "details-section"
+      ) {
+
+        mainInvitation.style.display =
+          "block";
+
+
+        specialPages.forEach(
+          function(page) {
+
+            page.classList.remove(
+              "active"
+            );
+
+          }
+        );
+
+
+        setTimeout(
+          function() {
+
+            const details =
+              document.getElementById(
+                "details-section"
+              );
+
+
+            if (details) {
+
+              details.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+              });
+
+            }
+
+          },
+          50
         );
 
       } else {
