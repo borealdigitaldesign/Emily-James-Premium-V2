@@ -148,6 +148,25 @@
     }
 
     /* =========================
+       ONLINE RSVP EMBED
+       ========================= */
+
+    .rsvp-section {
+      background: #f7f3ef;
+      padding: 10px 12px 35px;
+      text-align: center;
+    }
+
+    .rsvp-section iframe {
+      display: block;
+      width: 100%;
+      min-height: 650px;
+      border: 0;
+      margin: 0 auto;
+      background: transparent;
+    }
+
+    /* =========================
        QR SECTION
        ========================= */
 
@@ -198,6 +217,15 @@
         right: 14px;
         bottom: 16px;
       }
+
+      .rsvp-section {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      .rsvp-section iframe {
+        min-height: 700px;
+      }
     }
   </style>
 </head>
@@ -221,6 +249,7 @@
     <div class="page">
       <img src="our-day.PNG" alt="Our Day">
     </div>
+
 
     <!-- =========================
          COUNTDOWN
@@ -321,14 +350,6 @@
       </a>
 
 
-      <a
-        class="action-button"
-        href="<script async src="https://tally.so/widgets/embed.js"></script>"
-        target="_blank"
-        rel="noopener">
-        ♡ ONLINE RSVP
-      </a>
-
     </section>
 
 
@@ -390,6 +411,22 @@
     </div>
 
 
+    <section class="rsvp-section">
+
+      <iframe
+        data-tally-src="https://tally.so/embed/689NB5?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy"
+        width="100%"
+        height="650"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Online RSVP">
+      </iframe>
+
+    </section>
+
+
     <!-- =========================
          QR FOR PHOTOS
          ========================= -->
@@ -436,19 +473,82 @@
   </button>
 
 
+  <!-- =========================
+       TALLY EMBED SCRIPT
+       ========================= -->
+
+  <script>
+
+    var d = document;
+    var w = "https://tally.so/widgets/embed.js";
+
+    var v = function() {
+
+      if (typeof Tally !== "undefined") {
+
+        Tally.loadEmbeds();
+
+      } else {
+
+        d
+          .querySelectorAll(
+            'iframe[data-tally-src]:not([src])'
+          )
+          .forEach(function(e) {
+
+            e.src = e.dataset.tallySrc;
+
+          });
+
+      }
+
+    };
+
+    if (typeof Tally !== "undefined") {
+
+      v();
+
+    } else if (
+      d.querySelector(
+        'script[src="' + w + '"]'
+      ) == null
+    ) {
+
+      var s = d.createElement("script");
+
+      s.src = w;
+
+      s.onload = v;
+
+      s.onerror = v;
+
+      d.body.appendChild(s);
+
+    }
+
+  </script>
+
+
   <script>
 
     /* =========================
        COUNTDOWN
        ========================= */
 
-    const weddingDate = new Date("November 28, 2026 00:00:00").getTime();
+    const weddingDate =
+      new Date(
+        "November 28, 2026 00:00:00"
+      ).getTime();
+
 
     function updateCountdown() {
 
-      const now = new Date().getTime();
+      const now =
+        new Date().getTime();
 
-      const difference = weddingDate - now;
+      const difference =
+        weddingDate - now;
+
 
       if (difference <= 0) {
 
@@ -458,44 +558,74 @@
         document.getElementById("seconds").textContent = "0";
 
         return;
+
       }
 
-      const days = Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-      );
 
-      const hours = Math.floor(
-        (difference % (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
-      );
+      const days =
+        Math.floor(
+          difference /
+          (1000 * 60 * 60 * 24)
+        );
 
-      const minutes = Math.floor(
-        (difference % (1000 * 60 * 60)) /
-        (1000 * 60)
-      );
 
-      const seconds = Math.floor(
-        (difference % (1000 * 60)) /
-        1000
-      );
+      const hours =
+        Math.floor(
+          (difference %
+            (1000 * 60 * 60 * 24)) /
+          (1000 * 60 * 60)
+        );
+
+
+      const minutes =
+        Math.floor(
+          (difference %
+            (1000 * 60 * 60)) /
+          (1000 * 60)
+        );
+
+
+      const seconds =
+        Math.floor(
+          (difference %
+            (1000 * 60)) /
+          1000
+        );
+
 
       document.getElementById("days").textContent = days;
+
       document.getElementById("hours").textContent = hours;
+
       document.getElementById("minutes").textContent = minutes;
+
       document.getElementById("seconds").textContent = seconds;
+
     }
+
 
     updateCountdown();
 
-    setInterval(updateCountdown, 1000);
+    setInterval(
+      updateCountdown,
+      1000
+    );
 
 
     /* =========================
        MUSIC PLAYER
        ========================= */
 
-    const music = document.getElementById("weddingMusic");
-    const musicButton = document.getElementById("musicButton");
+    const music =
+      document.getElementById(
+        "weddingMusic"
+      );
+
+    const musicButton =
+      document.getElementById(
+        "musicButton"
+      );
+
 
     let musicPlaying = false;
 
@@ -503,17 +633,23 @@
     function updateMusicButton() {
 
       if (musicPlaying) {
+
         musicButton.textContent = "⏸";
+
         musicButton.setAttribute(
           "aria-label",
           "Pause music"
         );
+
       } else {
+
         musicButton.textContent = "🎵";
+
         musicButton.setAttribute(
           "aria-label",
           "Play music"
         );
+
       }
 
     }
@@ -521,7 +657,8 @@
 
     function startMusic() {
 
-      music.play()
+      music
+        .play()
         .then(() => {
 
           musicPlaying = true;
@@ -545,30 +682,34 @@
     }
 
 
-    musicButton.addEventListener("click", function () {
+    musicButton.addEventListener(
+      "click",
+      function() {
 
-      if (music.paused) {
+        if (music.paused) {
 
-        music.play()
-          .then(() => {
+          music
+            .play()
+            .then(() => {
 
-            musicPlaying = true;
+              musicPlaying = true;
 
-            updateMusicButton();
+              updateMusicButton();
 
-          });
+            });
 
-      } else {
+        } else {
 
-        music.pause();
+          music.pause();
 
-        musicPlaying = false;
+          musicPlaying = false;
 
-        updateMusicButton();
+          updateMusicButton();
+
+        }
 
       }
-
-    });
+    );
 
 
     /*
@@ -576,11 +717,14 @@
       when the invitation opens.
     */
 
-    window.addEventListener("load", function () {
+    window.addEventListener(
+      "load",
+      function() {
 
-      startMusic();
+        startMusic();
 
-    });
+      }
+    );
 
 
     /*
@@ -594,7 +738,8 @@
 
         if (music.paused) {
 
-          music.play()
+          music
+            .play()
             .then(() => {
 
               musicPlaying = true;
