@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -198,6 +199,79 @@
 
 
     /* =========================
+       ACCOMMODATIONS
+       BUTTONS OVER IMAGE
+       ========================= */
+
+    .accommodations-page {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .accommodations-page img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hotel-button {
+      position: absolute;
+      right: 24%;
+      width: 23%;
+      height: 4.3%;
+
+      /* Invisible clickable area */
+      background: transparent;
+      border: none;
+
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .hotel-button:active {
+      transform: scale(0.97);
+    }
+
+    /* Courtyard */
+    .hotel-1 {
+      top: 39.5%;
+    }
+
+    /* Hilton */
+    .hotel-2 {
+      top: 61.5%;
+    }
+
+    /* Four Seasons */
+    .hotel-3 {
+      top: 83%;
+    }
+
+
+    /* Back button inside accommodations image */
+
+    .accommodations-back {
+      position: absolute;
+      left: 29%;
+      bottom: 1.7%;
+      width: 42%;
+      height: 5%;
+
+      background: transparent;
+      border: none;
+
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .accommodations-back:active {
+      transform: scale(0.97);
+    }
+
+
+    /* =========================
        TALLY RSVP
        ========================= */
 
@@ -287,21 +361,27 @@
       <!-- COVER -->
 
       <div class="page">
-        <img src="portada.PNG" alt="Emily & James Wedding Invitation">
+        <img
+          src="portada.PNG"
+          alt="Emily & James Wedding Invitation">
       </div>
 
 
       <!-- OUR STORY -->
 
       <div class="page">
-        <img src="our-story.PNG" alt="Our Story">
+        <img
+          src="our-story.PNG"
+          alt="Our Story">
       </div>
 
 
       <!-- OUR DAY -->
 
       <div class="page">
-        <img src="our-day.PNG" alt="Our Day">
+        <img
+          src="our-day.PNG"
+          alt="Our Day">
       </div>
 
 
@@ -316,23 +396,46 @@
         <div class="countdown">
 
           <div class="countdown-box">
-            <span class="countdown-number" id="days">0</span>
-            <span class="countdown-label">Days</span>
+            <span
+              class="countdown-number"
+              id="days">0</span>
+
+            <span class="countdown-label">
+              Days
+            </span>
           </div>
 
-          <div class="countdown-box">
-            <span class="countdown-number" id="hours">0</span>
-            <span class="countdown-label">Hours</span>
-          </div>
 
           <div class="countdown-box">
-            <span class="countdown-number" id="minutes">0</span>
-            <span class="countdown-label">Minutes</span>
+            <span
+              class="countdown-number"
+              id="hours">0</span>
+
+            <span class="countdown-label">
+              Hours
+            </span>
           </div>
 
+
           <div class="countdown-box">
-            <span class="countdown-number" id="seconds">0</span>
-            <span class="countdown-label">Seconds</span>
+            <span
+              class="countdown-number"
+              id="minutes">0</span>
+
+            <span class="countdown-label">
+              Minutes
+            </span>
+          </div>
+
+
+          <div class="countdown-box">
+            <span
+              class="countdown-number"
+              id="seconds">0</span>
+
+            <span class="countdown-label">
+              Seconds
+            </span>
           </div>
 
         </div>
@@ -349,7 +452,9 @@
           href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emily%20%26%20James%20Wedding&dates=20261128/20261129&location=The%20Garden%20Valley%2C%20Nashville%2C%20TN"
           target="_blank"
           rel="noopener">
+
           ♡ ADD TO CALENDAR
+
         </a>
 
 
@@ -360,7 +465,9 @@
           href="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic"
           target="_blank"
           rel="noopener">
+
           ♡ VIEW MAP
+
         </a>
 
       </section>
@@ -379,67 +486,94 @@
       </div>
 
 
-      <!-- SPECIAL PAGE BUTTONS -->
+      <!-- EVENT SCHEDULE -->
 
       <section class="actions">
-
 
         <a
           href="#event-schedule"
           class="action-button special-link"
           data-page="event-schedule">
+
           ♡ VIEW EVENT SCHEDULE
+
         </a>
 
+      </section>
+
+
+      <!-- DRESS CODE -->
+
+      <section class="actions">
 
         <a
           href="#dress-code"
           class="action-button special-link"
           data-page="dress-code">
+
           ♡ VIEW DRESS CODE
+
         </a>
 
+      </section>
+
+
+      <!-- ACCOMMODATIONS -->
+
+      <section class="actions">
 
         <a
           href="#accommodations"
           class="action-button special-link"
           data-page="accommodations">
+
           ♡ VIEW ACCOMMODATIONS
+
         </a>
 
+      </section>
 
-        <!-- VIEW REGISTRY -->
+
+      <!-- REGISTRY -->
+
+      <section class="actions">
 
         <a
           class="action-button"
           href="https://www.amazon.com/registries/gl/create?registryType=custom&ref_=ggr_emp_custom"
           target="_blank"
           rel="noopener">
+
           ♡ VIEW REGISTRY
+
         </a>
 
 
-        <!-- RSVP BY EMAIL -->
+        <!-- EMAIL RSVP -->
 
         <a
           class="action-button"
           href="mailto:mrs.lacunza@gmail.com">
+
           ♡ RSVP BY EMAIL
+
         </a>
 
 
-        <!-- TEXT TO RSVP -->
+        <!-- TEXT RSVP -->
 
         <a
           class="action-button"
           href="sms:+19316192063">
+
           ♡ TEXT TO RSVP
+
         </a>
 
       </section>
 
 
-      <!-- ONLINE RSVP -->
+      <!-- ONLINE RSVP IMAGE -->
 
       <div class="page">
 
@@ -507,9 +641,11 @@
 
 
     <a
-      href="#"
+      href="#the-details"
       class="back-button back-to-details">
+
       ♡ BACK TO INVITATION
+
     </a>
 
   </section>
@@ -529,9 +665,11 @@
 
 
     <a
-      href="#"
+      href="#the-details"
       class="back-button back-to-details">
+
       ♡ BACK TO INVITATION
+
     </a>
 
   </section>
@@ -545,48 +683,56 @@
     id="accommodations"
     class="special-page">
 
-    <img
-      src="accommodations.PNG"
-      alt="Accommodations">
+
+    <div class="accommodations-page">
+
+      <img
+        src="accommodations.PNG"
+        alt="Accommodations">
 
 
-    <section class="actions">
-
+      <!-- COURTYARD -->
 
       <a
-        class="action-button"
+        class="hotel-button hotel-1"
         href="https://maps.app.goo.gl/GvNDmyotaz6X3fBw8?g_st=ic"
         target="_blank"
-        rel="noopener">
-        ♡ COURTYARD HOTEL
+        rel="noopener"
+        aria-label="View Courtyard Hotel">
       </a>
 
 
+      <!-- HILTON -->
+
       <a
-        class="action-button"
+        class="hotel-button hotel-2"
         href="https://maps.app.goo.gl/dV8X18uiQC9rwmor6?g_st=ic"
         target="_blank"
-        rel="noopener">
-        ♡ HILTON HOTEL
+        rel="noopener"
+        aria-label="View Hilton Hotel">
       </a>
 
+
+      <!-- FOUR SEASONS -->
 
       <a
-        class="action-button"
+        class="hotel-button hotel-3"
         href="https://maps.app.goo.gl/bZVu7zGhxoazHQs76?g_st=ic"
         target="_blank"
-        rel="noopener">
-        ♡ FOUR SEASONS HOTEL
+        rel="noopener"
+        aria-label="View Four Seasons Hotel">
       </a>
 
-    </section>
 
+      <!-- BACK TO INVITATION -->
 
-    <a
-      href="#"
-      class="back-button back-to-details">
-      ♡ BACK TO INVITATION
-    </a>
+      <a
+        href="#the-details"
+        class="accommodations-back back-to-details"
+        aria-label="Back to invitation">
+      </a>
+
+    </div>
 
   </section>
 
@@ -611,7 +757,9 @@
     id="musicButton"
     type="button"
     aria-label="Play music">
+
     🎵
+
   </button>
 
 
@@ -630,7 +778,8 @@
 
       const now = Date.now();
 
-      const difference = weddingDate - now;
+      const difference =
+        weddingDate - now;
 
 
       if (difference <= 0) {
@@ -646,35 +795,46 @@
 
       const days =
         Math.floor(
-          difference / (1000 * 60 * 60 * 24)
+          difference /
+          (1000 * 60 * 60 * 24)
         );
 
 
       const hours =
         Math.floor(
-          (difference % (1000 * 60 * 60 * 24)) /
+          (difference %
+            (1000 * 60 * 60 * 24)) /
           (1000 * 60 * 60)
         );
 
 
       const minutes =
         Math.floor(
-          (difference % (1000 * 60 * 60)) /
+          (difference %
+            (1000 * 60 * 60)) /
           (1000 * 60)
         );
 
 
       const seconds =
         Math.floor(
-          (difference % (1000 * 60)) /
+          (difference %
+            (1000 * 60)) /
           1000
         );
 
 
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours;
-      document.getElementById("minutes").textContent = minutes;
-      document.getElementById("seconds").textContent = seconds;
+      document.getElementById("days").textContent =
+        days;
+
+      document.getElementById("hours").textContent =
+        hours;
+
+      document.getElementById("minutes").textContent =
+        minutes;
+
+      document.getElementById("seconds").textContent =
+        seconds;
 
     }
 
@@ -705,35 +865,12 @@
 
       });
 
-
-      /*
-        Return specifically to THE DETAILS,
-        not to the cover.
-      */
-
-      setTimeout(function() {
-
-        const details =
-          document.getElementById("the-details");
-
-        if (details) {
-
-          details.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-
-        }
-
-      }, 50);
-
     }
 
 
     function showSpecialPage(pageId) {
 
       mainInvitation.style.display = "none";
-
 
       specialPages.forEach(function(page) {
 
@@ -773,7 +910,6 @@
           function(event) {
 
             event.preventDefault();
-
 
             const pageId =
               this.getAttribute("data-page");
@@ -818,6 +954,26 @@
 
             showMainInvitation();
 
+
+            setTimeout(function() {
+
+              const details =
+                document.getElementById(
+                  "the-details"
+                );
+
+
+              if (details) {
+
+                details.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start"
+                });
+
+              }
+
+            }, 50);
+
           }
         );
 
@@ -825,7 +981,7 @@
 
 
     /* =========================
-       BROWSER BACK / FORWARD
+       LOAD PAGE FROM URL
        ========================= */
 
     function loadPageFromHash() {
@@ -863,30 +1019,7 @@
     );
 
 
-    /*
-      Only load a special page from the URL
-      if the visitor specifically has that hash.
-    */
-
-    if (
-      window.location.hash === "#event-schedule" ||
-      window.location.hash === "#dress-code" ||
-      window.location.hash === "#accommodations"
-    ) {
-
-      loadPageFromHash();
-
-    } else {
-
-      mainInvitation.style.display = "block";
-
-      specialPages.forEach(function(page) {
-
-        page.classList.remove("active");
-
-      });
-
-    }
+    loadPageFromHash();
 
 
     /* =========================
@@ -894,10 +1027,15 @@
        ========================= */
 
     const music =
-      document.getElementById("weddingMusic");
+      document.getElementById(
+        "weddingMusic"
+      );
+
 
     const musicButton =
-      document.getElementById("musicButton");
+      document.getElementById(
+        "musicButton"
+      );
 
 
     let musicPlaying = false;
@@ -1027,4 +1165,5 @@
   </script>
 
 </body>
+
 </html>
