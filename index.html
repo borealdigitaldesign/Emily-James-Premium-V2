@@ -1,571 +1,624 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emily & James | Wedding Invitation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-    box-sizing: border-box;
-}
+  <title>Emily & James | Wedding Invitation</title>
 
-html {
-    scroll-behavior: smooth;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-    margin: 0;
-    background: #f5eee8;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.invitation {
-    width: 100%;
-    max-width: 768px;
-    margin: 0 auto;
-    position: relative;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f7f3ef;
+      font-family: Georgia, "Times New Roman", serif;
+      overflow-x: hidden;
+    }
 
-.page {
-    position: relative;
-    width: 100%;
-}
+    .invitation {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+    }
 
-.page img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
+    .page {
+      width: 100%;
+      display: block;
+      position: relative;
+    }
 
-/* =========================
-   INTERACTIVE BUTTONS
-========================= */
+    .page img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-.hotspot {
-    position: absolute;
-    display: block;
-    cursor: pointer;
-    z-index: 20;
-    background: transparent;
-    border: none;
-}
+    /* =========================
+       MUSIC BUTTON
+       ========================= */
 
-/* The Details buttons */
+    #musicButton {
+      position: fixed;
+      right: 18px;
+      bottom: 22px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(126, 85, 73, 0.35);
+      background: rgba(255, 250, 247, 0.92);
+      color: #805b55;
+      font-size: 21px;
+      cursor: pointer;
+      z-index: 9999;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
 
-.details-schedule {
-    top: 16%;
-    left: 28%;
-    width: 18%;
-    height: 9%;
-}
+    #musicButton:active {
+      transform: scale(0.95);
+    }
 
-.details-dress {
-    top: 16%;
-    left: 48%;
-    width: 18%;
-    height: 9%;
-}
+    /* =========================
+       COUNTDOWN
+       ========================= */
 
-.details-hotel {
-    top: 16%;
-    left: 68%;
-    width: 18%;
-    height: 9%;
-}
+    .countdown-container {
+      background: #f7f3ef;
+      padding: 28px 18px 32px;
+      text-align: center;
+    }
 
-/* Gift Registry */
+    .countdown-title {
+      margin: 0 0 18px;
+      color: #805b55;
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
 
-.registry-button {
-    top: 72%;
-    left: 37%;
-    width: 38%;
-    height: 7%;
-}
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-/* RSVP */
+    .countdown-box {
+      min-width: 65px;
+      padding: 10px 7px;
+      background: rgba(255,255,255,0.75);
+      border: 1px solid #c7a28c;
+      border-radius: 8px;
+    }
 
-.rsvp-button {
-    top: 87%;
-    left: 39%;
-    width: 34%;
-    height: 7%;
-}
+    .countdown-number {
+      display: block;
+      font-size: 25px;
+      color: #805b55;
+      font-weight: bold;
+    }
 
-/* Map */
+    .countdown-label {
+      display: block;
+      margin-top: 3px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #6f625d;
+      text-transform: uppercase;
+    }
 
-.map-button {
-    top: 79%;
-    left: 38%;
-    width: 25%;
-    height: 9%;
-}
+    /* =========================
+       INTERACTIVE BUTTONS
+       ========================= */
 
-/* Back buttons */
+    .actions {
+      padding: 25px 18px 35px;
+      background: #f7f3ef;
+      text-align: center;
+    }
 
-.back-button {
-    bottom: 3%;
-    left: 25%;
-    width: 50%;
-    height: 7%;
-}
+    .action-button {
+      display: block;
+      width: 90%;
+      max-width: 360px;
+      margin: 11px auto;
+      padding: 13px 18px;
+      border: 1px solid #a98270;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.8);
+      color: #805b55;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 1px;
+      transition: 0.2s ease;
+    }
 
-/* =========================
-   COUNTDOWN
-========================= */
+    .action-button:hover {
+      background: #fff;
+      transform: translateY(-1px);
+    }
 
-.countdown {
-    position: absolute;
-    top: 36%;
-    left: 8%;
-    width: 84%;
-    display: flex;
-    justify-content: center;
-    gap: 7%;
-    text-align: center;
-    z-index: 10;
-    pointer-events: none;
-}
+    /* =========================
+       QR SECTION
+       ========================= */
 
-.countdown-item {
-    min-width: 16%;
-}
+    .qr-section {
+      background: #f7f3ef;
+      padding: 35px 20px 45px;
+      text-align: center;
+    }
 
-.countdown-number {
-    font-size: clamp(25px, 6vw, 48px);
-    color: #704128;
-    font-weight: 400;
-}
+    .qr-section h2 {
+      color: #805b55;
+      font-weight: normal;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
 
-.countdown-label {
-    font-size: clamp(9px, 2vw, 14px);
-    letter-spacing: 1px;
-    color: #704128;
-    margin-top: 3px;
-}
+    .qr-section p {
+      color: #6f625d;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
 
-/* =========================
-   MUSIC BUTTON
-========================= */
+    .qr-section img {
+      width: 220px;
+      max-width: 75%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
 
-.music-button {
-    position: fixed;
-    right: 18px;
-    bottom: 20px;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(173, 124, 116, 0.92);
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
-    z-index: 9999;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
+    /* =========================
+       MOBILE
+       ========================= */
 
-.music-button:hover {
-    transform: scale(1.05);
-}
+    @media (max-width: 600px) {
 
-/* =========================
-   MUSIC MESSAGE
-========================= */
+      .countdown-number {
+        font-size: 21px;
+      }
 
-.music-message {
-    position: fixed;
-    right: 18px;
-    bottom: 82px;
-    background: rgba(112, 65, 40, 0.92);
-    color: white;
-    padding: 10px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    z-index: 9998;
-    display: none;
-}
+      .countdown-box {
+        min-width: 58px;
+      }
 
-/* =========================
-   TALLY RSVP
-========================= */
-
-.rsvp-frame {
-    position: absolute;
-    top: 20%;
-    left: 18%;
-    width: 64%;
-    height: 38%;
-    z-index: 15;
-    border: none;
-    border-radius: 20px;
-    background: transparent;
-}
-
-/* Hide frame until Tally URL is added */
-.rsvp-frame.hidden {
-    display: none;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-    .music-button {
+      #musicButton {
         width: 48px;
         height: 48px;
         right: 14px;
-        bottom: 14px;
+        bottom: 16px;
+      }
     }
-
-    .music-message {
-        right: 14px;
-        bottom: 72px;
-    }
-}
-</style>
+  </style>
 </head>
 
 <body>
 
-<div class="invitation">
+  <div class="invitation">
 
     <!-- =========================
-         COVER
-    ========================== -->
+         INVITATION PAGES
+         ========================= -->
 
-    <section class="page" id="invitation">
-        <img src="portada.PNG" alt="Emily & James Wedding Invitation">
-    </section>
+    <div class="page">
+      <img src="portada.PNG" alt="Emily & James Wedding Invitation">
+    </div>
 
+    <div class="page">
+      <img src="our-story.PNG" alt="Our Story">
+    </div>
 
-    <!-- =========================
-         OUR STORY
-    ========================== -->
-
-    <section class="page">
-        <img src="our-story.PNG" alt="Our Story">
-    </section>
-
+    <div class="page">
+      <img src="our-day.PNG" alt="Our Day">
+    </div>
 
     <!-- =========================
-         OUR DAY
-    ========================== -->
+         COUNTDOWN
+         ========================= -->
 
-    <section class="page">
+    <section class="countdown-container">
 
-        <img src="our-day.PNG" alt="Our Day">
+      <h2 class="countdown-title">
+        WE CAN'T WAIT TO CELEBRATE WITH YOU
+      </h2>
 
-        <!-- LIVE COUNTDOWN -->
-        <div class="countdown">
+      <div class="countdown" id="countdown">
 
-            <div class="countdown-item">
-                <div class="countdown-number" id="days">00</div>
-                <div class="countdown-label">DAYS</div>
-            </div>
-
-            <div class="countdown-item">
-                <div class="countdown-number" id="hours">00</div>
-                <div class="countdown-label">HOURS</div>
-            </div>
-
-            <div class="countdown-item">
-                <div class="countdown-number" id="minutes">00</div>
-                <div class="countdown-label">MINUTES</div>
-            </div>
-
-            <div class="countdown-item">
-                <div class="countdown-number" id="seconds">00</div>
-                <div class="countdown-label">SECONDS</div>
-            </div>
-
+        <div class="countdown-box">
+          <span class="countdown-number" id="days">0</span>
+          <span class="countdown-label">Days</span>
         </div>
 
-        <!-- MAP BUTTON -->
-        <a
-            class="hotspot map-button"
-            href="https://www.google.com/maps/search/?api=1&query=The+Garden+Valley+1234+Flower+Way+Nashville+TN+37201"
-            target="_blank"
-            aria-label="View Map">
-        </a>
+        <div class="countdown-box">
+          <span class="countdown-number" id="hours">0</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+
+        <div class="countdown-box">
+          <span class="countdown-number" id="minutes">0</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+
+        <div class="countdown-box">
+          <span class="countdown-number" id="seconds">0</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+
+      </div>
 
     </section>
 
 
-    <!-- =========================
-         THE DETAILS
-    ========================== -->
+    <div class="page">
+      <img src="event-schedule.PNG" alt="Event Schedule">
+    </div>
 
-    <section class="page" id="details">
 
-        <img src="the-details.PNG" alt="Wedding Details">
+    <div class="page">
+      <img src="the-details.PNG" alt="The Details">
+    </div>
 
-        <!-- EVENT SCHEDULE -->
-        <a
-            class="hotspot details-schedule"
-            href="#event-schedule"
-            aria-label="Event Schedule">
-        </a>
 
-        <!-- DRESS CODE -->
-        <a
-            class="hotspot details-dress"
-            href="#dress-code"
-            aria-label="Dress Code">
-        </a>
-
-        <!-- ACCOMMODATIONS -->
-        <a
-            class="hotspot details-hotel"
-            href="#accommodations"
-            aria-label="Accommodations">
-        </a>
-
-        <!-- GIFT REGISTRY -->
-        <a
-            class="hotspot registry-button"
-            href="https://example.com"
-            target="_blank"
-            aria-label="View Registry">
-        </a>
-
-        <!-- RSVP -->
-        <a
-            class="hotspot rsvp-button"
-            href="#online-rsvp"
-            aria-label="Online RSVP">
-        </a>
-
-    </section>
+    <div class="page">
+      <img src="dress-code.PNG" alt="Dress Code">
+    </div>
 
 
     <!-- =========================
-         ONLINE RSVP
-    ========================== -->
+         ACTION BUTTONS
+         ========================= -->
 
-    <section class="page" id="online-rsvp">
+    <section class="actions">
 
-        <img src="online-rsvp.PNG" alt="Online RSVP">
-
-        <!--
-        TALLY FORM WILL GO HERE.
-        WE WILL ADD THE REAL TALLY URL AFTER YOU GIVE IT TO ME.
-        -->
-
-    </section>
-
-
-    <!-- =========================
-         GALLERY
-    ========================== -->
-
-    <section class="page">
-        <img src="gallery.PNG" alt="Wedding Gallery">
-    </section>
+      <a
+        class="action-button"
+        href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emily%20%26%20James%20Wedding&dates=20261128/20261129&location=The%20Garden%20Valley%2C%20Nashville%2C%20TN"
+        target="_blank"
+        rel="noopener">
+        ♡ ADD TO CALENDAR
+      </a>
 
 
-    <!-- =========================
-         EVENT SCHEDULE
-    ========================== -->
-
-    <section class="page" id="event-schedule">
-
-        <img src="event-schedule.PNG" alt="Event Schedule">
-
-        <a
-            class="hotspot back-button"
-            href="#details"
-            aria-label="Back to Invitation">
-        </a>
-
-    </section>
+      <a
+        class="action-button"
+        href="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic"
+        target="_blank"
+        rel="noopener">
+        ♡ VIEW MAP
+      </a>
 
 
-    <!-- =========================
-         DRESS CODE
-    ========================== -->
+      <a
+        class="action-button"
+        href="https://www.amazon.com/registries/gl/create?registryType=custom&ref_=ggr_emp_custom"
+        target="_blank"
+        rel="noopener">
+        ♡ VIEW REGISTRY
+      </a>
 
-    <section class="page" id="dress-code">
 
-        <img src="dress-code.PNG" alt="Dress Code">
+      <a
+        class="action-button"
+        href="mailto:mrs.lacunza@gmail.com">
+        ♡ RSVP BY EMAIL
+      </a>
 
-        <a
-            class="hotspot back-button"
-            href="#details"
-            aria-label="Back to Invitation">
-        </a>
+
+      <a
+        class="action-button"
+        href="sms:+19316192063">
+        ♡ TEXT TO RSVP
+      </a>
+
+
+      <a
+        class="action-button"
+        href="https://tally.so/r/Eko7lr"
+        target="_blank"
+        rel="noopener">
+        ♡ ONLINE RSVP
+      </a>
 
     </section>
 
 
     <!-- =========================
          ACCOMMODATIONS
-    ========================== -->
+         ========================= -->
 
-    <section class="page" id="accommodations">
+    <div class="page">
+      <img src="accommodations.PNG" alt="Accommodations">
+    </div>
 
-        <img src="accommodations.PNG" alt="Accommodations">
 
-        <a
-            class="hotspot back-button"
-            href="#details"
-            aria-label="Back to Invitation">
-        </a>
+    <section class="actions">
+
+      <a
+        class="action-button"
+        href="https://maps.app.goo.gl/GvNDmyotaz6X3fBw8?g_st=ic"
+        target="_blank"
+        rel="noopener">
+        ♡ COURTYARD HOTEL
+      </a>
+
+
+      <a
+        class="action-button"
+        href="https://maps.app.goo.gl/dV8X18uiQC9rwmor6?g_st=ic"
+        target="_blank"
+        rel="noopener">
+        ♡ HILTON HOTEL
+      </a>
+
+
+      <a
+        class="action-button"
+        href="https://maps.app.goo.gl/bZVu7zGhxoazHQs76?g_st=ic"
+        target="_blank"
+        rel="noopener">
+        ♡ FOUR SEASONS HOTEL
+      </a>
+
+    </section>
+
+
+    <!-- =========================
+         GALLERY
+         ========================= -->
+
+    <div class="page">
+      <img src="gallery.PNG" alt="Gallery">
+    </div>
+
+
+    <!-- =========================
+         ONLINE RSVP
+         ========================= -->
+
+    <div class="page">
+      <img src="online-rsvp.PNG" alt="Online RSVP">
+    </div>
+
+
+    <!-- =========================
+         QR FOR PHOTOS
+         ========================= -->
+
+    <section class="qr-section">
+
+      <h2>SHARE YOUR PHOTOS</h2>
+
+      <p>
+        Scan the QR code to share your favorite moments with us.
+      </p>
+
+      <img
+        src="qr-photos.png"
+        alt="QR Code for Wedding Photos">
 
     </section>
 
 
     <!-- =========================
          END
-    ========================== -->
+         ========================= -->
 
-    <section class="page">
-        <img src="end.PNG" alt="Thank You">
-    </section>
+    <div class="page">
+      <img src="end.PNG" alt="Thank You">
+    </div>
 
-</div>
+  </div>
 
 
-<!-- =========================
-     MUSIC
-========================== -->
+  <!-- =========================
+       MUSIC
+       ========================= -->
 
-<audio id="weddingMusic" loop preload="auto">
-    <!--
-    WE WILL ADD THE MUSIC FILE HERE.
-    Example:
-    <source src="wedding-song.mp3" type="audio/mpeg">
-    -->
-</audio>
+  <audio id="weddingMusic" loop preload="auto">
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
 
-<button
+  <button
     id="musicButton"
-    class="music-button"
+    type="button"
     aria-label="Pause or play music">
-    ♪
-</button>
-
-<div id="musicMessage" class="music-message">
-    Tap ♪ to play music
-</div>
+    🎵
+  </button>
 
 
-<script>
+  <script>
 
-/* =========================
-   COUNTDOWN
-========================= */
+    /* =========================
+       COUNTDOWN
+       ========================= */
 
-const weddingDate = new Date("November 28, 2026 16:00:00").getTime();
+    const weddingDate = new Date("November 28, 2026 00:00:00").getTime();
 
-function updateCountdown() {
+    function updateCountdown() {
 
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
+      const now = new Date().getTime();
 
-    if (distance <= 0) {
+      const difference = weddingDate - now;
 
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
+      if (difference <= 0) {
+
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
 
         return;
+      }
+
+      const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+      );
+
+      const hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (difference % (1000 * 60 * 60)) /
+        (1000 * 60)
+      );
+
+      const seconds = Math.floor(
+        (difference % (1000 * 60)) /
+        1000
+      );
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
-    );
+    updateCountdown();
 
-    const minutes = Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
-    );
-
-    const seconds = Math.floor(
-        (distance % (1000 * 60))
-        / 1000
-    );
-
-    document.getElementById("days").textContent =
-        String(days).padStart(2, "0");
-
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
-    document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-
-    document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
-}
-
-updateCountdown();
-
-setInterval(updateCountdown, 1000);
+    setInterval(updateCountdown, 1000);
 
 
-/* =========================
-   MUSIC
-========================= */
+    /* =========================
+       MUSIC PLAYER
+       ========================= */
 
-const music = document.getElementById("weddingMusic");
-const musicButton = document.getElementById("musicButton");
-const musicMessage = document.getElementById("musicMessage");
+    const music = document.getElementById("weddingMusic");
+    const musicButton = document.getElementById("musicButton");
 
-let musicStarted = false;
+    let musicPlaying = false;
 
 
-/*
-Browsers may block automatic audio playback
-until the visitor interacts with the page.
-*/
+    function updateMusicButton() {
 
-window.addEventListener("load", () => {
+      if (musicPlaying) {
+        musicButton.textContent = "⏸";
+        musicButton.setAttribute(
+          "aria-label",
+          "Pause music"
+        );
+      } else {
+        musicButton.textContent = "🎵";
+        musicButton.setAttribute(
+          "aria-label",
+          "Play music"
+        );
+      }
 
-    music.play()
+    }
+
+
+    function startMusic() {
+
+      music.play()
         .then(() => {
 
-            musicStarted = true;
-            musicButton.textContent = "Ⅱ";
+          musicPlaying = true;
+
+          updateMusicButton();
 
         })
         .catch(() => {
 
-            musicMessage.style.display = "block";
+          /*
+            Some mobile browsers block
+            automatic audio playback.
+          */
 
-            setTimeout(() => {
-                musicMessage.style.display = "none";
-            }, 5000);
+          musicPlaying = false;
+
+          updateMusicButton();
 
         });
 
-});
+    }
 
 
-musicButton.addEventListener("click", () => {
+    musicButton.addEventListener("click", function () {
 
-    if (music.paused) {
+      if (music.paused) {
 
-        music.play();
+        music.play()
+          .then(() => {
 
-        musicButton.textContent = "Ⅱ";
+            musicPlaying = true;
 
-    } else {
+            updateMusicButton();
+
+          });
+
+      } else {
 
         music.pause();
 
-        musicButton.textContent = "♪";
+        musicPlaying = false;
 
-    }
+        updateMusicButton();
 
-});
+      }
 
-</script>
+    });
+
+
+    /*
+      Try to start the music automatically
+      when the invitation opens.
+    */
+
+    window.addEventListener("load", function () {
+
+      startMusic();
+
+    });
+
+
+    /*
+      Some browsers allow playback after
+      the visitor first touches the page.
+    */
+
+    document.addEventListener(
+      "click",
+      function startAfterInteraction() {
+
+        if (music.paused) {
+
+          music.play()
+            .then(() => {
+
+              musicPlaying = true;
+
+              updateMusicButton();
+
+            })
+            .catch(() => {});
+
+        }
+
+        document.removeEventListener(
+          "click",
+          startAfterInteraction
+        );
+
+      },
+      { once: true }
+    );
+
+
+    updateMusicButton();
+
+  </script>
 
 </body>
 </html>
