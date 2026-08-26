@@ -778,18 +778,6 @@ body {
    SOFT BUTTON ATTENTION
 ========================================================= */
 
-/*
-   EFECTO OPCIÓN 2:
-
-   Los botones NO se mueven.
-   No usamos scale().
-   No modificamos transform.
-
-   Solamente cambia suavemente la sombra
-   para dar una sensación muy ligera de
-   que el botón está "vivo" y llama la atención.
-*/
-
 .our-day-button,
 .details-button,
 .hotel-button,
@@ -841,14 +829,6 @@ body {
 /* =========================================================
    BUTTON PRESS
 ========================================================= */
-
-/*
-   Al tocar el botón NO modificamos su transform,
-   por lo que nunca se mueve de su posición.
-
-   Solamente cambia ligeramente la sombra
-   y el fondo.
-*/
 
 .our-day-button:active,
 .details-button:active,
@@ -1253,6 +1233,8 @@ body {
 
 .tally-card {
 
+  position: relative;
+
   width: 92%;
 
   max-width: 426px;
@@ -1302,6 +1284,84 @@ body {
   border-radius: 12px;
 
   background: transparent;
+}
+
+
+/* =========================================================
+   TALLY BRANDING COVER
+   Decorative overlay to visually hide the Tally badge
+========================================================= */
+
+.tally-branding-cover {
+
+  position: absolute;
+
+  right: 9px;
+
+  bottom: 9px;
+
+  width: 58px;
+
+  height: 58px;
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  pointer-events: none;
+
+  border-radius: 14px;
+
+  background:
+    #f7f3ef;
+
+  border:
+    1px solid
+    #e3d7ce;
+
+  box-shadow:
+    0 2px 8px
+    rgba(
+      126,
+      85,
+      73,
+      .08
+    );
+
+}
+
+
+/* =========================================================
+   LITTLE FLOWER
+========================================================= */
+
+.tally-branding-cover::before {
+
+  content: "✿";
+
+  display: block;
+
+  color: #a98270;
+
+  font-size: 27px;
+
+  line-height: 1;
+
+  transform:
+    translateY(-1px);
+
+  text-shadow:
+    0 1px 2px
+    rgba(
+      126,
+      85,
+      73,
+      .10
+    );
 }
 
 
@@ -1504,6 +1564,24 @@ body {
     height: 550px;
 
     border-radius: 10px;
+  }
+
+  .tally-branding-cover {
+
+    right: 8px;
+
+    bottom: 8px;
+
+    width: 54px;
+
+    height: 54px;
+
+    border-radius: 13px;
+  }
+
+  .tally-branding-cover::before {
+
+    font-size: 25px;
   }
 
 }
@@ -1919,6 +1997,14 @@ body {
           title="Emily & James Online RSVP">
 
         </iframe>
+
+
+        <!-- DECORATION OVER TALLY BRANDING -->
+
+        <div
+          class="tally-branding-cover"
+          aria-hidden="true">
+        </div>
 
       </div>
 
