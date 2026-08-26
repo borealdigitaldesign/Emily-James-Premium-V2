@@ -254,34 +254,63 @@ body {
 
 
 /* =========================================================
-   PAGE ANIMATIONS
+   SCROLL REVEAL ANIMATIONS
+   REVEAL FROM TOP TO BOTTOM
 ========================================================= */
 
-.page,
+/*
+   The Cover has its own special animation.
+
+   Everything from OUR STORY onward uses a
+   top-to-bottom reveal.
+
+   clip-path hides the bottom of the section and
+   progressively reveals it downward.
+*/
+
+.page:not(.cover-page),
 .our-day-section,
 .details-section,
 .tally-section {
 
   opacity: 0;
 
+  clip-path:
+    inset(
+      0 0 100% 0
+    );
+
   transform:
-    translateY(45px);
+    translateY(0);
 
   transition:
-    opacity 1.1s ease,
-    transform 1.1s cubic-bezier(.22, 1, .36, 1);
+    clip-path 1.25s
+    cubic-bezier(.22, 1, .36, 1),
+
+    opacity .65s
+    ease;
 
   will-change:
-    opacity,
-    transform;
+    clip-path,
+    opacity;
 }
 
-.page.visible,
+
+/* =========================================================
+   SECTION VISIBLE
+========================================================= */
+
+.page:not(.cover-page).visible,
 .our-day-section.visible,
 .details-section.visible,
 .tally-section.visible {
 
   opacity: 1;
+
+  clip-path:
+    inset(
+      0 0 0 0
+    );
 
   transform:
     translateY(0);
@@ -308,25 +337,6 @@ body {
 .page.cover-page.cover-visible {
 
   opacity: 1;
-
-  transform:
-    translateY(0)
-    scale(1);
-}
-
-
-/* =========================================================
-   SOFT VARIATIONS
-========================================================= */
-
-.page:nth-child(2) {
-
-  transform:
-    translateY(55px)
-    scale(.985);
-}
-
-.page:nth-child(2).visible {
 
   transform:
     translateY(0)
@@ -2798,6 +2808,16 @@ function activateScrollAnimations() {
                 "visible"
               );
 
+              /*
+                 Once revealed, the section stays
+                 visible. This prevents flickering
+                 when the guest scrolls back up.
+              */
+
+              observer.unobserve(
+                entry.target
+              );
+
             }
 
           }
@@ -2806,10 +2826,10 @@ function activateScrollAnimations() {
       },
 
       {
-        threshold: 0.12,
+        threshold: 0.10,
 
         rootMargin:
-          "0px 0px -60px 0px"
+          "0px 0px -80px 0px"
       }
 
     );
