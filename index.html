@@ -1221,13 +1221,13 @@ body {
    MAP / HOTEL POPUP
 ========================================================= */
 
-.map-popup {
+.map-modal {
 
   position: fixed;
 
   inset: 0;
 
-  z-index: 20000;
+  z-index: 30000;
 
   display: flex;
 
@@ -1239,17 +1239,17 @@ body {
 
   background:
     rgba(
-      55,
-      43,
+      45,
       38,
-      .45
+      35,
+      .58
     );
 
   backdrop-filter:
-    blur(5px);
+    blur(7px);
 
   -webkit-backdrop-filter:
-    blur(5px);
+    blur(7px);
 
   opacity: 0;
 
@@ -1262,7 +1262,7 @@ body {
     visibility .35s ease;
 }
 
-.map-popup.active {
+.map-modal.active {
 
   opacity: 1;
 
@@ -1271,96 +1271,163 @@ body {
   pointer-events: auto;
 }
 
-.map-popup-card {
+
+.map-modal-card {
 
   position: relative;
 
-  width: min(
-    100%,
-    360px
-  );
+  width: min(92vw, 620px);
 
-  padding:
-    30px
-    24px
-    24px;
+  max-height: 90vh;
 
-  background:
-    rgba(
-      255,
-      252,
-      249,
-      .97
-    );
+  overflow: hidden;
+
+  background: #fdfaf7;
 
   border:
     1px solid
     #c7a28c;
 
-  border-radius: 22px;
+  border-radius: 28px;
 
   box-shadow:
-    0 12px 40px
+    0 18px 50px
     rgba(
-      80,
-      55,
-      45,
+      0,
+      0,
+      0,
       .25
     );
 
-  text-align: center;
-
   transform:
-    translateY(20px)
+    translateY(25px)
     scale(.96);
 
   transition:
-    transform .4s
+    transform .45s
     cubic-bezier(.22, 1, .36, 1);
+
+  text-align: center;
 }
 
-.map-popup.active .map-popup-card {
+.map-modal.active
+.map-modal-card {
 
   transform:
     translateY(0)
     scale(1);
 }
 
-.map-popup-close {
+
+/* =========================================================
+   POPUP CLOSE X
+========================================================= */
+
+.map-modal-close {
 
   position: absolute;
 
-  top: 9px;
+  top: 14px;
 
-  right: 13px;
+  right: 16px;
 
-  width: 32px;
+  z-index: 10;
 
-  height: 32px;
+  width: 40px;
+
+  height: 40px;
 
   border: none;
 
-  background: transparent;
+  background:
+    rgba(
+      253,
+      250,
+      247,
+      .88
+    );
 
   color: #805b55;
 
-  font-size: 25px;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  line-height: 1;
+  font-size: 30px;
+
+  line-height: 38px;
 
   cursor: pointer;
 
+  border-radius: 50%;
+
   -webkit-tap-highlight-color:
     transparent;
+
+  transition:
+    transform .2s ease,
+    background .2s ease;
 }
 
-.map-popup-icon {
+.map-modal-close:hover {
 
-  width: 52px;
+  background: #fff;
 
-  height: 52px;
+  transform:
+    scale(1.05);
+}
 
-  margin: 0 auto 14px;
+.map-modal-close:active {
+
+  transform:
+    scale(.92);
+}
+
+
+/* =========================================================
+   MAP PREVIEW
+========================================================= */
+
+.map-preview {
+
+  width: 100%;
+
+  height: 245px;
+
+  border: none;
+
+  display: block;
+
+  background: #eee7e1;
+}
+
+
+/* =========================================================
+   POPUP CONTENT
+========================================================= */
+
+.map-modal-content {
+
+  padding:
+    24px
+    25px
+    27px;
+}
+
+.map-modal-icon {
+
+  width: 62px;
+
+  height: 62px;
+
+  margin:
+    -55px
+    auto 13px;
+
+  position: relative;
+
+  z-index: 5;
 
   display: flex;
 
@@ -1368,24 +1435,30 @@ body {
 
   justify-content: center;
 
-  border-radius: 50%;
-
-  background:
-    #f4e8df;
-
   border:
     1px solid
-    #d9bba8;
+    #d8b8a3;
 
-  color: #805b55;
+  border-radius: 50%;
 
-  font-size: 23px;
+  background: #f8eee7;
+
+  font-size: 29px;
+
+  box-shadow:
+    0 3px 10px
+    rgba(
+      126,
+      85,
+      73,
+      .10
+    );
 }
 
-.map-popup-title {
+.map-modal-title {
 
   margin:
-    0 0 8px;
+    0 0 10px;
 
   color: #805b55;
 
@@ -1394,118 +1467,93 @@ body {
     "Times New Roman",
     serif;
 
-  font-size: 18px;
-
-  letter-spacing: 1px;
+  font-size: 26px;
 
   font-weight: normal;
+
+  letter-spacing: .5px;
 }
 
-.map-popup-text {
+.map-modal-description {
 
   margin:
-    0 auto 20px;
+    0 auto 22px;
 
-  max-width: 280px;
+  max-width: 470px;
 
   color: #6f625d;
 
-  font-size: 11px;
+  font-size: 15px;
 
   line-height: 1.6;
-
-  letter-spacing: .3px;
 }
 
-.map-popup-button {
+
+/* =========================================================
+   OPEN MAP BUTTON
+========================================================= */
+
+.map-open-button {
 
   display: block;
 
   width: 100%;
 
   padding:
-    10px
-    14px;
-
-  margin:
-    0 auto 10px;
+    13px
+    16px;
 
   border:
     1px solid
     #a98270;
 
-  border-radius: 25px;
+  border-radius: 30px;
 
-  background:
-    #fff;
+  background: #fff;
 
   color: #805b55;
 
   text-decoration: none;
 
-  font-size: 9px;
+  font-size: 11px;
 
-  letter-spacing: 1.2px;
+  letter-spacing: 1.8px;
 
   text-align: center;
 
   box-shadow:
-    0 3px 10px
-    rgba(
-      0,
-      0,
-      0,
-      .08
-    );
-
-  cursor: pointer;
-
-  transition:
-    background .25s ease,
-    box-shadow .25s ease;
-}
-
-.map-popup-button:hover {
-
-  background:
-    #f9f2ed;
-
-  box-shadow:
-    0 5px 14px
+    0 4px 14px
     rgba(
       126,
       85,
       73,
-      .15
+      .10
+    );
+
+  transition:
+    background .25s ease,
+    box-shadow .25s ease,
+    transform .2s ease;
+}
+
+.map-open-button:hover {
+
+  background: #fdf7f3;
+
+  box-shadow:
+    0 5px 17px
+    rgba(
+      126,
+      85,
+      73,
+      .18
     );
 }
 
-.map-popup-cancel {
+.map-open-button:active {
 
-  display: block;
-
-  width: 100%;
-
-  padding:
-    8px
-    12px;
-
-  border: none;
-
-  background: transparent;
-
-  color: #8b7770;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: 9px;
-
-  letter-spacing: 1px;
-
-  cursor: pointer;
+  transform:
+    scale(.98);
 }
 
 
@@ -1834,26 +1882,69 @@ body {
     top: 76.18%;
   }
 
-  .map-popup {
+  /* MAP POPUP */
 
-    padding: 18px;
-  }
-
-  .map-popup-card {
-
-    width: 100%;
-
-    max-width: 330px;
+  .map-modal {
 
     padding:
-      28px
-      20px
-      22px;
+      15px;
   }
 
-  .map-popup-title {
+  .map-modal-card {
 
-    font-size: 17px;
+    width: 94vw;
+
+    max-height: 88vh;
+
+    border-radius: 24px;
+  }
+
+  .map-preview {
+
+    height: 210px;
+  }
+
+  .map-modal-content {
+
+    padding:
+      22px
+      20px
+      24px;
+  }
+
+  .map-modal-icon {
+
+    width: 56px;
+
+    height: 56px;
+
+    margin:
+      -49px
+      auto 11px;
+
+    font-size: 26px;
+  }
+
+  .map-modal-title {
+
+    font-size: 23px;
+  }
+
+  .map-modal-description {
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    margin-bottom: 19px;
+  }
+
+  .map-open-button {
+
+    font-size: 10px;
+
+    padding:
+      12px 10px;
   }
 
   #musicButton {
@@ -2188,8 +2279,11 @@ body {
 
       <button
         type="button"
-        class="our-day-button our-day-map popup-trigger"
-        data-popup-type="map">
+        class="our-day-button our-day-map map-popup-trigger"
+        data-title="The Garden Valley"
+        data-description="View the wedding location and directions in Google Maps."
+        data-map="https://www.google.com/maps?q=The+Garden+Valley,+Nashville,+TN&output=embed"
+        data-url="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic">
 
         VIEW MAP
 
@@ -2416,10 +2510,10 @@ body {
 
     <button
       type="button"
-      class="hotel-button hotel-courtyard popup-trigger"
-      data-popup-type="hotel"
-      data-title="Courtyard by Marriott"
-      data-text="View the hotel location and directions in Google Maps."
+      class="hotel-button hotel-courtyard map-popup-trigger"
+      data-title="Courtyard Nashville Downtown"
+      data-description="View the hotel location and directions in Google Maps."
+      data-map="https://www.google.com/maps?q=Courtyard+Nashville+Downtown,+Nashville,+TN&output=embed"
       data-url="https://maps.app.goo.gl/GvNDmyotaz6X3fBw8?g_st=ic">
 
       VIEW HOTEL
@@ -2431,10 +2525,10 @@ body {
 
     <button
       type="button"
-      class="hotel-button hotel-hilton popup-trigger"
-      data-popup-type="hotel"
-      data-title="Hilton"
-      data-text="View the hotel location and directions in Google Maps."
+      class="hotel-button hotel-hilton map-popup-trigger"
+      data-title="Hilton Nashville Downtown"
+      data-description="View the hotel location and directions in Google Maps."
+      data-map="https://www.google.com/maps?q=Hilton+Nashville+Downtown,+Nashville,+TN&output=embed"
       data-url="https://maps.app.goo.gl/dV8X18uiQC9rwmor6?g_st=ic">
 
       VIEW HOTEL
@@ -2446,10 +2540,10 @@ body {
 
     <button
       type="button"
-      class="hotel-button hotel-four-seasons popup-trigger"
-      data-popup-type="hotel"
-      data-title="Four Seasons"
-      data-text="View the hotel location and directions in Google Maps."
+      class="hotel-button hotel-four-seasons map-popup-trigger"
+      data-title="Four Seasons Nashville"
+      data-description="View the hotel location and directions in Google Maps."
+      data-map="https://www.google.com/maps?q=Four+Seasons+Nashville,+Nashville,+TN&output=embed"
       data-url="https://maps.app.goo.gl/bZVu7zGhxoazHQs76?g_st=ic">
 
       VIEW HOTEL
@@ -2477,20 +2571,22 @@ body {
 ========================================================= -->
 
 <div
-  id="mapPopup"
-  class="map-popup"
+  id="mapModal"
+  class="map-modal"
   aria-hidden="true">
 
   <div
-    class="map-popup-card"
+    class="map-modal-card"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="mapPopupTitle">
+    aria-labelledby="mapModalTitle">
+
+    <!-- ONLY CLOSE CONTROL -->
 
     <button
       type="button"
-      class="map-popup-close"
-      id="mapPopupClose"
+      class="map-modal-close"
+      id="mapModalClose"
       aria-label="Close">
 
       ×
@@ -2498,53 +2594,61 @@ body {
     </button>
 
 
-    <div
-      class="map-popup-icon"
-      id="mapPopupIcon">
+    <!-- GOOGLE MAP PREVIEW -->
 
-      📍
+    <iframe
+      id="mapPreview"
+      class="map-preview"
+      loading="lazy"
+      title="Location map">
+
+    </iframe>
+
+
+    <!-- POPUP CONTENT -->
+
+    <div
+      class="map-modal-content">
+
+      <div
+        class="map-modal-icon"
+        aria-hidden="true">
+
+        📍
+
+      </div>
+
+
+      <h2
+        id="mapModalTitle"
+        class="map-modal-title">
+
+        Location
+
+      </h2>
+
+
+      <p
+        id="mapModalDescription"
+        class="map-modal-description">
+
+        View the location and directions in Google Maps.
+
+      </p>
+
+
+      <a
+        id="mapOpenButton"
+        class="map-open-button"
+        href="#"
+        target="_blank"
+        rel="noopener">
+
+        OPEN IN GOOGLE MAPS
+
+      </a>
 
     </div>
-
-
-    <h2
-      class="map-popup-title"
-      id="mapPopupTitle">
-
-      VIEW LOCATION
-
-    </h2>
-
-
-    <p
-      class="map-popup-text"
-      id="mapPopupText">
-
-      View the location and directions in Google Maps.
-
-    </p>
-
-
-    <a
-      href="#"
-      id="mapPopupOpen"
-      class="map-popup-button"
-      target="_blank"
-      rel="noopener">
-
-      OPEN IN GOOGLE MAPS
-
-    </a>
-
-
-    <button
-      type="button"
-      class="map-popup-cancel"
-      id="mapPopupCancel">
-
-      CLOSE
-
-    </button>
 
   </div>
 
@@ -3051,211 +3155,6 @@ document
 
 
 /* =========================================================
-   MAP / HOTEL POPUP
-========================================================= */
-
-const mapPopup =
-  document.getElementById(
-    "mapPopup"
-  );
-
-const mapPopupTitle =
-  document.getElementById(
-    "mapPopupTitle"
-  );
-
-const mapPopupText =
-  document.getElementById(
-    "mapPopupText"
-  );
-
-const mapPopupOpen =
-  document.getElementById(
-    "mapPopupOpen"
-  );
-
-const mapPopupIcon =
-  document.getElementById(
-    "mapPopupIcon"
-  );
-
-const mapPopupClose =
-  document.getElementById(
-    "mapPopupClose"
-  );
-
-const mapPopupCancel =
-  document.getElementById(
-    "mapPopupCancel"
-  );
-
-
-function openMapPopup(
-  title,
-  text,
-  url,
-  type
-) {
-
-  mapPopupTitle.textContent =
-    title;
-
-  mapPopupText.textContent =
-    text;
-
-  mapPopupOpen.href =
-    url;
-
-
-  if (type === "map") {
-
-    mapPopupIcon.textContent =
-      "📍";
-
-  }
-
-  else {
-
-    mapPopupIcon.textContent =
-      "🏨";
-
-  }
-
-
-  mapPopup.classList.add(
-    "active"
-  );
-
-  mapPopup.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-
-
-  document.body.style.overflow =
-    "hidden";
-
-}
-
-
-function closeMapPopup() {
-
-  mapPopup.classList.remove(
-    "active"
-  );
-
-  mapPopup.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-
-  document.body.style.overflow =
-    "";
-
-}
-
-
-document
-  .querySelectorAll(
-    ".popup-trigger"
-  )
-  .forEach(
-    function(button) {
-
-      button.addEventListener(
-        "click",
-        function() {
-
-          const type =
-            this.getAttribute(
-              "data-popup-type"
-            );
-
-
-          if (type === "map") {
-
-            openMapPopup(
-              "THE GARDEN VALLEY",
-              "View the wedding venue location and directions in Google Maps.",
-              "https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic",
-              "map"
-            );
-
-          }
-
-          else {
-
-            openMapPopup(
-              this.getAttribute(
-                "data-title"
-              ),
-              this.getAttribute(
-                "data-text"
-              ),
-              this.getAttribute(
-                "data-url"
-              ),
-              "hotel"
-            );
-
-          }
-
-        }
-      );
-
-    }
-  );
-
-
-mapPopupClose.addEventListener(
-  "click",
-  closeMapPopup
-);
-
-
-mapPopupCancel.addEventListener(
-  "click",
-  closeMapPopup
-);
-
-
-mapPopup.addEventListener(
-  "click",
-  function(event) {
-
-    if (
-      event.target === mapPopup
-    ) {
-
-      closeMapPopup();
-
-    }
-
-  }
-);
-
-
-document.addEventListener(
-  "keydown",
-  function(event) {
-
-    if (
-      event.key === "Escape" &&
-      mapPopup.classList.contains(
-        "active"
-      )
-    ) {
-
-      closeMapPopup();
-
-    }
-
-  }
-);
-
-
-/* =========================================================
    LOAD PAGE FROM HASH
 ========================================================= */
 
@@ -3373,6 +3272,165 @@ if (
   loadPageFromHash();
 
 }
+
+
+/* =========================================================
+   MAP / HOTEL POPUP
+========================================================= */
+
+const mapModal =
+  document.getElementById(
+    "mapModal"
+  );
+
+const mapModalClose =
+  document.getElementById(
+    "mapModalClose"
+  );
+
+const mapModalTitle =
+  document.getElementById(
+    "mapModalTitle"
+  );
+
+const mapModalDescription =
+  document.getElementById(
+    "mapModalDescription"
+  );
+
+const mapPreview =
+  document.getElementById(
+    "mapPreview"
+  );
+
+const mapOpenButton =
+  document.getElementById(
+    "mapOpenButton"
+  );
+
+
+/* =========================================================
+   OPEN MAP POPUP
+========================================================= */
+
+document
+  .querySelectorAll(
+    ".map-popup-trigger"
+  )
+  .forEach(
+    function(button) {
+
+      button.addEventListener(
+        "click",
+        function() {
+
+          const title =
+            this.getAttribute(
+              "data-title"
+            );
+
+          const description =
+            this.getAttribute(
+              "data-description"
+            );
+
+          const map =
+            this.getAttribute(
+              "data-map"
+            );
+
+          const url =
+            this.getAttribute(
+              "data-url"
+            );
+
+
+          mapModalTitle.textContent =
+            title;
+
+          mapModalDescription.textContent =
+            description;
+
+          mapPreview.src =
+            map;
+
+          mapOpenButton.href =
+            url;
+
+
+          mapModal.classList.add(
+            "active"
+          );
+
+          mapModal.setAttribute(
+            "aria-hidden",
+            "false"
+          );
+
+
+          document.body.style.overflow =
+            "hidden";
+
+        }
+      );
+
+    }
+  );
+
+
+/* =========================================================
+   CLOSE MAP POPUP
+========================================================= */
+
+function closeMapModal() {
+
+  mapModal.classList.remove(
+    "active"
+  );
+
+  mapModal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  mapPreview.src =
+    "";
+
+
+  document.body.style.overflow =
+    "";
+
+}
+
+
+mapModalClose.addEventListener(
+  "click",
+  closeMapModal
+);
+
+
+/* =========================================================
+   ESC KEY CLOSE
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key === "Escape" &&
+      mapModal.classList.contains(
+        "active"
+      )
+    ) {
+
+      closeMapModal();
+
+    }
+
+  }
+);
 
 
 /* =========================================================
