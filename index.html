@@ -429,12 +429,6 @@ body {
   -webkit-tap-highlight-color:
     transparent;
 
-  /*
-     IMPORTANTE:
-     El transform de posición se mantiene
-     separado del efecto visual.
-  */
-
   transition:
     background .25s ease,
     box-shadow .25s ease,
@@ -781,38 +775,43 @@ body {
 
 
 /* =========================================================
-   BUTTON ATTENTION EFFECT
+   SOFT BUTTON ATTENTION
 ========================================================= */
+
+/*
+   IMPORTANTE:
+
+   NO se anima el transform del botón porque
+   transform contiene su posición.
+
+   En lugar de hacer brightness() o scale()
+   sobre el botón, solamente hacemos respirar
+   ligeramente la sombra.
+
+   Esto mantiene los botones completamente
+   quietos en su posición.
+*/
 
 .our-day-button,
 .details-button,
 .hotel-button,
 .back-button {
 
-  /*
-     El botón hace un pequeño "latido"
-     sin cambiar su posición.
-  */
-
   animation:
-    buttonAttention 3.2s
+    buttonSoftPulse 4.8s
     ease-in-out
     infinite;
 }
 
 
 /* =========================================================
-   "HEY, I'M HERE" EFFECT
+   SOFT PULSE
 ========================================================= */
 
-@keyframes buttonAttention {
+@keyframes buttonSoftPulse {
 
   0%,
-  72%,
   100% {
-
-    filter:
-      brightness(1);
 
     box-shadow:
       0 3px 10px
@@ -825,50 +824,15 @@ body {
 
   }
 
-  76% {
-
-    filter:
-      brightness(1.06);
+  50% {
 
     box-shadow:
-      0 4px 13px
+      0 4px 14px
       rgba(
         126,
         85,
         73,
-        .15
-      );
-
-  }
-
-  80% {
-
-    filter:
-      brightness(1.12);
-
-    box-shadow:
-      0 6px 18px
-      rgba(
-        126,
-        85,
-        73,
-        .22
-      );
-
-  }
-
-  84% {
-
-    filter:
-      brightness(1.04);
-
-    box-shadow:
-      0 4px 13px
-      rgba(
-        126,
-        85,
-        73,
-        .15
+        .17
       );
 
   }
@@ -880,6 +844,14 @@ body {
    BUTTON PRESS
 ========================================================= */
 
+/*
+   Al tocar el botón NO modificamos su transform,
+   por lo que nunca se mueve de su posición.
+
+   Solamente cambia ligeramente la sombra
+   y el fondo.
+*/
+
 .our-day-button:active,
 .details-button:active,
 .hotel-button:active,
@@ -887,56 +859,25 @@ body {
 
   animation: none;
 
-  filter:
-    brightness(.97);
+  background:
+    rgba(
+      250,
+      246,
+      243,
+      .98
+    );
 
   box-shadow:
-    0 2px 5px
+    0 2px 6px
     rgba(
       126,
       85,
       73,
-      .12
+      .14
     );
 
-}
-
-
-/*
-   El efecto de "apretar" se hace mediante
-   pseudo-elemento para no romper el
-   translate() que posiciona cada botón.
-*/
-
-.our-day-button::after,
-.details-button::after,
-.hotel-button::after,
-.back-button::after {
-
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  border-radius: inherit;
-
-  pointer-events: none;
-
-  transition:
-    transform .12s ease,
-    opacity .12s ease;
-}
-
-.our-day-button:active::after,
-.details-button:active::after,
-.hotel-button:active::after,
-.back-button:active::after {
-
-  transform:
-    scale(.94);
-
-  opacity: .55;
+  filter:
+    brightness(.98);
 }
 
 
@@ -1151,6 +1092,21 @@ body {
     background .25s ease,
     box-shadow .25s ease,
     filter .25s ease;
+}
+
+.hotel-button:hover {
+
+  background: #fff;
+
+  box-shadow:
+    0 5px 16px
+    rgba(
+      126,
+      85,
+      73,
+      .20
+    );
+
 }
 
 .hotel-courtyard {
