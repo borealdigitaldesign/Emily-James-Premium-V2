@@ -1218,6 +1218,298 @@ body {
 
 
 /* =========================================================
+   MAP / HOTEL POPUP
+========================================================= */
+
+.map-popup {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 20000;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    rgba(
+      55,
+      43,
+      38,
+      .45
+    );
+
+  backdrop-filter:
+    blur(5px);
+
+  -webkit-backdrop-filter:
+    blur(5px);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity .35s ease,
+    visibility .35s ease;
+}
+
+.map-popup.active {
+
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+.map-popup-card {
+
+  position: relative;
+
+  width: min(
+    100%,
+    360px
+  );
+
+  padding:
+    30px
+    24px
+    24px;
+
+  background:
+    rgba(
+      255,
+      252,
+      249,
+      .97
+    );
+
+  border:
+    1px solid
+    #c7a28c;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 12px 40px
+    rgba(
+      80,
+      55,
+      45,
+      .25
+    );
+
+  text-align: center;
+
+  transform:
+    translateY(20px)
+    scale(.96);
+
+  transition:
+    transform .4s
+    cubic-bezier(.22, 1, .36, 1);
+}
+
+.map-popup.active .map-popup-card {
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+.map-popup-close {
+
+  position: absolute;
+
+  top: 9px;
+
+  right: 13px;
+
+  width: 32px;
+
+  height: 32px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #805b55;
+
+  font-size: 25px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color:
+    transparent;
+}
+
+.map-popup-icon {
+
+  width: 52px;
+
+  height: 52px;
+
+  margin: 0 auto 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    #f4e8df;
+
+  border:
+    1px solid
+    #d9bba8;
+
+  color: #805b55;
+
+  font-size: 23px;
+}
+
+.map-popup-title {
+
+  margin:
+    0 0 8px;
+
+  color: #805b55;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 18px;
+
+  letter-spacing: 1px;
+
+  font-weight: normal;
+}
+
+.map-popup-text {
+
+  margin:
+    0 auto 20px;
+
+  max-width: 280px;
+
+  color: #6f625d;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+
+  letter-spacing: .3px;
+}
+
+.map-popup-button {
+
+  display: block;
+
+  width: 100%;
+
+  padding:
+    10px
+    14px;
+
+  margin:
+    0 auto 10px;
+
+  border:
+    1px solid
+    #a98270;
+
+  border-radius: 25px;
+
+  background:
+    #fff;
+
+  color: #805b55;
+
+  text-decoration: none;
+
+  font-size: 9px;
+
+  letter-spacing: 1.2px;
+
+  text-align: center;
+
+  box-shadow:
+    0 3px 10px
+    rgba(
+      0,
+      0,
+      0,
+      .08
+    );
+
+  cursor: pointer;
+
+  transition:
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+.map-popup-button:hover {
+
+  background:
+    #f9f2ed;
+
+  box-shadow:
+    0 5px 14px
+    rgba(
+      126,
+      85,
+      73,
+      .15
+    );
+}
+
+.map-popup-cancel {
+
+  display: block;
+
+  width: 100%;
+
+  padding:
+    8px
+    12px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #8b7770;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
    TALLY RSVP
 ========================================================= */
 
@@ -1289,7 +1581,6 @@ body {
 
 /* =========================================================
    INITIALS COVER
-   Emily & James
 ========================================================= */
 
 .tally-branding-cover {
@@ -1541,6 +1832,28 @@ body {
   .accommodations-back {
 
     top: 76.18%;
+  }
+
+  .map-popup {
+
+    padding: 18px;
+  }
+
+  .map-popup-card {
+
+    width: 100%;
+
+    max-width: 330px;
+
+    padding:
+      28px
+      20px
+      22px;
+  }
+
+  .map-popup-title {
+
+    font-size: 17px;
   }
 
   #musicButton {
@@ -1873,15 +2186,14 @@ body {
 
       <!-- VIEW MAP -->
 
-      <a
-        class="our-day-button our-day-map"
-        href="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic"
-        target="_blank"
-        rel="noopener">
+      <button
+        type="button"
+        class="our-day-button our-day-map popup-trigger"
+        data-popup-type="map">
 
         VIEW MAP
 
-      </a>
+      </button>
 
     </section>
 
@@ -2102,41 +2414,47 @@ body {
 
     <!-- COURTYARD -->
 
-    <a
-      class="hotel-button hotel-courtyard"
-      href="https://maps.app.goo.gl/GvNDmyotaz6X3fBw8?g_st=ic"
-      target="_blank"
-      rel="noopener">
+    <button
+      type="button"
+      class="hotel-button hotel-courtyard popup-trigger"
+      data-popup-type="hotel"
+      data-title="Courtyard by Marriott"
+      data-text="View the hotel location and directions in Google Maps."
+      data-url="https://maps.app.goo.gl/GvNDmyotaz6X3fBw8?g_st=ic">
 
       VIEW HOTEL
 
-    </a>
+    </button>
 
 
     <!-- HILTON -->
 
-    <a
-      class="hotel-button hotel-hilton"
-      href="https://maps.app.goo.gl/dV8X18uiQC9rwmor6?g_st=ic"
-      target="_blank"
-      rel="noopener">
+    <button
+      type="button"
+      class="hotel-button hotel-hilton popup-trigger"
+      data-popup-type="hotel"
+      data-title="Hilton"
+      data-text="View the hotel location and directions in Google Maps."
+      data-url="https://maps.app.goo.gl/dV8X18uiQC9rwmor6?g_st=ic">
 
       VIEW HOTEL
 
-    </a>
+    </button>
 
 
     <!-- FOUR SEASONS -->
 
-    <a
-      class="hotel-button hotel-four-seasons"
-      href="https://maps.app.goo.gl/bZVu7zGhxoazHQs76?g_st=ic"
-      target="_blank"
-      rel="noopener">
+    <button
+      type="button"
+      class="hotel-button hotel-four-seasons popup-trigger"
+      data-popup-type="hotel"
+      data-title="Four Seasons"
+      data-text="View the hotel location and directions in Google Maps."
+      data-url="https://maps.app.goo.gl/bZVu7zGhxoazHQs76?g_st=ic">
 
       VIEW HOTEL
 
-    </a>
+    </button>
 
 
     <!-- BACK -->
@@ -2152,6 +2470,85 @@ body {
   </div>
 
 </section>
+
+
+<!-- =========================================================
+     MAP / HOTEL POPUP
+========================================================= -->
+
+<div
+  id="mapPopup"
+  class="map-popup"
+  aria-hidden="true">
+
+  <div
+    class="map-popup-card"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="mapPopupTitle">
+
+    <button
+      type="button"
+      class="map-popup-close"
+      id="mapPopupClose"
+      aria-label="Close">
+
+      ×
+
+    </button>
+
+
+    <div
+      class="map-popup-icon"
+      id="mapPopupIcon">
+
+      📍
+
+    </div>
+
+
+    <h2
+      class="map-popup-title"
+      id="mapPopupTitle">
+
+      VIEW LOCATION
+
+    </h2>
+
+
+    <p
+      class="map-popup-text"
+      id="mapPopupText">
+
+      View the location and directions in Google Maps.
+
+    </p>
+
+
+    <a
+      href="#"
+      id="mapPopupOpen"
+      class="map-popup-button"
+      target="_blank"
+      rel="noopener">
+
+      OPEN IN GOOGLE MAPS
+
+    </a>
+
+
+    <button
+      type="button"
+      class="map-popup-cancel"
+      id="mapPopupCancel">
+
+      CLOSE
+
+    </button>
+
+  </div>
+
+</div>
 
 
 <!-- =========================================================
@@ -2651,6 +3048,211 @@ document
 
     }
   );
+
+
+/* =========================================================
+   MAP / HOTEL POPUP
+========================================================= */
+
+const mapPopup =
+  document.getElementById(
+    "mapPopup"
+  );
+
+const mapPopupTitle =
+  document.getElementById(
+    "mapPopupTitle"
+  );
+
+const mapPopupText =
+  document.getElementById(
+    "mapPopupText"
+  );
+
+const mapPopupOpen =
+  document.getElementById(
+    "mapPopupOpen"
+  );
+
+const mapPopupIcon =
+  document.getElementById(
+    "mapPopupIcon"
+  );
+
+const mapPopupClose =
+  document.getElementById(
+    "mapPopupClose"
+  );
+
+const mapPopupCancel =
+  document.getElementById(
+    "mapPopupCancel"
+  );
+
+
+function openMapPopup(
+  title,
+  text,
+  url,
+  type
+) {
+
+  mapPopupTitle.textContent =
+    title;
+
+  mapPopupText.textContent =
+    text;
+
+  mapPopupOpen.href =
+    url;
+
+
+  if (type === "map") {
+
+    mapPopupIcon.textContent =
+      "📍";
+
+  }
+
+  else {
+
+    mapPopupIcon.textContent =
+      "🏨";
+
+  }
+
+
+  mapPopup.classList.add(
+    "active"
+  );
+
+  mapPopup.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+function closeMapPopup() {
+
+  mapPopup.classList.remove(
+    "active"
+  );
+
+  mapPopup.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  document.body.style.overflow =
+    "";
+
+}
+
+
+document
+  .querySelectorAll(
+    ".popup-trigger"
+  )
+  .forEach(
+    function(button) {
+
+      button.addEventListener(
+        "click",
+        function() {
+
+          const type =
+            this.getAttribute(
+              "data-popup-type"
+            );
+
+
+          if (type === "map") {
+
+            openMapPopup(
+              "THE GARDEN VALLEY",
+              "View the wedding venue location and directions in Google Maps.",
+              "https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic",
+              "map"
+            );
+
+          }
+
+          else {
+
+            openMapPopup(
+              this.getAttribute(
+                "data-title"
+              ),
+              this.getAttribute(
+                "data-text"
+              ),
+              this.getAttribute(
+                "data-url"
+              ),
+              "hotel"
+            );
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+mapPopupClose.addEventListener(
+  "click",
+  closeMapPopup
+);
+
+
+mapPopupCancel.addEventListener(
+  "click",
+  closeMapPopup
+);
+
+
+mapPopup.addEventListener(
+  "click",
+  function(event) {
+
+    if (
+      event.target === mapPopup
+    ) {
+
+      closeMapPopup();
+
+    }
+
+  }
+);
+
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key === "Escape" &&
+      mapPopup.classList.contains(
+        "active"
+      )
+    ) {
+
+      closeMapPopup();
+
+    }
+
+  }
+);
 
 
 /* =========================================================
