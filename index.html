@@ -135,22 +135,7 @@ body{
 
 /* =========================================================
    UNIVERSAL PAGE REVEAL
-   SAME EFFECT AS COVER
 ========================================================= */
-
-/*
-   IMPORTANT:
-
-   All pages use the SAME animation style as the cover:
-
-   - opacity
-   - translateY
-   - small scale
-
-   We intentionally do NOT use clip-path or
-   IntersectionObserver here because some Android
-   browsers were leaving pages invisible.
-*/
 
 .reveal-page{
   opacity:0;
@@ -385,6 +370,241 @@ body{
   top:97.2%;
   left:50%;
   transform:translate(-50%,-50%);
+}
+
+
+/* =========================================================
+   WEDDING NOTES
+========================================================= */
+
+.wedding-notes-section{
+  background:#f7f3ef;
+  padding:42px 18px 48px;
+  text-align:center;
+}
+
+.wedding-notes-title{
+  margin:0 0 7px;
+  color:#805b55;
+  font-family:
+    "Snell Roundhand",
+    "Brush Script MT",
+    "Segoe Script",
+    "Lucida Handwriting",
+    cursive;
+  font-size:37px;
+  font-weight:normal;
+  line-height:1.1;
+}
+
+.wedding-notes-subtitle{
+  margin:0 auto 25px;
+  max-width:480px;
+  color:#6f625d;
+  font-size:12px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  line-height:1.6;
+}
+
+.wedding-notes-buttons{
+  width:100%;
+  max-width:620px;
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+  align-items:stretch;
+  gap:10px;
+}
+
+.wedding-note-button{
+  flex:1;
+  min-width:0;
+  min-height:58px;
+  padding:11px 7px;
+  border:1px solid #a98270;
+  border-radius:28px;
+  background:rgba(255,255,255,.90);
+  color:#805b55;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:9px;
+  letter-spacing:1px;
+  line-height:1.35;
+  cursor:pointer;
+  box-shadow:0 3px 10px rgba(0,0,0,.09);
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.wedding-note-button:hover{
+  transform:translateY(-2px);
+  background:#fff;
+  box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.wedding-note-button:active{
+  transform:translateY(0);
+}
+
+.wedding-note-button span{
+  display:block;
+  margin-bottom:3px;
+  font-size:15px;
+}
+
+.wedding-note-button strong{
+  display:block;
+  font-weight:normal;
+}
+
+
+/* =========================================================
+   NOTE MODAL
+========================================================= */
+
+.note-modal{
+  position:fixed;
+  inset:0;
+  z-index:31000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(45,38,35,.58);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:
+    opacity .35s ease,
+    visibility .35s ease;
+}
+
+.note-modal.active{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+.note-modal-card{
+  position:relative;
+  width:min(92vw,540px);
+  max-height:88vh;
+  overflow:auto;
+  padding:45px 30px 32px;
+  background:#fdfaf7;
+  border:1px solid #c7a28c;
+  border-radius:28px;
+  box-shadow:0 18px 50px rgba(0,0,0,.25);
+  transform:translateY(25px) scale(.96);
+  transition:
+    transform .45s cubic-bezier(.22,1,.36,1);
+  text-align:center;
+}
+
+.note-modal.active .note-modal-card{
+  transform:translateY(0) scale(1);
+}
+
+.note-modal-close{
+  position:absolute;
+  top:13px;
+  right:15px;
+  width:40px;
+  height:40px;
+  border:none;
+  background:rgba(253,250,247,.88);
+  color:#805b55;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:29px;
+  line-height:38px;
+  cursor:pointer;
+  border-radius:50%;
+}
+
+.note-modal-icon{
+  width:62px;
+  height:62px;
+  margin:0 auto 13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #d8b8a3;
+  border-radius:50%;
+  background:#f8eee7;
+  font-size:28px;
+}
+
+.note-modal-title{
+  margin:0 0 15px;
+  color:#805b55;
+  font-family:
+    "Snell Roundhand",
+    "Brush Script MT",
+    "Segoe Script",
+    "Lucida Handwriting",
+    cursive;
+  font-size:34px;
+  font-weight:normal;
+  line-height:1.15;
+}
+
+.note-modal-text{
+  margin:0 auto;
+  max-width:430px;
+  color:#6f625d;
+  font-size:15px;
+  line-height:1.7;
+}
+
+.note-modal-highlight{
+  margin:20px auto 0;
+  padding:15px 18px;
+  max-width:400px;
+  border:1px solid #dfcabc;
+  border-radius:15px;
+  background:#f8eee7;
+  color:#805b55;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.note-modal-button{
+  display:block;
+  width:100%;
+  max-width:390px;
+  margin:22px auto 0;
+  padding:13px 16px;
+  border:1px solid #a98270;
+  border-radius:30px;
+  background:#fff;
+  color:#805b55;
+  text-decoration:none;
+  font-size:10px;
+  letter-spacing:1.7px;
+  cursor:pointer;
+}
+
+.bank-details{
+  margin:20px auto 0;
+  max-width:390px;
+  padding:18px;
+  border:1px solid #d8b8a3;
+  border-radius:16px;
+  background:#fbf5f0;
+  color:#6f625d;
+  text-align:left;
+  font-size:13px;
+  line-height:1.8;
+}
+
+.bank-details strong{
+  color:#805b55;
 }
 
 
@@ -815,6 +1035,66 @@ body{
     top:76.18%;
   }
 
+  .wedding-notes-section{
+    padding:35px 10px 40px;
+  }
+
+  .wedding-notes-title{
+    font-size:32px;
+  }
+
+  .wedding-notes-subtitle{
+    font-size:10px;
+    letter-spacing:1.2px;
+    margin-bottom:21px;
+  }
+
+  .wedding-notes-buttons{
+    gap:6px;
+  }
+
+  .wedding-note-button{
+    min-height:64px;
+    padding:9px 4px;
+    font-size:7px;
+    letter-spacing:.7px;
+    border-radius:23px;
+  }
+
+  .wedding-note-button span{
+    font-size:14px;
+  }
+
+  .note-modal{
+    padding:15px;
+  }
+
+  .note-modal-card{
+    width:94vw;
+    max-height:88vh;
+    padding:42px 21px 27px;
+    border-radius:24px;
+  }
+
+  .note-modal-icon{
+    width:56px;
+    height:56px;
+    font-size:25px;
+  }
+
+  .note-modal-title{
+    font-size:30px;
+  }
+
+  .note-modal-text{
+    font-size:14px;
+    line-height:1.6;
+  }
+
+  .note-modal-highlight{
+    font-size:12px;
+  }
+
   .map-modal{
     padding:15px;
   }
@@ -1139,6 +1419,78 @@ body{
 
 
   <!-- =====================================================
+       WEDDING NOTES
+  ====================================================== -->
+
+  <section class="wedding-notes-section reveal-target">
+
+    <h2 class="wedding-notes-title">
+      A Few Notes
+    </h2>
+
+
+    <p class="wedding-notes-subtitle">
+      A few little details to help us celebrate together
+    </p>
+
+
+    <div class="wedding-notes-buttons">
+
+
+      <!-- UNPLUGGED CEREMONY -->
+
+      <button type="button"
+              class="wedding-note-button note-popup-trigger"
+              data-note="unplugged">
+
+        <span>📵</span>
+
+        <strong>
+          UNPLUGGED<br>
+          CEREMONY
+        </strong>
+
+      </button>
+
+
+      <!-- ADULTS ONLY -->
+
+      <button type="button"
+              class="wedding-note-button note-popup-trigger"
+              data-note="adults">
+
+        <span>🤍</span>
+
+        <strong>
+          ADULTS-ONLY<br>
+          CELEBRATION
+        </strong>
+
+      </button>
+
+
+      <!-- GIFTS -->
+
+      <button type="button"
+              class="wedding-note-button note-popup-trigger"
+              data-note="gifts">
+
+        <span>🎁</span>
+
+        <strong>
+          GIFT<br>
+          INFORMATION
+        </strong>
+
+      </button>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
        GALLERY
   ====================================================== -->
 
@@ -1296,6 +1648,243 @@ body{
   </div>
 
 </section>
+
+
+<!-- =======================================================
+     NOTE MODALS
+======================================================= -->
+
+
+<!-- UNPLUGGED CEREMONY -->
+
+<div id="unpluggedModal"
+     class="note-modal"
+     aria-hidden="true">
+
+  <div class="note-modal-card"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="unpluggedTitle">
+
+    <button type="button"
+            class="note-modal-close"
+            data-close-note="unpluggedModal"
+            aria-label="Close">
+
+      ×
+
+    </button>
+
+
+    <div class="note-modal-icon"
+         aria-hidden="true">
+
+      📵
+
+    </div>
+
+
+    <h2 id="unpluggedTitle"
+        class="note-modal-title">
+
+      Unplugged Ceremony
+
+    </h2>
+
+
+    <p class="note-modal-text">
+
+      We kindly invite you to be fully present with us
+      during our ceremony.
+
+      <br><br>
+
+      Please silence and put away your phones and cameras
+      so we can share this special moment together,
+      uninterrupted.
+
+    </p>
+
+
+    <div class="note-modal-highlight">
+
+      Let our professional photographer capture the
+      beautiful moments while you simply enjoy being
+      present with us.
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ADULTS ONLY -->
+
+<div id="adultsModal"
+     class="note-modal"
+     aria-hidden="true">
+
+  <div class="note-modal-card"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="adultsTitle">
+
+    <button type="button"
+            class="note-modal-close"
+            data-close-note="adultsModal"
+            aria-label="Close">
+
+      ×
+
+    </button>
+
+
+    <div class="note-modal-icon"
+         aria-hidden="true">
+
+      🤍
+
+    </div>
+
+
+    <h2 id="adultsTitle"
+        class="note-modal-title">
+
+      Adults-Only Celebration
+
+    </h2>
+
+
+    <p class="note-modal-text">
+
+      We love your little ones, but our wedding
+      celebration will be an adults-only event.
+
+      <br><br>
+
+      We hope you understand and look forward to
+      celebrating this special day with you!
+
+    </p>
+
+
+    <div class="note-modal-highlight">
+
+      Thank you for helping us make this an intimate
+      and memorable celebration.
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- GIFTS -->
+
+<div id="giftsModal"
+     class="note-modal"
+     aria-hidden="true">
+
+  <div class="note-modal-card"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="giftsTitle">
+
+    <button type="button"
+            class="note-modal-close"
+            data-close-note="giftsModal"
+            aria-label="Close">
+
+      ×
+
+    </button>
+
+
+    <div class="note-modal-icon"
+         aria-hidden="true">
+
+      🎁
+
+    </div>
+
+
+    <h2 id="giftsTitle"
+        class="note-modal-title">
+
+      Gift Information
+
+    </h2>
+
+
+    <p class="note-modal-text">
+
+      Your presence is the greatest gift of all.
+
+      <br><br>
+
+      If you would like to honor us with a gift,
+      we kindly ask for a cash gift to help us begin
+      this new chapter together.
+
+    </p>
+
+
+    <div class="note-modal-highlight">
+
+      Thank you for celebrating with us and for your
+      love and generosity.
+
+    </div>
+
+
+    <!--
+         BANK INFORMATION
+
+         Replace the placeholder information below
+         with the actual bank details when ready.
+    -->
+
+    <div class="bank-details">
+
+      <strong>
+        Bank Transfer Information
+      </strong>
+
+      <br><br>
+
+      <strong>
+        Account Name:
+      </strong>
+      Emily & James
+
+      <br>
+
+      <strong>
+        Bank:
+      </strong>
+      ______________________
+
+      <br>
+
+      <strong>
+        Account Number:
+      </strong>
+      ______________________
+
+      <br>
+
+      <strong>
+        Routing Number:
+      </strong>
+      ______________________
+
+    </div>
+
+  </div>
+
+</div>
 
 
 <!-- =======================================================
@@ -1476,25 +2065,6 @@ envelopeSeal.addEventListener(
    UNIVERSAL SCROLL REVEAL
 ========================================================= */
 
-/*
-   THIS IS THE IMPORTANT CHANGE.
-
-   Instead of IntersectionObserver, we use a simple
-   scroll/resize check.
-
-   This is much more reliable across:
-
-   - iPhone
-   - Android
-   - Chrome
-   - Safari
-   - Samsung Internet
-   - older mobile browsers
-
-   Every page receives the SAME visual effect
-   as the cover.
-*/
-
 function activateScrollAnimations(){
 
   const sections =
@@ -1508,21 +2078,12 @@ function activateScrollAnimations(){
   });
 
 
-  /*
-     Small delay so the browser has time to apply
-     the initial hidden state before checking.
-  */
-
   setTimeout(function(){
 
     checkVisibleSections();
 
   },100);
 
-
-  /*
-     Android/iPhone compatible scroll listener
-  */
 
   window.addEventListener(
     "scroll",
@@ -1536,11 +2097,6 @@ function activateScrollAnimations(){
     checkVisibleSections
   );
 
-
-  /*
-     Extra safety:
-     after a short delay, check again.
-  */
 
   setTimeout(function(){
 
@@ -1575,14 +2131,6 @@ function checkVisibleSections(){
     const rect =
       section.getBoundingClientRect();
 
-
-    /*
-       Reveal when approximately 15% of the section
-       is entering the screen.
-
-       This makes the animation begin naturally
-       before the user reaches the next page.
-    */
 
     const triggerPoint =
       window.innerHeight * 0.88;
@@ -1825,11 +2373,6 @@ document
           });
 
 
-          /*
-             Make sure the details page is visible
-             even if returning from a special page.
-          */
-
           details.classList.add("visible");
 
         }
@@ -1930,6 +2473,151 @@ if(window.location.hash){
   loadPageFromHash();
 
 }
+
+
+/* =========================================================
+   NOTE MODALS
+========================================================= */
+
+const noteModalMap = {
+
+  unplugged:
+    document.getElementById("unpluggedModal"),
+
+  adults:
+    document.getElementById("adultsModal"),
+
+  gifts:
+    document.getElementById("giftsModal")
+
+};
+
+
+document
+.querySelectorAll(".note-popup-trigger")
+.forEach(function(button){
+
+  button.addEventListener(
+    "click",
+    function(){
+
+      const noteType =
+        this.getAttribute("data-note");
+
+      const modal =
+        noteModalMap[noteType];
+
+
+      if(!modal){
+        return;
+      }
+
+
+      modal.classList.add("active");
+
+
+      modal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+
+      document.body.style.overflow="hidden";
+
+    }
+  );
+
+});
+
+
+function closeNoteModal(modal){
+
+  if(!modal){
+    return;
+  }
+
+
+  modal.classList.remove("active");
+
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  document.body.style.overflow="";
+
+}
+
+
+document
+.querySelectorAll("[data-close-note]")
+.forEach(function(button){
+
+  button.addEventListener(
+    "click",
+    function(){
+
+      const modalId =
+        this.getAttribute("data-close-note");
+
+
+      closeNoteModal(
+        document.getElementById(modalId)
+      );
+
+    }
+  );
+
+});
+
+
+Object.values(noteModalMap)
+.forEach(function(modal){
+
+  modal.addEventListener(
+    "click",
+    function(event){
+
+      if(event.target===modal){
+
+        closeNoteModal(modal);
+
+      }
+
+    }
+  );
+
+});
+
+
+/* =========================================================
+   ESCAPE KEY — NOTE MODALS
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key!=="Escape"){
+      return;
+    }
+
+
+    Object.values(noteModalMap)
+    .forEach(function(modal){
+
+      if(modal.classList.contains("active")){
+
+        closeNoteModal(modal);
+
+      }
+
+    });
+
+  }
+);
 
 
 /* =========================================================
