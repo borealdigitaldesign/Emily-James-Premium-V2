@@ -6,9 +6,14 @@
 <title>Emily & James | Wedding Invitation</title>
 
 <style>
-*{box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
@@ -18,7 +23,10 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= ENVELOPE ================= */
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
 
 #envelopeIntro{
   position:fixed;
@@ -51,9 +59,17 @@ body{
   object-fit:contain;
 }
 
-.envelope-base{z-index:1}
-.envelope-card{z-index:2}
-.envelope-body{z-index:3}
+.envelope-base{
+  z-index:1;
+}
+
+.envelope-card{
+  z-index:2;
+}
+
+.envelope-body{
+  z-index:3;
+}
 
 .envelope-flap{
   z-index:5;
@@ -72,8 +88,15 @@ body{
 }
 
 @keyframes sealPulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.025)}
+
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.025);
+  }
+
 }
 
 #envelopeIntro.opening .envelope-flap{
@@ -93,7 +116,10 @@ body{
   pointer-events:none;
 }
 
-/* ================= MAIN ================= */
+
+/* =========================================================
+   MAIN
+========================================================= */
 
 #mainInvitation{
   display:none;
@@ -106,54 +132,43 @@ body{
   position:relative;
 }
 
-/*
-IMPORTANT ANDROID FIX:
 
-Las páginas NO empiezan con display:none ni visibility:hidden.
-El contenido siempre existe y puede verse aunque IntersectionObserver
-falle o Android no ejecute la animación correctamente.
+/* =========================================================
+   UNIVERSAL PAGE REVEAL
+   SAME EFFECT AS COVER
+========================================================= */
+
+/*
+   IMPORTANT:
+
+   All pages use the SAME animation style as the cover:
+
+   - opacity
+   - translateY
+   - small scale
+
+   We intentionally do NOT use clip-path or
+   IntersectionObserver here because some Android
+   browsers were leaving pages invisible.
 */
 
-.page,
-.our-day-section,
-.details-section,
-.tally-section{
-  opacity:1;
-  transform:none;
-  clip-path:none;
-}
-
-/* Reveal premium */
-
-.reveal-ready{
-  opacity:0;
-  transform:translateY(28px);
-  clip-path:inset(0 0 100% 0);
-  transition:
-    opacity .8s ease,
-    transform 1.1s cubic-bezier(.22,1,.36,1),
-    clip-path 1.1s cubic-bezier(.22,1,.36,1);
-}
-
-.reveal-ready.visible{
-  opacity:1;
-  transform:translateY(0);
-  clip-path:inset(0 0 0 0);
-}
-
-/* ================= COVER ================= */
-
-.cover-page{
+.reveal-page{
   opacity:0;
   transform:translateY(35px) scale(.985);
-  transition:opacity 1.5s ease,
-             transform 1.5s cubic-bezier(.22,1,.36,1);
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s cubic-bezier(.22,1,.36,1);
 }
 
-.cover-page.cover-visible{
+.reveal-page.visible{
   opacity:1;
   transform:translateY(0) scale(1);
 }
+
+
+/* =========================================================
+   ALL PAGE IMAGES
+========================================================= */
 
 .page img{
   width:100%;
@@ -161,7 +176,28 @@ falle o Android no ejecute la animación correctamente.
   display:block;
 }
 
-/* ================= OUR STORY ================= */
+
+/* =========================================================
+   COVER
+========================================================= */
+
+.cover-page{
+  opacity:0;
+  transform:translateY(35px) scale(.985);
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s cubic-bezier(.22,1,.36,1);
+}
+
+.cover-page.cover-visible{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+
+/* =========================================================
+   OUR STORY
+========================================================= */
 
 .story-page{
   overflow:hidden;
@@ -173,37 +209,10 @@ falle o Android no ejecute la animación correctamente.
   display:block;
 }
 
-.story-page.reveal-ready{
-  transform:translateY(32px);
-  clip-path:inset(100% 0 0 0);
-}
 
-.story-page.visible{
-  opacity:1;
-  transform:translateY(0);
-  clip-path:inset(0 0 0 0);
-}
-
-.story-page.visible img{
-  animation:storyImageReveal 1.7s cubic-bezier(.22,1,.36,1) both;
-}
-
-@keyframes storyImageReveal{
-  0%{
-    opacity:.15;
-    transform:translateY(18px) scale(.995);
-  }
-  55%{
-    opacity:.75;
-    transform:translateY(5px) scale(.998);
-  }
-  100%{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
-}
-
-/* ================= OUR DAY ================= */
+/* =========================================================
+   OUR DAY
+========================================================= */
 
 .our-day-section{
   position:relative;
@@ -217,6 +226,11 @@ falle o Android no ejecute la animación correctamente.
   height:auto;
   display:block;
 }
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .our-day-button,
 .details-button,
@@ -233,6 +247,11 @@ falle o Android no ejecute la animación correctamente.
   -webkit-tap-highlight-color:transparent;
   box-shadow:0 3px 10px rgba(0,0,0,.10);
 }
+
+
+/* =========================================================
+   OUR DAY BUTTONS
+========================================================= */
 
 .our-day-button{
   position:absolute;
@@ -304,7 +323,10 @@ falle o Android no ejecute la animación correctamente.
   transform:translate(-50%,-50%);
 }
 
-/* ================= DETAILS ================= */
+
+/* =========================================================
+   DETAILS
+========================================================= */
 
 .details-section{
   position:relative;
@@ -365,7 +387,10 @@ falle o Android no ejecute la animación correctamente.
   transform:translate(-50%,-50%);
 }
 
-/* ================= SPECIAL PAGES ================= */
+
+/* =========================================================
+   SPECIAL PAGES
+========================================================= */
 
 .special-page{
   display:none;
@@ -379,18 +404,21 @@ falle o Android no ejecute la animación correctamente.
 
 .special-page.active{
   display:block;
-  animation:specialPageEnter 1s cubic-bezier(.22,1,.36,1) forwards;
+  animation:specialPageEnter 1.2s cubic-bezier(.22,1,.36,1) forwards;
 }
 
 @keyframes specialPageEnter{
+
   from{
     opacity:0;
-    transform:translateY(35px);
+    transform:translateY(35px) scale(.985);
   }
+
   to{
     opacity:1;
-    transform:translateY(0);
+    transform:translateY(0) scale(1);
   }
+
 }
 
 .special-page>img{
@@ -431,7 +459,10 @@ falle o Android no ejecute la animación correctamente.
   transform:translate(-50%,-50%);
 }
 
-/* ================= ACCOMMODATIONS ================= */
+
+/* =========================================================
+   ACCOMMODATIONS
+========================================================= */
 
 .accommodations-page{
   position:relative;
@@ -489,7 +520,10 @@ falle o Android no ejecute la animación correctamente.
   transform:translate(-50%,-50%);
 }
 
-/* ================= MAP MODAL ================= */
+
+/* =========================================================
+   MAP MODAL
+========================================================= */
 
 .map-modal{
   position:fixed;
@@ -604,7 +638,10 @@ falle o Android no ejecute la animación correctamente.
   letter-spacing:1.8px;
 }
 
-/* ================= TALLY ================= */
+
+/* =========================================================
+   TALLY
+========================================================= */
 
 .tally-section{
   background:#f7f3ef;
@@ -657,7 +694,10 @@ falle o Android no ejecute la animación correctamente.
   font-size:22px;
 }
 
-/* ================= MUSIC ================= */
+
+/* =========================================================
+   MUSIC
+========================================================= */
 
 #musicButton{
   position:fixed;
@@ -677,7 +717,10 @@ falle o Android no ejecute la animación correctamente.
   -webkit-backdrop-filter:blur(5px);
 }
 
-/* ================= MOBILE ================= */
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:600px){
 
@@ -748,13 +791,29 @@ falle o Android no ejecute la animación correctamente.
     padding:7px 8px;
   }
 
-  .hotel-courtyard{top:32.5%}
-  .hotel-hilton{top:50%}
-  .hotel-four-seasons{top:66.65%}
+  .hotel-courtyard{
+    top:32.5%;
+  }
 
-  .dress-code-back{top:65%}
-  .event-schedule-back{top:67%}
-  .accommodations-back{top:76.18%}
+  .hotel-hilton{
+    top:50%;
+  }
+
+  .hotel-four-seasons{
+    top:66.65%;
+  }
+
+  .dress-code-back{
+    top:65%;
+  }
+
+  .event-schedule-back{
+    top:67%;
+  }
+
+  .accommodations-back{
+    top:76.18%;
+  }
 
   .map-modal{
     padding:15px;
@@ -812,9 +871,16 @@ falle o Android no ejecute la animación correctamente.
     width:54px;
     height:54px;
   }
+
 }
 
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
 @media(prefers-reduced-motion:reduce){
+
   *,
   *::before,
   *::after{
@@ -823,13 +889,18 @@ falle o Android no ejecute la animación correctamente.
     transition-duration:.01ms!important;
     scroll-behavior:auto!important;
   }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- ================= ENVELOPE ================= -->
+
+<!-- =======================================================
+     ENVELOPE
+======================================================= -->
 
 <div id="envelopeIntro">
 
@@ -860,33 +931,50 @@ falle o Android no ejecute la animación correctamente.
 
 </div>
 
-<!-- ================= MAIN INVITATION ================= -->
+
+<!-- =======================================================
+     MAIN INVITATION
+======================================================= -->
 
 <main id="mainInvitation">
 
 <div class="invitation">
 
-  <!-- COVER -->
+
+  <!-- =====================================================
+       COVER
+  ====================================================== -->
 
   <div class="page cover-page">
+
     <img src="portada.png"
          alt="Emily & James Wedding Invitation">
+
   </div>
 
-  <!-- OUR STORY -->
 
-  <div class="page story-page">
+  <!-- =====================================================
+       OUR STORY
+  ====================================================== -->
+
+  <div class="page story-page reveal-target">
+
     <img class="story-image"
          src="our-story.png"
          alt="Our Story">
+
   </div>
 
-  <!-- OUR DAY -->
 
-  <section class="our-day-section">
+  <!-- =====================================================
+       OUR DAY
+  ====================================================== -->
+
+  <section class="our-day-section reveal-target">
 
     <img src="our-day.png"
          alt="Our Day">
+
 
     <div class="our-day-countdown">
 
@@ -894,37 +982,78 @@ falle o Android no ejecute la animación correctamente.
         WE CAN'T WAIT TO CELEBRATE WITH YOU
       </div>
 
+
       <div class="our-day-countdown-boxes">
 
         <div class="our-day-countdown-box">
-          <span class="our-day-countdown-number" id="days">0</span>
-          <span class="our-day-countdown-label">Days</span>
+
+          <span class="our-day-countdown-number"
+                id="days">
+            0
+          </span>
+
+          <span class="our-day-countdown-label">
+            Days
+          </span>
+
         </div>
 
-        <div class="our-day-countdown-box">
-          <span class="our-day-countdown-number" id="hours">0</span>
-          <span class="our-day-countdown-label">Hours</span>
-        </div>
 
         <div class="our-day-countdown-box">
-          <span class="our-day-countdown-number" id="minutes">0</span>
-          <span class="our-day-countdown-label">Minutes</span>
+
+          <span class="our-day-countdown-number"
+                id="hours">
+            0
+          </span>
+
+          <span class="our-day-countdown-label">
+            Hours
+          </span>
+
         </div>
 
+
         <div class="our-day-countdown-box">
-          <span class="our-day-countdown-number" id="seconds">0</span>
-          <span class="our-day-countdown-label">Seconds</span>
+
+          <span class="our-day-countdown-number"
+                id="minutes">
+            0
+          </span>
+
+          <span class="our-day-countdown-label">
+            Minutes
+          </span>
+
+        </div>
+
+
+        <div class="our-day-countdown-box">
+
+          <span class="our-day-countdown-number"
+                id="seconds">
+            0
+          </span>
+
+          <span class="our-day-countdown-label">
+            Seconds
+          </span>
+
         </div>
 
       </div>
+
     </div>
+
 
     <a class="our-day-button our-day-calendar"
        href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emily%20%26%20James%20Wedding&dates=20261128/20261129&location=The%20Garden%20Valley%2C%20Nashville%2C%20TN"
        target="_blank"
        rel="noopener">
+
        ADD TO CALENDAR
+
     </a>
+
 
     <button type="button"
             class="our-day-button our-day-map map-popup-trigger"
@@ -932,72 +1061,112 @@ falle o Android no ejecute la animación correctamente.
             data-description="View the wedding location and directions in Google Maps."
             data-map="https://www.google.com/maps?q=The+Garden+Valley,+Nashville,+TN&output=embed"
             data-url="https://maps.app.goo.gl/KEUUGJGszw54wpxC9?g_st=ic">
+
       VIEW MAP
+
     </button>
 
   </section>
 
-  <!-- THE DETAILS -->
 
-  <section class="details-section" id="details-section">
+  <!-- =====================================================
+       THE DETAILS
+  ====================================================== -->
+
+  <section class="details-section reveal-target"
+           id="details-section">
 
     <img src="the-details.png"
          alt="The Details">
 
+
     <a href="#event-schedule"
        class="details-button details-schedule special-link"
        data-page="event-schedule">
-      VIEW<br>EVENT SCHEDULE
+
+      VIEW<br>
+      EVENT SCHEDULE
+
     </a>
+
 
     <a href="#dress-code"
        class="details-button details-dress special-link"
        data-page="dress-code">
-      VIEW<br>DRESS CODE
+
+      VIEW<br>
+      DRESS CODE
+
     </a>
+
 
     <a href="#accommodations"
        class="details-button details-accommodations special-link"
        data-page="accommodations">
-      VIEW<br>ACCOMMODATIONS
+
+      VIEW<br>
+      ACCOMMODATIONS
+
     </a>
+
 
     <a class="details-button details-registry"
        href="https://www.amazon.com/registries/gl/create?registryType=custom&ref_=ggr_emp_custom"
        target="_blank"
        rel="noopener">
+
       VIEW REGISTRY
+
     </a>
+
 
     <a class="details-button details-email"
        href="mailto:mrs.lacunza@gmail.com">
+
       RSVP BY EMAIL
+
     </a>
+
 
     <a class="details-button details-text"
        href="sms:+19316192063">
+
       TEXT TO RSVP
+
     </a>
 
   </section>
 
-  <!-- GALLERY -->
 
-  <div class="page">
+  <!-- =====================================================
+       GALLERY
+  ====================================================== -->
+
+  <div class="page reveal-target">
+
     <img src="gallery.png"
          alt="Gallery">
+
   </div>
 
-  <!-- ONLINE RSVP -->
 
-  <div class="page">
+  <!-- =====================================================
+       ONLINE RSVP
+  ====================================================== -->
+
+  <div class="page reveal-target">
+
     <img src="online-rsvp.png"
          alt="Online RSVP">
+
   </div>
 
-  <!-- TALLY -->
 
-  <section class="tally-section">
+  <!-- =====================================================
+       TALLY
+  ====================================================== -->
+
+  <section class="tally-section reveal-target">
 
     <div class="tally-card">
 
@@ -1007,6 +1176,7 @@ falle o Android no ejecute la animación correctamente.
         title="Emily & James Online RSVP">
       </iframe>
 
+
       <div class="tally-branding-cover"
            aria-hidden="true">
       </div>
@@ -1015,17 +1185,27 @@ falle o Android no ejecute la animación correctamente.
 
   </section>
 
-  <!-- END -->
 
-  <div class="page">
+  <!-- =====================================================
+       END
+  ====================================================== -->
+
+  <div class="page reveal-target">
+
     <img src="end.png"
          alt="Thank You">
+
   </div>
 
+
 </div>
+
 </main>
 
-<!-- ================= SPECIAL PAGES ================= -->
+
+<!-- =======================================================
+     SPECIAL PAGES
+======================================================= -->
 
 <section id="event-schedule"
          class="special-page">
@@ -1033,12 +1213,16 @@ falle o Android no ejecute la animación correctamente.
   <img src="event-schedule.png"
        alt="Event Schedule">
 
+
   <a href="#details-section"
      class="back-button event-schedule-back back-to-details">
+
     BACK TO INVITATION
+
   </a>
 
 </section>
+
 
 <section id="dress-code"
          class="special-page">
@@ -1046,12 +1230,16 @@ falle o Android no ejecute la animación correctamente.
   <img src="dress-code.png"
        alt="Dress Code">
 
+
   <a href="#details-section"
      class="back-button dress-code-back back-to-details">
+
     BACK TO INVITATION
+
   </a>
 
 </section>
+
 
 <section id="accommodations"
          class="special-page">
@@ -1061,14 +1249,18 @@ falle o Android no ejecute la animación correctamente.
     <img src="accommodations.png"
          alt="Accommodations">
 
+
     <button type="button"
             class="hotel-button hotel-courtyard map-popup-trigger"
             data-title="Courtyard Nashville Downtown"
             data-description="View the hotel location and directions in Google Maps."
             data-map="https://www.google.com/maps?q=Courtyard+Nashville+Downtown,+Nashville,+TN&output=embed"
             data-url="https://maps.app.goo.gl/GvNDmyotaz6X3fBw8?g_st=ic">
+
       VIEW HOTEL
+
     </button>
+
 
     <button type="button"
             class="hotel-button hotel-hilton map-popup-trigger"
@@ -1076,8 +1268,11 @@ falle o Android no ejecute la animación correctamente.
             data-description="View the hotel location and directions in Google Maps."
             data-map="https://www.google.com/maps?q=Hilton+Nashville+Downtown,+Nashville,+TN&output=embed"
             data-url="https://maps.app.goo.gl/dV8X18uiQC9rwmor6?g_st=ic">
+
       VIEW HOTEL
+
     </button>
+
 
     <button type="button"
             class="hotel-button hotel-four-seasons map-popup-trigger"
@@ -1085,34 +1280,48 @@ falle o Android no ejecute la animación correctamente.
             data-description="View the hotel location and directions in Google Maps."
             data-map="https://www.google.com/maps?q=Four+Seasons+Nashville,+Nashville,+TN&output=embed"
             data-url="https://maps.app.goo.gl/bZVu7zGhxoazHQs76?g_st=ic">
+
       VIEW HOTEL
+
     </button>
+
 
     <a href="#details-section"
        class="back-button accommodations-back back-to-details">
+
       BACK TO INVITATION
+
     </a>
 
   </div>
+
 </section>
 
-<!-- ================= MAP MODAL ================= -->
+
+<!-- =======================================================
+     MAP MODAL
+======================================================= -->
 
 <div id="mapModal"
      class="map-modal"
      aria-hidden="true">
+
 
   <div class="map-modal-card"
        role="dialog"
        aria-modal="true"
        aria-labelledby="mapModalTitle">
 
+
     <button type="button"
             class="map-modal-close"
             id="mapModalClose"
             aria-label="Close">
+
       ×
+
     </button>
+
 
     <iframe id="mapPreview"
             class="map-preview"
@@ -1120,36 +1329,54 @@ falle o Android no ejecute la animación correctamente.
             title="Location map">
     </iframe>
 
+
     <div class="map-modal-content">
+
 
       <div class="map-modal-icon"
            aria-hidden="true">
+
         📍
+
       </div>
+
 
       <h2 id="mapModalTitle"
           class="map-modal-title">
+
         Location
+
       </h2>
+
 
       <p id="mapModalDescription"
          class="map-modal-description">
+
         View the location and directions in Google Maps.
+
       </p>
+
 
       <a id="mapOpenButton"
          class="map-open-button"
          href="#"
          target="_blank"
          rel="noopener">
+
         OPEN IN GOOGLE MAPS
+
       </a>
 
     </div>
+
   </div>
+
 </div>
 
-<!-- ================= MUSIC ================= -->
+
+<!-- =======================================================
+     MUSIC
+======================================================= -->
 
 <audio id="weddingMusic"
        loop
@@ -1160,13 +1387,18 @@ falle o Android no ejecute la animación correctamente.
 
 </audio>
 
+
 <button id="musicButton"
         type="button"
         aria-label="Play music">
+
   🎵
+
 </button>
 
+
 <script>
+
 
 /* =========================================================
    ELEMENTS
@@ -1198,30 +1430,41 @@ function openEnvelope(){
 
   startMusic();
 
+
   setTimeout(function(){
 
     mainInvitation.style.display="block";
 
     envelopeIntro.classList.add("hide");
 
+
     window.scrollTo({
       top:0,
       behavior:"auto"
     });
 
+
     const cover =
       document.querySelector(".cover-page");
 
+
     if(cover){
+
       setTimeout(function(){
+
         cover.classList.add("cover-visible");
+
       },80);
+
     }
+
 
     activateScrollAnimations();
 
   },1400);
+
 }
+
 
 envelopeSeal.addEventListener(
   "click",
@@ -1230,137 +1473,131 @@ envelopeSeal.addEventListener(
 
 
 /* =========================================================
-   PREMIUM SCROLL ANIMATIONS
+   UNIVERSAL SCROLL REVEAL
 ========================================================= */
 
 /*
-IMPORTANT:
+   THIS IS THE IMPORTANT CHANGE.
 
-No content is permanently hidden.
+   Instead of IntersectionObserver, we use a simple
+   scroll/resize check.
 
-We add reveal-ready only after the invitation is
-already active. This prevents Android from getting
-stuck with invisible pages.
+   This is much more reliable across:
 
-Once visible, observer.unobserve() prevents the
-animation from repeating.
+   - iPhone
+   - Android
+   - Chrome
+   - Safari
+   - Samsung Internet
+   - older mobile browsers
+
+   Every page receives the SAME visual effect
+   as the cover.
 */
 
 function activateScrollAnimations(){
 
   const sections =
-    document.querySelectorAll(
-      ".story-page," +
-      ".our-day-section," +
-      ".details-section," +
-      ".page:not(.cover-page)," +
-      ".tally-section"
-    );
-
-  /*
-  Android / older browser fallback
-  */
-
-  if(!("IntersectionObserver" in window)){
-
-    sections.forEach(function(section){
-      section.classList.add("visible");
-    });
-
-    return;
-  }
-
-  sections.forEach(function(section){
-
-    /*
-    Avoid applying the reveal to the cover because
-    the cover has its own animation.
-    */
-
-    if(section.classList.contains("cover-page")){
-      return;
-    }
-
-    section.classList.add("reveal-ready");
-
-  });
-
-
-  const observer =
-    new IntersectionObserver(
-      function(entries){
-
-        entries.forEach(function(entry){
-
-          if(entry.isIntersecting){
-
-            entry.target.classList.add("visible");
-
-            /*
-            IMPORTANT:
-            Stop observing after first reveal.
-            */
-
-            observer.unobserve(entry.target);
-
-          }
-
-        });
-
-      },
-      {
-        threshold:0.08,
-        rootMargin:"0px 0px -40px 0px"
-      }
-    );
+    document.querySelectorAll(".reveal-target");
 
 
   sections.forEach(function(section){
 
-    if(!section.classList.contains("cover-page")){
-
-      observer.observe(section);
-
-    }
+    section.classList.add("reveal-page");
 
   });
 
 
   /*
-  Extra Android safety check.
-
-  If a section is still not visible shortly after
-  activation, reveal it manually.
+     Small delay so the browser has time to apply
+     the initial hidden state before checking.
   */
 
   setTimeout(function(){
 
-    sections.forEach(function(section){
+    checkVisibleSections();
 
-      if(
-        !section.classList.contains("cover-page") &&
-        !section.classList.contains("visible")
-      ){
+  },100);
 
-        const rect =
-          section.getBoundingClientRect();
 
-        if(
-          rect.top < window.innerHeight &&
-          rect.bottom > 0
-        ){
+  /*
+     Android/iPhone compatible scroll listener
+  */
 
-          section.classList.add("visible");
+  window.addEventListener(
+    "scroll",
+    checkVisibleSections,
+    {passive:true}
+  );
 
-          observer.unobserve(section);
 
-        }
+  window.addEventListener(
+    "resize",
+    checkVisibleSections
+  );
 
-      }
 
-    });
+  /*
+     Extra safety:
+     after a short delay, check again.
+  */
 
-  },1200);
+  setTimeout(function(){
+
+    checkVisibleSections();
+
+  },600);
+
+
+  setTimeout(function(){
+
+    checkVisibleSections();
+
+  },1500);
+
+}
+
+
+/* =========================================================
+   CHECK VISIBLE SECTIONS
+========================================================= */
+
+function checkVisibleSections(){
+
+  const sections =
+    document.querySelectorAll(
+      ".reveal-target.reveal-page:not(.visible)"
+    );
+
+
+  sections.forEach(function(section){
+
+    const rect =
+      section.getBoundingClientRect();
+
+
+    /*
+       Reveal when approximately 15% of the section
+       is entering the screen.
+
+       This makes the animation begin naturally
+       before the user reaches the next page.
+    */
+
+    const triggerPoint =
+      window.innerHeight * 0.88;
+
+
+    if(
+      rect.top < triggerPoint &&
+      rect.bottom > 0
+    ){
+
+      section.classList.add("visible");
+
+    }
+
+  });
 
 }
 
@@ -1377,65 +1614,87 @@ const weddingDate =
 
 function updateCountdown(){
 
-  const now=Date.now();
+  const now =
+    Date.now();
 
-  const difference=
+
+  const difference =
     weddingDate-now;
 
 
   if(difference<=0){
 
     document.getElementById("days").textContent="0";
+
     document.getElementById("hours").textContent="0";
+
     document.getElementById("minutes").textContent="0";
+
     document.getElementById("seconds").textContent="0";
 
     return;
+
   }
 
 
-  const days=
+  const days =
     Math.floor(
-      difference/(1000*60*60*24)
+      difference/
+      (1000*60*60*24)
     );
 
 
-  const hours=
+  const hours =
     Math.floor(
       (
-        difference%(1000*60*60*24)
+        difference%
+        (1000*60*60*24)
       )/
       (1000*60*60)
     );
 
 
-  const minutes=
+  const minutes =
     Math.floor(
       (
-        difference%(1000*60*60)
+        difference%
+        (1000*60*60)
       )/
       (1000*60)
     );
 
 
-  const seconds=
+  const seconds =
     Math.floor(
       (
-        difference%(1000*60)
-      )/1000
+        difference%
+        (1000*60)
+      )/
+      1000
     );
 
 
-  document.getElementById("days").textContent=days;
-  document.getElementById("hours").textContent=hours;
-  document.getElementById("minutes").textContent=minutes;
-  document.getElementById("seconds").textContent=seconds;
+  document.getElementById("days").textContent =
+    days;
+
+  document.getElementById("hours").textContent =
+    hours;
+
+  document.getElementById("minutes").textContent =
+    minutes;
+
+  document.getElementById("seconds").textContent =
+    seconds;
 
 }
 
+
 updateCountdown();
 
-setInterval(updateCountdown,1000);
+setInterval(
+  updateCountdown,
+  1000
+);
 
 
 /* =========================================================
@@ -1450,8 +1709,11 @@ function showMainInvitation(){
 
   mainInvitation.style.display="block";
 
+
   specialPages.forEach(function(page){
+
     page.classList.remove("active");
+
   });
 
 }
@@ -1461,8 +1723,11 @@ function showSpecialPage(pageId){
 
   mainInvitation.style.display="none";
 
+
   specialPages.forEach(function(page){
+
     page.classList.remove("active");
+
   });
 
 
@@ -1473,6 +1738,7 @@ function showSpecialPage(pageId){
   if(selectedPage){
 
     selectedPage.classList.add("active");
+
 
     window.scrollTo({
       top:0,
@@ -1498,14 +1764,17 @@ document
 
       event.preventDefault();
 
+
       const pageId =
         this.getAttribute("data-page");
+
 
       history.pushState(
         null,
         "",
         "#"+pageId
       );
+
 
       showSpecialPage(pageId);
 
@@ -1529,7 +1798,9 @@ document
 
       event.preventDefault();
 
+
       showMainInvitation();
+
 
       history.pushState(
         null,
@@ -1552,6 +1823,14 @@ document
             behavior:"smooth",
             block:"start"
           });
+
+
+          /*
+             Make sure the details page is visible
+             even if returning from a special page.
+          */
+
+          details.classList.add("visible");
 
         }
 
@@ -1586,6 +1865,7 @@ function loadPageFromHash(){
     showSpecialPage(hash);
 
     return;
+
   }
 
 
@@ -1595,8 +1875,11 @@ function loadPageFromHash(){
 
     mainInvitation.style.display="block";
 
+
     specialPages.forEach(function(page){
+
       page.classList.remove("active");
+
     });
 
 
@@ -1610,12 +1893,16 @@ function loadPageFromHash(){
 
       if(details){
 
+        details.classList.add("visible");
+
+
         details.scrollIntoView({
           behavior:"auto",
           block:"start"
         });
 
       }
+
 
       activateScrollAnimations();
 
@@ -1631,6 +1918,7 @@ window.addEventListener(
   loadPageFromHash
 );
 
+
 window.addEventListener(
   "hashchange",
   loadPageFromHash
@@ -1638,7 +1926,9 @@ window.addEventListener(
 
 
 if(window.location.hash){
+
   loadPageFromHash();
+
 }
 
 
@@ -1676,21 +1966,27 @@ document
       mapModalTitle.textContent =
         this.getAttribute("data-title");
 
+
       mapModalDescription.textContent =
         this.getAttribute("data-description");
+
 
       mapPreview.src =
         this.getAttribute("data-map");
 
+
       mapOpenButton.href =
         this.getAttribute("data-url");
 
+
       mapModal.classList.add("active");
+
 
       mapModal.setAttribute(
         "aria-hidden",
         "false"
       );
+
 
       document.body.style.overflow="hidden";
 
@@ -1704,12 +2000,15 @@ function closeMapModal(){
 
   mapModal.classList.remove("active");
 
+
   mapModal.setAttribute(
     "aria-hidden",
     "true"
   );
 
+
   mapPreview.src="";
+
 
   document.body.style.overflow="";
 
@@ -1752,6 +2051,7 @@ function updateMusicButton(){
 
     musicButton.textContent="⏸";
 
+
     musicButton.setAttribute(
       "aria-label",
       "Pause music"
@@ -1760,6 +2060,7 @@ function updateMusicButton(){
   }else{
 
     musicButton.textContent="🎵";
+
 
     musicButton.setAttribute(
       "aria-label",
@@ -1774,6 +2075,7 @@ function updateMusicButton(){
 function startMusic(){
 
   music.play()
+
   .then(function(){
 
     musicPlaying=true;
@@ -1781,6 +2083,7 @@ function startMusic(){
     updateMusicButton();
 
   })
+
   .catch(function(){
 
     musicPlaying=false;
