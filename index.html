@@ -254,18 +254,19 @@ body {
 
 
 /* =========================================================
-   SCROLL REVEAL ANIMATIONS
-   REVEAL FROM TOP TO BOTTOM
+   PREMIUM SCROLL REVEALS
 ========================================================= */
 
 /*
-   The Cover has its own special animation.
+   Each major section waits until it enters the viewport.
 
-   Everything from OUR STORY onward uses a
-   top-to-bottom reveal.
+   Once visible:
+   - it animates only once
+   - it stays visible permanently
+   - scrolling back does NOT replay the animation
 
-   clip-path hides the bottom of the section and
-   progressively reveals it downward.
+   This creates the feeling that the invitation is being
+   discovered naturally as the guest scrolls.
 */
 
 .page:not(.cover-page),
@@ -281,23 +282,26 @@ body {
     );
 
   transform:
-    translateY(0);
+    translateY(24px);
 
   transition:
-    clip-path 1.25s
+    clip-path 1.15s
     cubic-bezier(.22, 1, .36, 1),
 
-    opacity .65s
-    ease;
+    opacity .75s ease,
+
+    transform 1.15s
+    cubic-bezier(.22, 1, .36, 1);
 
   will-change:
     clip-path,
-    opacity;
+    opacity,
+    transform;
 }
 
 
 /* =========================================================
-   SECTION VISIBLE
+   VISIBLE MAJOR SECTION
 ========================================================= */
 
 .page:not(.cover-page).visible,
@@ -314,6 +318,134 @@ body {
 
   transform:
     translateY(0);
+}
+
+
+/* =========================================================
+   OUR STORY
+========================================================= */
+
+/*
+   Our Story receives a slightly more special reveal.
+
+   The entire story begins gently from below and then
+   reveals from top to bottom.
+
+   Because our-story.png is currently one single image,
+   the browser cannot animate individual internal objects
+   separately. This effect therefore reveals the artwork
+   progressively rather than treating each internal element
+   as a separate DOM element.
+*/
+
+.story-page {
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  clip-path:
+    inset(
+      100% 0 0 0
+    );
+
+  transform:
+    translateY(32px);
+
+  transition:
+    clip-path 1.45s
+    cubic-bezier(.22, 1, .36, 1),
+
+    opacity .8s ease,
+
+    transform 1.35s
+    cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* =========================================================
+   OUR STORY VISIBLE
+========================================================= */
+
+.story-page.visible {
+
+  opacity: 1;
+
+  clip-path:
+    inset(
+      0 0 0 0
+    );
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   OUR STORY IMAGE
+========================================================= */
+
+.story-page img {
+
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+}
+
+
+/* =========================================================
+   STORY MICRO REVEAL
+========================================================= */
+
+/*
+   A subtle delayed fade gives the image a more editorial,
+   premium feeling instead of making it feel like a simple
+   block appearing on screen.
+*/
+
+.story-page.visible img {
+
+  animation:
+    storyImageReveal
+    1.7s
+    cubic-bezier(.22, 1, .36, 1)
+    both;
+}
+
+@keyframes storyImageReveal {
+
+  0% {
+
+    opacity: .15;
+
+    transform:
+      translateY(18px)
+      scale(.995);
+
+  }
+
+  55% {
+
+    opacity: .75;
+
+    transform:
+      translateY(5px)
+      scale(.998);
+
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+  }
+
 }
 
 
@@ -2149,9 +2281,10 @@ body {
 
     <!-- OUR STORY -->
 
-    <div class="page">
+    <div class="page story-page">
 
       <img
+        class="story-image"
         src="our-story.png"
         alt="Our Story">
 
@@ -2762,6 +2895,11 @@ function openEnvelope() {
       );
 
 
+      /*
+         Start observing the invitation AFTER
+         the envelope has opened.
+      */
+
       activateScrollAnimations();
 
     },
@@ -2778,7 +2916,7 @@ envelopeSeal.addEventListener(
 
 
 /* =========================================================
-   SCROLL REVEAL ANIMATIONS
+   PREMIUM SCROLL REVEAL SYSTEM
 ========================================================= */
 
 function activateScrollAnimations() {
@@ -2809,9 +2947,14 @@ function activateScrollAnimations() {
               );
 
               /*
-                 Once revealed, the section stays
-                 visible. This prevents flickering
-                 when the guest scrolls back up.
+                 IMPORTANT:
+
+                 Once a section becomes visible,
+                 we stop observing it.
+
+                 Therefore the animation NEVER
+                 repeats when the guest scrolls
+                 back upward.
               */
 
               observer.unobserve(
@@ -2826,10 +2969,10 @@ function activateScrollAnimations() {
       },
 
       {
-        threshold: 0.10,
+        threshold: 0.12,
 
         rootMargin:
-          "0px 0px -80px 0px"
+          "0px 0px -70px 0px"
       }
 
     );
