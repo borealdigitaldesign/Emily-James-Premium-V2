@@ -429,23 +429,31 @@ body {
   -webkit-tap-highlight-color:
     transparent;
 
+  /*
+     IMPORTANTE:
+     El transform de posición se mantiene
+     separado del efecto visual.
+  */
+
   transition:
-    transform .3s ease,
-    background .3s ease,
-    box-shadow .3s ease;
+    background .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
 }
 
 .our-day-button:hover {
 
   background: #fff;
 
-}
+  box-shadow:
+    0 5px 16px
+    rgba(
+      126,
+      85,
+      73,
+      .20
+    );
 
-.our-day-button:active {
-
-  transform:
-    translate(-50%, -50%)
-    scale(.96);
 }
 
 
@@ -663,14 +671,23 @@ body {
     transparent;
 
   transition:
-    transform .3s ease,
-    background .3s ease,
-    box-shadow .3s ease;
+    background .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
 }
 
 .details-button:hover {
 
   background: #fff;
+
+  box-shadow:
+    0 5px 16px
+    rgba(
+      126,
+      85,
+      73,
+      .20
+    );
 
 }
 
@@ -764,7 +781,7 @@ body {
 
 
 /* =========================================================
-   BUTTON ATTENTION PULSE
+   BUTTON ATTENTION EFFECT
 ========================================================= */
 
 .our-day-button,
@@ -772,29 +789,87 @@ body {
 .hotel-button,
 .back-button {
 
+  /*
+     El botón hace un pequeño "latido"
+     sin cambiar su posición.
+  */
+
   animation:
-    buttonAttention 2.8s
+    buttonAttention 3.2s
     ease-in-out
     infinite;
 }
 
 
 /* =========================================================
-   SUBTLE "HEY, I'M HERE" EFFECT
+   "HEY, I'M HERE" EFFECT
 ========================================================= */
 
 @keyframes buttonAttention {
 
   0%,
+  72%,
   100% {
 
-    filter: brightness(1);
+    filter:
+      brightness(1);
+
+    box-shadow:
+      0 3px 10px
+      rgba(
+        0,
+        0,
+        0,
+        .10
+      );
 
   }
 
-  50% {
+  76% {
 
-    filter: brightness(1.06);
+    filter:
+      brightness(1.06);
+
+    box-shadow:
+      0 4px 13px
+      rgba(
+        126,
+        85,
+        73,
+        .15
+      );
+
+  }
+
+  80% {
+
+    filter:
+      brightness(1.12);
+
+    box-shadow:
+      0 6px 18px
+      rgba(
+        126,
+        85,
+        73,
+        .22
+      );
+
+  }
+
+  84% {
+
+    filter:
+      brightness(1.04);
+
+    box-shadow:
+      0 4px 13px
+      rgba(
+        126,
+        85,
+        73,
+        .15
+      );
 
   }
 
@@ -802,30 +877,7 @@ body {
 
 
 /* =========================================================
-   BUTTON HOVER
-========================================================= */
-
-.our-day-button:hover,
-.details-button:hover,
-.hotel-button:hover,
-.back-button:hover {
-
-  background: #fff;
-
-  box-shadow:
-    0 5px 15px
-    rgba(
-      126,
-      85,
-      73,
-      .18
-    );
-
-}
-
-
-/* =========================================================
-   BUTTON CLICK / PRESS
+   BUTTON PRESS
 ========================================================= */
 
 .our-day-button:active,
@@ -835,15 +887,11 @@ body {
 
   animation: none;
 
-  transform:
-    translate(
-      -50%,
-      -50%
-    )
-    scale(.93);
+  filter:
+    brightness(.97);
 
   box-shadow:
-    0 2px 6px
+    0 2px 5px
     rgba(
       126,
       85,
@@ -851,6 +899,44 @@ body {
       .12
     );
 
+}
+
+
+/*
+   El efecto de "apretar" se hace mediante
+   pseudo-elemento para no romper el
+   translate() que posiciona cada botón.
+*/
+
+.our-day-button::after,
+.details-button::after,
+.hotel-button::after,
+.back-button::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: inherit;
+
+  pointer-events: none;
+
+  transition:
+    transform .12s ease,
+    opacity .12s ease;
+}
+
+.our-day-button:active::after,
+.details-button:active::after,
+.hotel-button:active::after,
+.back-button:active::after {
+
+  transform:
+    scale(.94);
+
+  opacity: .55;
 }
 
 
@@ -1062,8 +1148,9 @@ body {
     transparent;
 
   transition:
-    transform .3s ease,
-    box-shadow .3s ease;
+    background .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
 }
 
 .hotel-courtyard {
@@ -1154,6 +1241,11 @@ body {
 
   -webkit-tap-highlight-color:
     transparent;
+
+  transition:
+    background .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
 }
 
 .back-button:active {
@@ -1546,35 +1638,25 @@ body {
 
   <div class="envelope-stage">
 
-    <!-- BASE -->
-
     <img
       class="envelope-base"
       src="emily_james_base_for_animation.png"
       alt="Emily and James wedding invitation">
-
-    <!-- INVITATION CARD -->
 
     <img
       class="envelope-card"
       src="emily_james_invitation_card.png"
       alt="Emily and James wedding invitation">
 
-    <!-- ENVELOPE BODY -->
-
     <img
       class="envelope-body"
       src="emily_james_envelope_body.png"
       alt="">
 
-    <!-- ENVELOPE FLAP -->
-
     <img
       class="envelope-flap"
       src="emily_james_flap_animation.png"
       alt="">
-
-    <!-- WAX SEAL -->
 
     <img
       class="envelope-seal"
@@ -2096,10 +2178,6 @@ function openEnvelope() {
       });
 
 
-      /* =========================================
-         COVER ENTRANCE
-      ========================================= */
-
       setTimeout(
         function() {
 
@@ -2120,10 +2198,6 @@ function openEnvelope() {
         80
       );
 
-
-      /* =========================================
-         ACTIVATE SCROLL ANIMATIONS
-      ========================================= */
 
       activateScrollAnimations();
 
